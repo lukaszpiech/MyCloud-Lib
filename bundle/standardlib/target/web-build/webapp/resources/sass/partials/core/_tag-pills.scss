@@ -1,0 +1,55 @@
+rx-tag-pills {
+  .tag-pill-item {
+    position: relative;
+    float: left;
+    border-radius: 4px;
+    margin-right: 5px;
+
+    .d-tag {
+      position: relative;
+      margin: 2px !important;
+
+      .d-tag-label {
+        display: inline-block;
+        margin-right: 15px;
+        height: inherit;
+      }
+
+      .d-tag-remove-button {
+        position: absolute;
+        right: 5px;
+        top: 0px;
+      }
+    }
+  }
+
+  .show__more-tags {
+    float: left;
+
+    &.d-dropdown {
+      width: inherit;
+    }
+
+    .d-dropdown__menu {
+      border-radius: 6px;
+      padding: 5px;
+      line-height: 50px;
+      min-width: 160px;
+    }
+
+    .d-dropdown__menu-options-item {
+      position: relative;
+      white-space: nowrap;
+      line-height: 32px;
+    }
+
+    .search__filter-item {
+      margin-bottom: 10px;
+    }
+  }
+
+  .show__more-toggle {
+    height: 32px;
+    line-height: 30px;
+  }
+}

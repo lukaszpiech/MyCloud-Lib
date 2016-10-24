@@ -1,0 +1,25 @@
+.d-action-blade {
+  &.is-left {
+    .modal-dialog {
+      left: 0;
+      right: auto;
+    }
+
+    &.modal {
+      overflow: hidden;
+
+      &.fade {
+        .modal-dialog {
+          @include transition(.3s ease-out);
+          @include translate(-85%, 0);
+        }
+      }
+
+      &.in {
+        .modal-dialog {
+          @include translate(0, 0);
+        }
+      }
+    }
+  }
+}

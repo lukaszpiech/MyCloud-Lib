@@ -1,0 +1,23 @@
+@import "../dpl-components-variables";
+@import "../dpl-components-mixins";
+
+$link-color: $teal;
+$link-color-hover: $teal__hover;
+
+a {
+  color: $link-color;
+  outline: 0;
+  background-color: transparent;
+  cursor: pointer;
+  text-decoration: none;
+  &:active,
+  &:hover {
+    color: $link-color-hover;
+  }
+  &[class*="d-icon-right"]:after {
+    padding-left: 5px;
+  }
+  &[class*="d-icon-left"]:before {
+    padding-right: 5px;
+  }
+}

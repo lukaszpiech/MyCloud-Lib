@@ -1,0 +1,14 @@
+.tooltip {
+  z-index: 1051;
+}
+
+.tooltip-icon {
+  margin-left: 5px;
+  font-size: 12px;
+  color: $gray-ship;
+  cursor: pointer;
+
+  &:hover {
+    color: $blue__hover;
+  }
+}

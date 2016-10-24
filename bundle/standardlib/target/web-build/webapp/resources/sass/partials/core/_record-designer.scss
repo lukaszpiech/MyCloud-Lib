@@ -1,0 +1,140 @@
+rx-record-designer {
+  form {
+    height: 100%;
+  }
+
+  .rx-simple-json-editor-container {
+    height: 100%;
+
+    textarea {
+      height: 100%;
+      width: 100%;
+
+      &[readonly] {
+        cursor: not-allowed;
+        border-color: $gray-alto;
+        background-color: $gray-concrete;
+      }
+    }
+  }
+
+  .rx-record-designer {
+    height: 100%;
+
+    .rx-blade {
+      top: $rx-editor-header-height;
+    }
+
+    .d-toolbar {
+      &.d-toolbar-overflow {
+        overflow: visible;
+      }
+    }
+
+    .gridLayout {
+      position: absolute;
+      top: 80px;
+      bottom: 0;
+      left: 2em;
+      right: 0;
+    }
+  }
+
+  .rx-record-designer-transitions-disabled {
+    @include rx-transitions-disabled;
+
+    .rx-blade {
+      @include rx-transitions-disabled;
+    }
+  }
+
+  .gridStyle {
+    width: 100%;
+    height: calc(100% - 190px);
+
+    .rx-icon-cell {
+      line-height: 35px;
+    }
+  }
+
+  rx-designer-inspector {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    input {
+      height: 30px;
+    }
+  }
+}
+
+.rx-record-counter {
+  padding: .3em 1em;
+  border: solid $gray-alto;
+  border-width: 1px 0;
+}
+
+.rx-record-counter__num {
+  font-size: 23px;
+}
+
+.rx-record-counter__label {
+  font-size: 12px;
+}
+
+.rx-add-fields-dialog {
+  .modal-dialog {
+    width: 800px;
+
+    .modal-content {
+      border-radius: 0;
+
+      .d-notification {
+        border-radius: 0;
+        margin-top: -1px;
+        padding-right: 20px;
+      }
+
+      .field-panel {
+        p {
+          color: $gray-dusty;
+          font-size: 12px;
+          margin-bottom: 5px;
+        }
+
+        a {
+          display: inline-block;
+          padding: 0 20px 10px 0;
+
+          &:focus {
+            color: $teal;
+          }
+        }
+
+        .field-container {
+          height: 250px;
+          padding: 10px;
+          border: 1px solid $gray-alto;
+          border-radius: 2px;
+          font-size: 13px;
+
+          .field-holder {
+            height: 200px;
+            overflow-y: auto;
+
+            .d-checkbox {
+              padding: 4px 0;
+              margin-bottom: 0;
+
+              .d-checkbox__item {
+                color: $black;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

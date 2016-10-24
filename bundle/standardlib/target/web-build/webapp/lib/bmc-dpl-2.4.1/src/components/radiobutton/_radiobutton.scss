@@ -1,0 +1,74 @@
+@import "../dpl-components-variables";
+@import "../dpl-components-mixins";
+
+/* { #BEGIN VARIABLES FOR RADIO BUTTONS } */
+
+$radio-radius: 50% !default;
+$radio-margin: 10px !default;
+$radio-size: 14px !default;
+$radio-bg-color: $white !default; //#fff;
+$radio-color__normal: $gray-dusty !default;//#999;
+$radio-color__hover: $gray-mine-shaft !default;//#333;
+$radio-color__disabled: $gray-concrete !default;//#f2f2f2;
+$radio-color__border: $gray-alto !default;//#d9d9d9;
+
+/* { #BEGIN RADIO BUTTONS } */
+
+.d-radio__item {
+  float: left;
+  &::before {
+    display: inline-block;
+    width: $radio-size;
+    height: $radio-size;
+    margin-right: $radio-margin;
+    border: 1px solid $radio-color__normal;
+    content: "";
+    vertical-align: -$radio-margin/5;
+
+    @include border-radius($radio-radius);
+  }
+}
+
+.d-radio__input {
+  width: 0;
+  padding: 0;
+  opacity: 0;
+  border: 0;
+  outline: none;
+  &:focus ~ .d-radio__item::before,
+  &:checked ~ .d-radio__item::before {
+    border-color: $radio-color__hover;
+
+    @include box-shadow(inset 0 0 0 $radio-margin/5 $radio-bg-color, inset 0 0 0 $radio-margin $radio-color__hover);
+  }
+  &:hover ~ .d-radio__item::before {
+    border: 1px solid $radio-color__hover;
+  }
+  &:disabled ~ .d-radio__item::before,
+  &:disabled:hover ~ .d-radio__item::before,
+  &:disabled:active ~ .d-radio__item::before,
+  &:checked:disabled ~ .d-radio__item::before,
+  &:checked:disabled:hover ~ .d-radio__item::before,
+  &:checked:disabled:active ~ .d-radio__item::before {
+    border: 1px solid $radio-color__border;
+    background: $radio-color__disabled;
+
+    @include box-shadow(none);
+  }
+
+  &:checked:disabled + .d-radio__item::before,
+  &:checked:disabled:hover + .d-radio__item::before,
+  &:checked:disabled:active + .d-radio__item::before {
+    @include box-shadow(inset 0 0 0 $radio-margin/5 $radio-bg-color, inset 0 0 0 $radio-margin $radio-color__hover);
+  }
+}
+
+.d-radio_disabled,
+.d-radio_disabled .d-radio__label {
+  opacity: .6;
+  cursor: not-allowed;
+}
+
+.d-radio_required::after {
+  @include required-field;
+}

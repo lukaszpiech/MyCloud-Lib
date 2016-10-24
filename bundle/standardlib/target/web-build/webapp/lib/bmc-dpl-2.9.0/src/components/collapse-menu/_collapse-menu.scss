@@ -1,0 +1,64 @@
+@import "../dpl-components-mixins";
+@import "collapse-menu-variables";
+
+.d-menu {
+  display: block;
+  margin: 0;
+  padding: 0 32px 0 14px;
+  list-style: none;
+}
+
+.d-menu__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  will-change: transform, height;
+}
+
+.d-menu__item {
+  display: block;
+}
+
+.d-menu__link {
+  position: relative;
+  display: block;
+  margin: 0 0 15px;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.2;
+  color: $menu-link-color;
+
+  @include transition(color .15s ease);
+  &:hover,
+  &.is-active {
+    color: $menu-link-color-hover;
+  }
+  &[class*="d-icon-left"]:before {
+    position: absolute;
+    top: 0;
+    left: -14px;
+    margin: 0;
+    padding: 0;
+    font-size: 12px;
+    line-height: 1.2;
+    -webkit-transition: -webkit-transform .15s ease;
+       -moz-transition:    -moz-transform .15s ease;
+        -ms-transition:     -ms-transform .15s ease;
+         -o-transition:      -o-transform .15s ease;
+            transition:         transform .2s ease;
+
+    @include rotate(0deg);
+  }
+}
+
+.d-menu__link_collapsed {
+  &[class*="d-icon-left"]:before {
+    @include rotate(90deg);
+  }
+}
+
+
+.d-menu__list_sub {
+  padding-left: 24px;
+}

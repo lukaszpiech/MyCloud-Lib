@@ -1,0 +1,167 @@
+.rx-selection-field-editor-dialog {
+  .modal-dialog {
+    width: 658px
+  }
+}
+
+rx-inspector-selection-field-editor {
+  .inspector-selection-field-options-defaultValue {
+    select {
+      width: 100%;
+    }
+  }
+
+  .inspector-selection-field-options {
+    > label {
+      display: inline-block;
+      vertical-align: top;
+    }
+
+    .edit-link {
+      float: right;
+      display: inline-block;
+      margin: 10px 0 6px 20px;
+      font-size: 12px;
+      font-family: inherit;
+
+      &:before {
+        padding-right: 10px;
+      }
+    }
+  }
+}
+
+.rx-selection-field-editor {
+  padding: 0 25px;
+
+  .rx-selection-field-editor-data-header {
+    margin-bottom: 10px;
+
+    > a {
+      margin-top: 15px;
+    }
+
+    .expand-collapse-buttons {
+      margin-top: 24px;
+    }
+  }
+
+  .selection-fields {
+    height: 590px;
+    overflow: auto;
+
+    .selection-field-container {
+      margin-bottom: 10px;
+
+      .button-open-selection-field {
+        padding: 0 15px 0 12px;
+        border: 1px solid $gray-alto;
+        height: 34px;
+        background-color: $gray-concrete;
+        border-radius: 2px;
+        display: block;
+        cursor: pointer;
+        color: $gray-mine-shaft;
+
+        div {
+          display: inline-block;
+        }
+
+        .header-icon {
+          padding: 0;
+          margin: 0;
+          background-color: inherit;
+          color: $gray-mine-shaft;
+        }
+
+        .left-header-block {
+          float: left;
+          margin-top: 6px;
+          font-size: 14px;
+          white-space: nowrap;
+          max-width: 420px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+
+        .right-header-block {
+          float: right;
+
+          .remove-button {
+            margin-left: 24px;
+            font-size: 19px;
+            position: relative;
+            top: -1px;
+
+            .remove-button-text {
+              margin-left: 6px;
+              position: relative;
+              top: -2px;
+              font-size: 12px;
+            }
+          }
+
+          .arrow-pointer {
+            font-size: 22px;
+            margin-left: 24px;
+          }
+
+          .index-buttons {
+            font-size: 19px;
+
+            .d-icon-left-triangle_up {
+              padding-left: 10px;
+            }
+          }
+
+        }
+      }
+
+      .collapse-content {
+        overflow: hidden;
+        margin-top: -1px;
+        border: 1px solid $gray-alto;
+        transition: none;
+
+        .ng-invalid {
+          border-color: $red;
+        }
+
+        .rx-selection-field-editor-text-fields {
+          $marginLeft: 20px;
+          display: inline-block;
+          vertical-align: top;
+          margin-left: $marginLeft;
+          margin-bottom: 10px;
+          max-width: calc(50% - #{$marginLeft});
+
+          input[type="text"], input[type="number"] {
+            width: 231px;
+
+            // hack for IE10 and IE11 to prevent jumping of input value
+            @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+              line-height: 0;
+            }
+          }
+
+          label {
+            margin-top: 10px;
+            font-family: inherit;
+            color: $gray-dusty;
+          }
+        }
+      }
+    }
+  }
+}
+
+.rx-selection-field-editor-action-buttons {
+  text-align: right;
+  margin-top: 10px;
+  border-top: 1px solid $gray-alto;
+  padding: 12px 20px 20px;
+
+  .d-button + .d-button {
+    margin-left: 5px;
+  }
+}

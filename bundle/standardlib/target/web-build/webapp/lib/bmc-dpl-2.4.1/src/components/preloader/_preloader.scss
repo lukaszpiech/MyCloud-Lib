@@ -1,0 +1,116 @@
+@import "../dpl-components-variables";
+$preloader-default-color: $gray-dove      !default;
+$preloader-default-color-white: $white          !default;
+
+@include loading;
+@include loading-white;
+
+
+
+.d-loading_sm {
+  @include scale(.6);
+}
+
+.d-loading_xs {
+  @include scale(.3);
+}
+
+.d-preloader {
+  color: $preloader-default-color;
+  text-align: center;
+
+  @include animation(preloader-rotate .8s infinite linear);
+  &::before {
+    width: 40px;
+    height: 40px;
+    font-size: 40px;
+  }
+}
+
+.d-preloader_white {
+  color: $preloader-default-color-white;
+}
+
+/*{ #BEGIN ANIMATION FOR D-PRELOADER }*/
+
+@-webkit-keyframes d-loading {
+  from {
+    @include opacity(1);
+  }
+  to {
+    @include opacity(0);
+  }
+}
+
+@-moz-keyframes d-loading {
+  from {
+    @include opacity(1);
+  }
+  to {
+    @include opacity(0);
+  }
+}
+
+@-o-keyframes d-loading {
+  from {
+    @include opacity(1);
+  }
+  to {
+    @include opacity(0);
+  }
+}
+
+@-ms-keyframes d-loading {
+  from {
+    @include opacity(1);
+  }
+  to {
+    @include opacity(0);
+  }
+}
+
+@keyframes d-loading {
+  from {
+    @include opacity(1);
+  }
+  to {
+    @include opacity(0);
+  }
+}
+
+
+@-moz-keyframes preloader-rotate {
+  0% {
+    -moz-transform: rotate(0deg);
+  }
+  100% {
+    -moz-transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes preloader-rotate {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@-ms-keyframes preloader-rotate {
+  0% {
+    -ms-transform: rotate(0deg);
+  }
+  100% {
+    -ms-transform: rotate(360deg);
+  }
+}
+
+@keyframes preloader-rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

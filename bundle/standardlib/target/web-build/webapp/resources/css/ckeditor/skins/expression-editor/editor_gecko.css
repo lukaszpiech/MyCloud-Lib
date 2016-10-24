@@ -1,0 +1,23 @@
+@import "/standardlib/lib/ckeditor-4.5.9/skins/moono/editor_gecko.css";
+
+.cke_reset_all .cke_menubutton__suggestionBox {
+    padding: 8px;
+}
+
+.cke_reset_all .cke_menubutton__suggestionBox:hover,
+.cke_reset_all .cke_menubutton__suggestionBox:active,
+.cke_reset_all .cke_menubutton__suggestionBox:focus {
+    background-color: #E3F4F3;
+}
+
+.cke_reset_all .cke_menubutton__suggestionBox:hover,
+.cke_reset_all .cke_menubutton__suggestionBox:active,
+.cke_reset_all .cke_menubutton__suggestionBox:focus,
+.cke_reset_all .cke_panel_block:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.cke_reset_all .cke_menubutton__suggestionBox .cke_menubutton_icon {
+    display: none;
+}

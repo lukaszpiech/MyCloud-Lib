@@ -1,0 +1,83 @@
+@mixin input-type-range {
+  border: none !important;
+  -webkit-appearance: none;
+  width: 110px;
+  padding: 0;
+
+  &:focus {
+    outline: none;
+  }
+
+  &::-webkit-slider-runnable-track {
+    width: 110px;
+    height: 2px;
+    cursor: pointer;
+    animate: 0.2s;
+    background: $rx-designer-canvas-toolbar-color;
+    border-radius: 1px;
+  }
+
+  &::-webkit-slider-thumb {
+    border: 1px solid $gray-dusty;
+    height: 20px;
+    width: 10px;
+    border-radius: 2px;
+    background: $rx-designer-canvas-toolbar-color;
+    cursor: pointer;
+    -webkit-appearance: none;
+    box-shadow: 1px 1px 1px $rx-designer-canvas-toolbar-color;
+    margin-top: -10px;
+  }
+
+  &:focus::-webkit-slider-runnable-track {
+    background: $rx-designer-canvas-toolbar-color;
+  }
+
+  &::-moz-range-track {
+    width: 100%;
+    height: 2px;
+    cursor: pointer;
+    animate: 0.2s;
+    background: $rx-designer-canvas-toolbar-color;
+    border-radius: 1px;
+  }
+
+  &::-moz-range-thumb {
+    border: 1px solid $gray-dusty;
+    height: 20px;
+    width: 10px;
+    border-radius: 2px;
+    background: $rx-designer-canvas-toolbar-color;
+    cursor: pointer;
+    box-shadow: 1px 1px 1px $rx-designer-canvas-toolbar-color;
+  }
+
+  &::-ms-thumb {
+    border: 1px solid $gray-dusty;
+    height: 20px;
+    width: 10px;
+    border-radius: 2px;
+    background: $rx-designer-canvas-toolbar-color;
+    cursor: pointer;
+    box-shadow: 1px 1px 1px $rx-designer-canvas-toolbar-color;
+  }
+
+
+  &::-ms-track {
+    width: 100%;
+    height: 2px;
+    cursor: pointer;
+    animate: 0.2s;
+    background: transparent;
+    border-color: transparent;
+    border-width: 11px 0;
+    color: transparent;
+  }
+
+  &::-ms-fill-lower,
+  &:focus::-ms-fill-lower,
+  &::-ms-fill-upper,
+  &:focus::-ms-fill-upper {
+    background-color: $rx-designer-canvas-toolbar-color;
+  }
+}

@@ -1,0 +1,23 @@
+// TODO Remove styles for .d-textfield__action after resolve https://jira.bmc.com/browse/UX-175
+$textfield-h2: 32px;
+$textfield-h3: 28px;
+
+.d-textfield__action {
+  position: absolute;
+  right: 0;
+  top: 24px;
+  width: $textfield-h2;
+  height: $textfield-h3;
+  line-height: $textfield-h3;
+  text-align: center;
+  z-index: 10;
+  &:hover + .d-textfield__input {
+    border-color: $gray-dusty;
+  }
+}
+
+.d-textfield_label_hidden {
+  .d-textfield__action {
+    top: 0;
+  }
+}

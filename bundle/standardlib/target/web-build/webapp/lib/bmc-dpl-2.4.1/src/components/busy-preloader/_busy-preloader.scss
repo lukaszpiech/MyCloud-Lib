@@ -1,0 +1,82 @@
+/* 'cg-', 'ng-' prefix, from third-party plugin classes*/
+@import "../dpl-components-variables";
+@import "../dpl-components-mixins";
+$busy-backdrop-color: rgba(255, 255, 255, .5)  !default;
+$busy-cover-color: $gray-concrete           !default;
+$busy-text-color: $gray-mine-shaft         !default;
+
+.cg-busy {
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.cg-busy-animation {
+  &.ng-hide-add,
+  &.ng-hide-remove {
+    display: block !important;
+
+    @include transition(all .3s ease);
+  }
+  &.ng-hide-remove {
+    @include opacity(0);
+    @include translate(0px, -40px);
+    &.ng-hide-remove-active {
+      @include opacity(1);
+      @include translate(0, 0);
+    }
+  }
+  &.ng-hide-add {
+    @include opacity(1);
+    @include translate(0, 0);
+    &.ng-hide-add-active {
+      @include opacity(0);
+      @include translate(0px, -40px);
+    }
+  }
+}
+
+.cg-busy-backdrop {
+  background: $busy-backdrop-color;
+}
+
+.cg-busy-backdrop-animation {
+  &.ng-hide-add,
+  &.ng-hide-remove {
+    display: block !important;
+
+    @include transition(opacity .3s ease);
+  }
+  &.ng-hide {
+    @include opacity(0);
+  }
+}
+
+/* All styles below are for the default template. */
+
+.d-busy__wrapper {
+  text-align: center;
+}
+
+.d-busy__cover {
+  overflow: hidden;
+  width: 270px;
+  margin: 0 auto;
+  padding: 20px 0 17px;
+  background: $busy-cover-color;
+
+  @include border-radius(4px);
+  @include box-shadow(0 4px 13px 0 rgba(0, 0, 0, .2), 0 2px 16px 0 rgba(0, 0, 0, .19));
+  .d-preloader {
+    margin-bottom: 10px;
+  }
+}
+
+.d-busy__text {
+  margin: 0;
+  font-size: 16px;
+  color: $busy-text-color;
+}

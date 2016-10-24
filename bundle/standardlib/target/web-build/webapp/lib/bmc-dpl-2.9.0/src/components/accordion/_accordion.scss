@@ -1,0 +1,87 @@
+@import "../dpl-components-mixins";
+@import "accordion-variables";
+
+.d-accordion {
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-align: left;
+}
+
+.d-accordion__item {
+  position: relative;
+  margin-bottom: -1px;
+
+  @include user-select(none);
+  &:first-child {
+    margin-top: -1px;
+  }
+  &.is-checked {
+    .d-accordion__title::after {
+      @include rotate(180deg);
+    }
+  }
+}
+
+.d-accordion_outer {
+  border: 1px solid $accordion-border-color;
+
+  @include border-radius($accordion-border-radius);
+}
+
+.d-accordion_inner {
+  border-top: 1px solid $accordion-border-color;
+  border-bottom: 1px solid $accordion-border-color;
+  .d-accordion__item {
+    border-top: 1px solid $accordion-border-color;
+    border-bottom: 1px solid $accordion-border-color;
+  }
+}
+
+.d-accordion__title {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  padding: 0 50px 0 20px;
+  font-weight: 600;
+  line-height: 46px;
+  cursor: pointer;
+  &::after {
+    font-size: 20px;
+    line-height: 46px;
+    color: $accordion-header-icon-color;
+    -webkit-transition: -webkit-transform .25s ease;
+       -moz-transition:    -moz-transform .25s ease;
+            transition:         transform .25s ease;
+
+    @include position(absolute, 0, 20px, "", "");
+  }
+}
+
+
+
+.d-accordion__content {
+  overflow: hidden;
+
+  will-change: height, visibility;
+}
+
+.d-accordion_outer {
+  .d-accordion__title {
+    border-top: 1px solid $accordion-border-color;
+    border-bottom: 1px solid $accordion-border-color;
+    background-color: $accordion-header-bg-color;
+  }
+}
+
+.d-accordion__content-item {
+  padding: 20px;
+}
+
+.d-accordion_inner {
+  .d-accordion__content-item {
+    padding-top: 10px;
+  }
+}

@@ -1,0 +1,40 @@
+body {
+  &.rx-body-header-auto-hide {
+    .d-n-header {
+      position: absolute;
+      top: -($rx-header-height);
+      transition: $rx-transition;
+    }
+
+    [ui-view=header] {
+      &:after {
+        content: "";
+        display: block;
+        width: 100%;
+        height: $rx-header-hover-line;
+        background-color: $orange;
+      }
+
+      &:hover {
+        .d-n-header {
+          top: 0;
+        }
+      }
+    }
+
+    [ui-view=content] {
+      top: $rx-header-hover-line;
+      padding: 0;
+    }
+  }
+
+  &.rx-body-header-hidden {
+    [ui-view=content] {
+      top: 0;
+    }
+  }
+
+  &.rx-body-content-no-padding [ui-view=content] {
+    padding: 0;
+  }
+}

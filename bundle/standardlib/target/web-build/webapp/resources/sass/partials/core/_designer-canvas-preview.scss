@@ -1,0 +1,33 @@
+rx-designer-canvas-preview {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+
+  .paper {
+    width: 100%;
+    height: 100%;
+  }
+
+  .paper-scroller {
+    height: calc(100% - 36px);
+  }
+
+  .link:hover {
+    .marker-arrowheads, .link-tools {
+      opacity: 0;
+    }
+  }
+
+  .connection-wrap:hover {
+    opacity: 0;
+  }
+
+  .connection-wrap {
+    cursor: auto;
+  }
+
+  .element {
+    cursor: auto;
+  }
+}

@@ -1,0 +1,165 @@
+@import "../dpl-components-mixins";
+@import "datepicker-variables";
+
+.d-datepicker-text {
+  position: relative;
+  width: $dp-input-width;
+  input {
+    &:focus {
+      background-color: $gray-concrete;
+    }
+  }
+}
+
+.d-datepicker-text {
+  .d-error {
+    display: none;
+  }
+  .ng-invalid-date {
+    border: 1px solid $invalid-color;
+    + .d-error {
+      display: block;
+    }
+  }
+}
+.d-datepicker {
+  width: $dp-table-width;
+  font-size: 12px;
+  color: $dp-text-color;
+  border: 1px solid $border-color;
+}
+
+.d-datepicker-table td {
+  padding: 0;
+}
+.d-datepicker-popup.ng-leave.ng-leave-active {
+  visibility: hidden;
+
+  @include animation-name(slideOutY);
+}
+
+.d-datepicker-popup {
+  position: absolute;
+  visibility: visible;
+  padding: 0;
+  list-style: none;
+  background: $dp-background;
+
+  @include box-shadow($dp-box-shadow);
+  @include transition(visibility .15s ease, opacity .15s ease);
+  @include backface-visibility(hidden);
+  @include animation-iteration-count(1);
+  @include animation-duration(.15s);
+  @include animation-timing-function(ease);
+  @include animation-fill-mode(both);
+  @include animation-name(slideInY);
+  @include transform-origin-2(top, center);
+}
+
+.d-datepicker-table {
+  width: 95%;
+  margin: 5px auto;
+  text-align: center;
+  &:focus {
+    outline: none !important;
+  }
+}
+
+.d-datepicker-prev,
+.d-datepicker-next {
+  top: 8px;
+  width: 100%;
+  padding: 0;
+  font-size: 16px;
+  color: $dp-icon-color;
+  background: none;
+  text-align: center;
+
+  @include iconfont-default("dpl-icon-font", middle);
+}
+
+.d-datepicker__shown-date {
+  padding: 0;
+  font-weight: $font-weight__medium;
+  color: $dp-text-color;
+  background: none;
+  &:hover {
+    color: darken($dp-text-color, $color-hover-percent);
+  }
+}
+
+.d-datepicker-prev {
+  &:before {
+    content: "\e604";
+  }
+  &:hover {
+    &:before {
+      color: $dp-icon-color-hover;
+    }
+  }
+}
+.d-datepicker-next {
+  &:before {
+    content: "\e605";
+  }
+  &:hover {
+    &:before {
+      color: $dp-icon-color-hover;
+    }
+  }
+}
+
+.d-datepicker-weeks {
+  width: 18px;
+  padding: 10px 0 0 0;
+  font-weight: $font-weight__medium;
+  color: $dp-weeks-color;
+  text-align: center;
+  span {
+    margin: 10px 0 10px 0;
+  }
+}
+.d-datepicker__current,
+.d-datepicker__active {
+  color: $dp-today-color;
+  background: none;
+}
+
+.d-datepicker__day,
+.d-datepicker__month,
+.d-datepicker__year {
+  margin: 4px 0 4px 0;
+  padding: 0;
+  background: none;
+
+  @include border-radius(2px);
+
+  &:hover {
+    background: $dp-number-background-hover;
+  }
+  &[disabled="disabled"] {
+    color: $dp-disabled-day;
+    background: none;
+    cursor: not-allowed;
+  }
+}
+.d-datepicker__day {
+  width: 18px;
+}
+
+.d-datepicker__muted {
+  color: $dp-muted-day;
+}
+
+.d-datepicker__selected {
+  color: $dp-current-day-color;
+  background: $dp-current-day-background;
+  &:hover {
+    background: darken($dp-current-day-background, $color-hover-percent);
+  }
+}
+
+.d-datepicker__current-day {
+  &:hover {
+  }
+}

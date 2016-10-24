@@ -1,0 +1,19 @@
+.d-modal__dialog {
+  margin: 0;
+}
+
+.modal-dialog {
+  width: 400px;
+  .modal-header {
+    overflow: auto;
+  }
+}
+
+.modal-sm {
+  width: 300px;
+}
+
+.modal .close {
+  color: $white;
+  opacity: 1;
+}

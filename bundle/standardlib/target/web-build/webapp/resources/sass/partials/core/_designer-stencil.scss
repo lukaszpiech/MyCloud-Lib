@@ -1,0 +1,114 @@
+$rx-designer-stencil-background: $white;
+$rx-designer-stencil-border: 1px solid $gray-alto;
+$rx-designer-stencil-content-margin: 20px;
+$rx-designer-stencil-group-header-height: $rx-blade-collapsible-group-header-height;
+
+rx-designer-stencil {
+  &.recentStencil {
+    .stencil {
+      bottom: 48px;
+      border-bottom: 1px solid $gray-alto;
+    }
+  }
+  .stencil {
+    background: $rx-designer-stencil-background;
+    border-right: $rx-blade-border;
+
+    &.searchable > .content {
+      top: 40px;
+      border-top: 1px solid $gray-alto;
+    }
+
+    &:after {
+      height: 34px;
+    }
+
+    &.not-found:after {
+      background: inherit;
+      content: "No matches found...";
+      top: 43px;
+      text-align: left;
+      padding-left: 20px;
+      font-weight: normal;
+      font-size: 14px;
+    }
+
+    .custom-search-label {
+      margin: 5px 20px;
+    }
+
+    .elements {
+      background-color: $gray-concrete;
+
+      .element .fobj div {
+        font-size: $rx-font-size-small;
+        word-break: break-word;
+      }
+
+      text {
+        color: $gray-dove;
+        font-family: $font-family;
+      }
+    }
+
+    .group {
+      border-bottom: $rx-designer-stencil-border;
+      padding-left: 0;
+      min-width: $rx-blade-width - 2*$rx-designer-stencil-content-margin;
+      background-color: $gray-concrete;
+
+      > .group-label {
+        background: $rx-designer-stencil-background;
+        border: none;
+        color: $gray-mine-shaft;
+        line-height: $rx-designer-stencil-group-header-height;
+        font-size: $font-size;
+        margin-left: 10px;
+        padding: 0 20px;
+        border-bottom: $rx-designer-stencil-border;
+
+        &:before {
+          display: none;
+        }
+
+        &:after {
+          float: right;
+          margin-right: 10px;
+          font-size: 18px;
+          font-family: dpl-icon-font;
+          content: "\e606";
+        }
+      }
+
+      &.closed {
+        height: $rx-designer-stencil-group-header-height;
+        max-height: $rx-designer-stencil-group-header-height;
+
+        > .group-label {
+          &:after {
+            @extend .group-label:after;
+            content: "\e603";
+          }
+        }
+      }
+    }
+  }
+
+  &.refreshing {
+    opacity: 0.5 !important;
+    pointer-events: none;
+  }
+}
+
+.stencil-paper-drag.dragging {
+  svg {
+      width: 100px;
+  }
+
+  g {
+    .fobj body div {
+      font-size: $rx-font-size-small;
+      font-weight: inherit;
+    }
+  }
+}

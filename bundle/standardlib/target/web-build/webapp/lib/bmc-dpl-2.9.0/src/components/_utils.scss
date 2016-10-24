@@ -1,0 +1,49 @@
+@import "dpl-components-variables";
+@import "dpl-components-mixins";
+
+// Only display content to screen readers
+//
+// See: http://a11yproject.com/posts/how-to-hide-content/
+.sr-only {
+  @include sr-only();
+}
+
+// Use in conjunction with .sr-only to only display content when it's focused.
+// Useful for "Skip to main content" links; see http://www.w3.org/TR/2013/NOTE-WCAG20-TECHS-20130905/G1
+// Credit: HTML5 Boilerplate
+
+.sr-only-focusable {
+  &:active,
+  &:focus {
+    position: static;
+    overflow: visible;
+    clip: auto;
+    width: auto;
+    height: auto;
+    margin: 0;
+  }
+}
+
+// disable text selection
+.d-noselect {
+  -webkit-touch-callout: none;
+  -khtml-user-select: none;
+  @include user-select(none);
+}
+
+// resets list style
+.list-reset {
+  padding-left: 0;
+  list-style: none;
+}
+
+.full-width {
+  width: 100%;
+}
+
+// for multiline ellipsis look here - https://software.intel.com/en-us/html5/hub/blogs/ellipse-my-text/
+.ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}

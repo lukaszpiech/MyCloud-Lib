@@ -1,0 +1,295 @@
+rx-inspector-rule-record-definitions-field {
+  background-color: $gray-concrete;
+  border-top: 1px solid $gray-alto;
+  display: block;
+  margin: 0 -20px -10px;
+  padding: 10px 20px 10px;
+  white-space: nowrap;
+
+  & > span {
+    display: block;
+    margin-top: 6px;
+    font-size: $rx-font-size-small;
+    color: $gray-dusty;
+
+    &.required:after {
+      content: " *";
+      color: $rx-required-field-marker-color;
+    }
+  }
+
+  .selected-options {
+    margin-bottom: 5px;
+    border: 1px solid $gray-alto;
+    padding: 5px 10px;
+    font-size: $rx-font-size-small;
+    background: $white;
+    font-weight: bold;
+    color: $gray-mine-shaft;
+
+    &:first-of-type {
+      margin-top: 6px;
+    }
+
+    span {
+      width: 90%;
+      display: inline-block;
+      position: relative;
+      margin-bottom: 5px;
+      line-height: 1;
+      top: 1px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-size: $font-size;
+    }
+
+    .subtitle {
+      min-height: 14px;
+      font-size: 10px;
+      color: $gray-dusty;
+    }
+
+    .action-buttons {
+      float: right;
+      display: inline-block;
+
+      > div {
+        display: inline-block;
+        margin-left: 5px;
+      }
+    }
+  }
+}
+
+.rx-rule-record-definitions-editor {
+  padding: 0;
+
+  .rx-rule-record-definitions-editor-panel {
+    float: left;
+    box-sizing: border-box;
+    position: relative;
+    height: 698px;
+  }
+
+  .rx-rule-record-definitions-editor-data {
+    padding: 0 25px;
+    width: 658px;
+
+    .rx-rule-record-definitions-editor-data-header {
+      margin-bottom: 10px;
+
+      .expand-collapse-buttons {
+        margin-top: 24px;
+      }
+
+      h5 {
+        padding-top: 25px;
+        margin: 0;
+      }
+    }
+
+    .selected-definitions {
+      overflow: auto;
+
+      &.dndDragover {
+        border-color: $yellow__disabled;
+      }
+
+      .dndPlaceholder {
+        background-color: $yellow__disabled;
+        min-height: 70px;
+        margin: 2px;
+        display: block;
+        position: relative;
+        border: none;
+      }
+
+      .dndDraggingSource {
+        display: none;
+      }
+
+      .selected-definition-container {
+        margin-bottom: 10px;
+
+        .button-open-definition {
+          padding: 0 15px 0 12px;
+          border: 1px solid $gray-alto;
+          height: 34px;
+          width: 608px;
+          background-color: $gray-concrete;
+          border-radius: 2px;
+          display: flex;
+          cursor: move;
+          color: $gray-mine-shaft;
+
+          .header-icon {
+            padding: 0;
+            margin: 0;
+            background-color: inherit;
+            color: $gray-mine-shaft;
+          }
+
+          .left-header-block,
+          .right-header-block {
+            display: flex;
+            align-items: center;
+          }
+
+          .left-header-block {
+            flex-grow: 1;
+            min-width: 0;
+            font-size: 14px;
+
+            .definition-label {
+              display: flex;
+              align-items: center;
+              min-width: 0;
+            }
+
+            .definition-primary-label,
+            .definition-name {
+              padding: 0 4px;
+              white-space: nowrap;
+            }
+
+            .definition-name {
+              flex-grow: 1;
+              text-overflow: ellipsis;
+              overflow: hidden;
+            }
+
+            .d-icon-left-dots {
+              margin-right: 15px;
+            }
+          }
+
+          .right-header-block {
+            .remove-button {
+              display: flex;
+              align-items: center;
+              margin-left: 24px;
+              font-size: 19px;
+
+              .remove-button-text {
+                margin-left: 6px;
+                font-size: 12px;
+              }
+            }
+
+            .arrow-pointer {
+              font-size: 22px;
+              margin-left: 24px;
+            }
+
+            .index-buttons {
+              display: flex;
+              font-size: 19px;
+
+              .header-icon {
+                padding: 0 5px;
+              }
+            }
+          }
+        }
+
+        .collapse-content {
+          overflow: hidden;
+          padding-left: 20px;
+          margin-top: -1px;
+          border: 1px solid $gray-alto;
+
+          .rx-rule-record-definitions-editor-text-fields {
+            input[type="text"] {
+              width: 231px;
+            }
+
+            label {
+              margin: 10px 0 6px 0;
+              font-family: inherit;
+              color: $gray-dusty;
+            }
+          }
+
+          .rx-rule-record-definitions-editor-checkbox-fields {
+            margin-top: 17px;
+
+            > div {
+              display: inline-block;
+              width: 274px;
+              margin-bottom: 17px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .rx-record-definitions-available-definitions {
+    padding: 20px;
+    width: 322px;
+    border-right: 1px solid $gray-concrete;
+
+    > h5 {
+      padding-top: 3px;
+      display: inline-block;
+    }
+
+    .rx-rule-record-definitions-editor-available-list {
+      width: 282px;
+      height: 552px;
+      padding: 3px 10px;
+      border: 1px solid $gray-concrete;
+      overflow-x: hidden;
+      overflow-y: auto;
+
+      .available-definition {
+        padding: 8px 0;
+        cursor: pointer;
+      }
+
+      .column-pill {
+        position: relative;
+        padding-left: 23px;
+      }
+
+      .column-pill-icon {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        padding-left: 1px;
+        transform: translateY(-50%);
+      }
+
+      .column-pill-label {
+        word-wrap: break-word;
+        line-height: 1.2;
+      }
+    }
+  }
+
+  .rx-rule-record-definitions-editor-navigation-buttons {
+    display: inline-block;
+    float: left;
+  }
+
+  .rx-rule-record-definitions-editor-wrapper {
+    border-bottom: 1px solid $gray-concrete;
+    overflow: hidden;
+  }
+
+  .rx-rule-record-definitions-editor-action-buttons {
+    text-align: right;
+    padding: 20px;
+
+    .d-error {
+      display: inline-block;
+      float: left;
+    }
+  }
+}
+
+.rx-rule-record-definitions-dialog {
+  .modal-dialog {
+    width: 984px;
+  }
+}

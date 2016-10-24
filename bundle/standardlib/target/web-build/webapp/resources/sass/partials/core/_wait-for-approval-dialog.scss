@@ -1,0 +1,18 @@
+.rx-wait-for-approval-dialog {
+  .modal-dialog {
+    width: 960px;
+  }
+
+  .rx-wait-for-approval-dialog-action-buttons {
+    text-align: right;
+
+    .d-error {
+      display: inline-block;
+      float: left;
+    }
+  }
+
+  .d-search-title {
+    padding-top: 10px;
+  }
+}

@@ -1,0 +1,77 @@
+// Colors
+
+$color-hover-percent: 5%;
+$color-active-percent: 7%;
+$disabled-opacity: .6;
+$red: #f83200;
+$red__hover: darken($red, $color-hover-percent); // #df2d00
+$red__active: darken($red, $color-active-percent); // #d42b00
+$red__disabled: rgba($red, $disabled-opacity);
+$orange: #f86e00;
+$orange__hover: darken($orange, $color-hover-percent); // #df6300
+$orange__active: darken($orange, $color-active-percent); // #d45e00
+$orange__disabled: rgba($orange, $disabled-opacity);
+$tangerine: #f98700;
+$tangerine__hover: darken($tangerine, $color-hover-percent); // #e07900
+$tangerine__active: darken($tangerine, $color-active-percent); // #d57400
+$tangerine__disabled: rgba($tangerine, $disabled-opacity);
+$yellow: #f1b521;
+$yellow__hover: darken($yellow, $color-hover-percent); // #eaab0f
+$yellow__active: darken($yellow, $color-active-percent); // #e0a40e
+$yellow__disabled: rgba($yellow, $disabled-opacity);
+$green: #89c341;
+$green__hover: darken($green, $color-hover-percent); // #7cb238
+$green__active: darken($green, $color-active-percent); // #76aa36
+$green__disabled: rgba($green, $disabled-opacity);
+$teal: #00a79d;
+$teal__hover: darken($teal, $color-hover-percent); // #008d85
+$teal__active: darken($teal, $color-active-percent); // #00837b
+$teal__disabled: rgba($teal, $disabled-opacity);
+$blue: #3cb6ce;
+$blue__hover: darken($blue, $color-hover-percent); // #30a9c0
+$blue__active: darken($blue, $color-active-percent); // #2ea1b8
+$blue__disabled: rgba($blue, $disabled-opacity);
+$black: #000;
+$gray-mine-shaft: #333;
+$gray-ship: #414042;
+$gray-dove: #666;
+$gray-dusty: #999;
+$gray-alto: #d9d9d9;
+$gray-concrete: #f2f2f2;
+$gray-concrete__hover: darken($gray-concrete, $color-hover-percent); // #e5e5e5
+$gray-concrete__active: darken($gray-concrete, $color-active-percent); // #e0e0e0
+$white: #fff;
+$white__hover: darken($white, $color-hover-percent); // #f2f2f2
+$white__active: darken($white, $color-active-percent); // #ededed
+
+// FONTS
+
+$font-path: "../vendor/fonts" !default;
+$img-path: "assets/" !default;
+$font-color: $gray-mine-shaft; // #333333
+$font-size: 14px;
+$font-family: "Open Sans", "Helvetica Neue", "HelveticaNeue", Helvetica, "Arial", sans-serif;
+$font-weight__light: 300;
+$font-weight__normal: 400;
+$font-weight__medium: 600;
+$font-weight__bold: 700;
+$font-weight: $font-weight__light; // 300
+$line-height-ratio: 1.6;
+
+// GENERAL
+$border-radius: 2px;
+$border-color: $gray-alto;
+$box-shadow-default: 0 3px 5px rgba(0, 0, 0, .2);
+
+// DROPDOWNS
+$dropdown-list-active: rgba($teal, .1) !default;
+
+// FORMS
+$formfield-height: 28px;
+$formfield-border-color: $gray-alto;     // #d9d9d9
+$formfield-border-color__focus: $gray-dusty;    // #999
+$formfield-border-color__hover: $formfield-border-color__focus; // $gray-dusty = #999
+$formfield-border-color__disabled: $formfield-border-color;        // $gray-alto = #d9d9d9
+
+$formfield-border-radius: $border-radius; // 2px
+$formfield-margin-bottom: 20px;

@@ -1,0 +1,7 @@
+@import "../dpl-components-variables";
+$popover-max-width: 250px                                !default;
+$popover-border-color: $gray-alto                        !default;
+$popover-title-bg: darken($white, 3%)                    !default;
+$popover-arrow-width: 10px                               !default;
+$popover-arrow-outer-width: ($popover-arrow-width + 1)   !default;
+$popover-arrow-color: $white                             !default;

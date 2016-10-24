@@ -1,0 +1,313 @@
+@import "../dpl-components-variables";
+@import "../dpl-components-mixins";
+
+//  There are such types of checkboxes present right now:
+//
+//    .d-checkbox d-checkbox_default  - border is CSS, checker is icon font
+//    .d-checkbox d-checkbox_pin  - with pin icon
+//    .d-checkbox d-checkbox_mark - with mark icon
+//    .d-checkbox d-checkbox_switcher  - switcher
+//
+//      all checkboxes may be used left or right (next to label)
+//      or without label. In this case .sr-only class should be added to label span
+//
+//  These checkboxes are being accessible with keyboard
+//
+//
+//  Possible usage:
+//
+//  .d-checkbox d-checkbox_default
+//  .d-checkbox d-checkbox_default
+//
+//
+//  .d-checkbox .d-checkbox_pin
+//  .d-checkbox .d-checkbox_switcher
+
+//   .is-required - global css class, used for required form elements
+//
+//
+
+$checkbox-radius: 0;
+$checkbox-margin: 10px;
+$checkbox-size: 14px;
+$checkbox-bg-color: $white;
+$checkbox-disabled-opacity: $disabled-opacity;
+$checkbox-color__normal: $gray-dusty; //#999
+$checkbox-color__hover: $gray-mine-shaft; //#333
+$checkbox-color__checked: $gray-dusty; //#999
+$checkbox-color__disabled: $gray-alto; //#d9d9d9
+$checkbox-bg-color__disabled: $gray-concrete; //#f2f2f2
+
+// skin variables (pin)
+
+$checkbox-size_skin: 20px;
+// if there is necessity to make different size for skinned
+$checkbox-color_skin: $checkbox-color__normal;
+$checkbox-color_skin__hover: $checkbox-color__hover;
+$checkbox-color_skin__disabled: $checkbox-color__disabled;
+$checkbox-color_skin__chkd: $teal;
+$checkbox-color_skin__chkd-hover: $teal__hover;
+$checkbox-color_skin__chkd-disabled: $teal__disabled;
+
+// for custom skin you may use own variables e.g. :
+
+//  $checkbox-color_pinned:             $checkbox-color__normal;
+//  $checkbox-color_pinned__hover:      $checkbox-color__hover;
+//  $checkbox-color_pinned__disabled:   $checkbox-color__disabled;
+//
+//  $checkbox-color_pinned__chkd:            $color-teal;
+//  $checkbox-color_pinned__chkd-hover:      $color-teal-hover;
+//  $checkbox-color_pinned__chkd-disabled:   $color-teal-disabled;
+
+$switcher-padding: $checkbox-margin;
+$switcher-bg-color__normal: $checkbox-color__normal;
+$switcher-bg-color__checked: $teal;
+$switcher-bg-color__hover: darken($gray-dusty, 10%); // #808080
+$switcher-bg-color__chkd-hover: $teal__hover;
+
+//DPL CHECKBOXES
+
+.d-checkbox__item {
+  &::before {
+    display: inline-block;
+    font-family: "dpl-icon-font";
+    font-weight: normal;
+    font-style: normal;
+    font-variant: normal;
+    line-height: $checkbox-size;
+    color: $checkbox-color__normal;
+    text-transform: none;
+
+    speak: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+.d-checkbox__input {
+  display: none;
+  width: 0;
+  padding: 0;
+  border: 0;
+  outline: none;
+
+  @include opacity(0);
+  &:focus {
+    outline: none;
+  }
+}
+
+.d-checkbox_default {
+  .d-checkbox__item {
+    &::before {
+      width: $checkbox-size;
+      height: $checkbox-size;
+      margin-right: $checkbox-margin;
+      font-size: 11px;
+      color: $checkbox-bg-color;
+      border: 1px solid $checkbox-color__normal;
+      border-radius: $checkbox-radius;
+      background: $checkbox-bg-color;
+      content: "\e625";
+      text-align: center;
+      vertical-align: 1px;
+    }
+  }
+  &:hover {
+    .d-checkbox__item {
+      &::before {
+        border-color: $checkbox-color__hover;
+      }
+    }
+  }
+
+  & .d-checkbox__input:focus ~ .d-checkbox__item::before,
+  & .d-checkbox__input:hover ~ .d-checkbox__item::before,
+  & .d-checkbox__input:checked:focus ~ .d-checkbox__item::before,
+  & .d-checkbox__input:checked:hover ~ .d-checkbox__item::before {
+    border: 1px solid $checkbox-color__hover;
+  }
+
+  .d-checkbox__input:checked ~ .d-checkbox__item::before {
+    color: $checkbox-color__hover;
+    border: 1px solid $checkbox-color__hover;
+  }
+
+  .d-checkbox__input:checked:focus ~ .d-checkbox__item::before,
+  .d-checkbox__input:checked:hover ~ .d-checkbox__item::before {
+    color: $checkbox-color__hover;
+    border: 1px solid $checkbox-color__hover;
+  }
+
+  .d-checkbox__input:disabled ~ .d-checkbox__item::before,
+  .d-checkbox__input:disabled:focus ~ .d-checkbox__item::before,
+  .d-checkbox__input:disabled:hover ~ .d-checkbox__item::before {
+    color: $checkbox-bg-color__disabled;
+    border: 1px solid $checkbox-color__disabled;
+    background-color: $checkbox-bg-color__disabled;
+    cursor: not-allowed;
+  }
+
+  .d-checkbox__input:checked:disabled ~ .d-checkbox__item::before,
+  .d-checkbox__input:checked:disabled:focus ~ .d-checkbox__item::before,
+  .d-checkbox__input:checked:disabled:hover ~ .d-checkbox__item::before {
+    color: $checkbox-color__disabled;
+    border: 1px solid $checkbox-color__disabled;
+    background-color: $checkbox-bg-color__disabled;
+    cursor: not-allowed;
+  }
+}
+
+.d-checkbox_pin,
+.d-checkbox_mark {
+  display: table;
+  width: 100%;
+
+  .d-checkbox__item::before {
+    width: $checkbox-size_skin;
+    height: $checkbox-size_skin;
+    font-size: $checkbox-size_skin;
+    line-height: $checkbox-size_skin;
+    color: $checkbox-color_skin;
+    border: none;
+    vertical-align: -2px;
+  }
+  &:hover {
+    .d-checkbox__item::before {
+      color: $checkbox-color_skin__hover;
+    }
+  }
+
+  .d-checkbox__item::before {
+    margin-right: $checkbox-margin;
+  }
+  .d-checkbox__input:checked ~ .d-checkbox__item::before {
+    color: $checkbox-color_skin__chkd;
+  }
+
+  .d-checkbox__input:focus ~ .d-checkbox__item,
+  .d-checkbox__input:hover ~ .d-checkbox__item,
+  .d-checkbox__input:active ~ .d-checkbox__item {
+    &::before,
+    &::after {
+      color: $checkbox-color_skin__hover;
+    }
+  }
+  .d-checkbox__input:checked:hover ~ .d-checkbox__item,
+  .d-checkbox__input:checked:focus ~ .d-checkbox__item {
+    &::before {
+      color: $checkbox-color_skin__chkd-hover;
+    }
+  }
+
+  .d-checkbox__input:disabled ~ .d-checkbox__item,
+  .d-checkbox__input:disabled:checked ~ .d-checkbox__item,
+  .d-checkbox__input:disabled:focus ~ .d-checkbox__item,
+  .d-checkbox__input:disabled:hover ~ .d-checkbox__item,
+  .d-checkbox__input:disabled:active ~ .d-checkbox__item,
+  .d-checkbox__input:disabled:checked:hover ~ .d-checkbox__item,
+  .d-checkbox__input:disabled:checked:focus ~ .d-checkbox__item {
+    &::before {
+      color: $checkbox-color_skin__disabled;
+      cursor: not-allowed;
+    }
+  }
+}
+
+.d-checkbox_pin {
+  .d-checkbox__item::before {
+    content: "\e629";
+  }
+  .d-checkbox__input:checked ~ .d-checkbox__item::before {
+    content: "\e681";
+  }
+}
+
+.d-checkbox_mark {
+  .d-checkbox__item::before {
+    content: "\e629";
+  }
+  .d-checkbox__input:checked ~ .d-checkbox__item::before {
+    content: "\e622";
+  }
+}
+
+.d-checkbox_switcher {
+  display: table;
+  .d-checkbox__item {
+    position: relative;
+    display: inline-block;
+    clear: both;
+    &::before,
+    &::after {
+      padding-left: 5px;
+      line-height: 24px;
+      color: white;
+      content: "\e625";
+
+      @include transition(all .15s ease-in-out);
+      @include border-radius(2px);
+    }
+  }
+  &:hover {
+    .d-checkbox__item {
+      &::before {
+        background: $switcher-bg-color__hover;
+      }
+    }
+  }
+
+  // default position for switcher - left
+
+  .d-checkbox__item::before {
+    width: 50px;
+    height: 24px;
+    margin-right: 10px;
+    background: $switcher-bg-color__normal;
+  }
+
+  .d-checkbox__input:checked ~ .d-checkbox__item::before {
+    background: $switcher-bg-color__checked;
+  }
+
+  .d-checkbox__item::after {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 20px;
+    height: 20px;
+    background: white;
+  }
+
+  .d-checkbox__input:checked ~ .d-checkbox__item::after {
+    left: 28px;
+    background: white;
+  }
+
+  .d-checkbox__input:focus ~ .d-checkbox__item::before,
+  .d-checkbox__input:hover ~ .d-checkbox__item::before {
+    background: $switcher-bg-color__hover;
+  }
+
+  .d-checkbox__input:checked:focus ~ .d-checkbox__item::before,
+  .d-checkbox__input:checked:hover ~ .d-checkbox__item::before {
+    background: $switcher-bg-color__chkd-hover;
+  }
+  .d-checkbox__input:disabled ~ .d-checkbox__item::before,
+  .d-checkbox__input:checked:disabled ~ .d-checkbox__item::before {
+    background: $switcher-bg-color__normal;
+  }
+}
+
+.d-checkbox_required::after {
+  @include required-field;
+}
+
+
+.d-checkbox_disabled {
+  .d-checkbox__label {
+    cursor: not-allowed;
+
+    @include opacity($checkbox-disabled-opacity);
+  }
+}

@@ -1,0 +1,50 @@
+rx-named-list-designer {
+  form {
+    height: 100%;
+  }
+
+  .rx-editor-footer {
+    @extend .rx-editor-header;
+    border-top: 1px solid $gray-alto;
+    border-bottom: none;
+    position: static;
+    width: 100%;
+  }
+
+  .rx-simple-json-editor-container {
+    height: 100%;
+    width: 100%;
+
+    textarea {
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  .rx-named-list-designer {
+    height: 100%;
+
+    .inspector {
+      margin-left: -20px;
+      position: static;
+      width: 400px;
+      max-width: 100%;
+
+      .group[data-name='general'] {
+        border-bottom: none;
+
+        > .group-label {
+          display: none;
+        }
+      }
+    }
+
+    .rx-blade {
+      top: $rx-editor-header-height;
+
+      .rx-blade-toggle {
+        display: none;
+      }
+    }
+  }
+}

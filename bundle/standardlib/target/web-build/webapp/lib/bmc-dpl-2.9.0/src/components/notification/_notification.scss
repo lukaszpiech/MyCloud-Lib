@@ -1,0 +1,216 @@
+@import "../dpl-components-mixins";
+@import "notification-variables";
+
+.d-notification {
+  position: relative;
+  overflow: hidden;
+  width: $notification-max-size;
+  min-height: $notification-min-height;
+  padding: 8px 52px 16px 0;
+  color: $notification-text-color;
+  text-align: left;
+
+  @include border-radius($notification-border-radius);
+  @include box-shadow(0 2px 4px 0 $notification-effect-color);
+}
+
+.d-notification_error {
+  background: $notification-error-color;
+}
+
+.d-notification_success {
+  background: $notification-success-color;
+}
+
+.d-notification_warning {
+  color: $notification-text-diff-color;
+  background: $notification-warning-color;
+}
+
+.d-notification_info {
+  background: $notification-info-color;
+}
+
+.d-notification_gray {
+  background: $notification-gray-color;
+}
+
+.d-notification_single {
+  padding-top: 0;
+  padding-bottom: 0;
+  .d-notification__icon {
+    padding: 12px 0 14px;
+  }
+  .d-notification__title {
+    padding: 12px 0 14px;
+  }
+  .d-notification__item {
+    padding: $notification-flex-size 0 $notification-flex-size+1;
+  }
+}
+
+.d-notification__icon {
+  display: table-cell;
+  width: 58px;
+  font-size: $notification-flex-size;
+  line-height: 30px;
+  text-align: center;
+  vertical-align: top;
+}
+
+.d-notification__close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: auto;
+  width: 52px;
+  height: $notification-max-size;
+
+  @include transition(background .15s linear);
+  &:hover {
+    background: $notification-effect-color;
+  }
+  &[class*="d-icon"]::before {
+    position: absolute;
+    top: $notification-max-size/2;
+    left: $notification-max-size/2;
+    width: $notification-flex-size;
+    height: $notification-flex-size;
+    margin-top: -($notification-flex-size/2);
+    margin-left: -($notification-flex-size/2);
+    font-size: $notification-flex-size;
+    color: $notification-text-color;
+  }
+}
+
+.d-notification__supporting-text {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.d-notification__title {
+  margin-bottom: 4px;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 30px;
+}
+
+.d-notification__item {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.4;
+  a {
+    color: $notification-text-color;
+    text-decoration: underline;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+.d-notification_content {
+  padding: 0 52px 0 0;
+  color: $notification-text-diff-color;
+  border: 1px solid transparent;
+  background: white;
+
+  @include box-shadow(none);
+  .d-notification__icon {
+    line-height: 1;
+    color: $notification-text-color;
+    vertical-align: middle;
+  }
+  .d-notification__supporting-text {
+    padding: 10px 0 16px 18px;
+  }
+  .d-notification__title {
+    font-size: $notification-flex-size;
+    line-height: 24px;
+  }
+
+  &.d-notification_error {
+    border-color: $notification-error-color;
+    .d-notification__icon {
+      background: $notification-error-color;
+    }
+  }
+  &.d-notification_warning {
+    border-color: $notification-warning-color;
+    .d-notification__icon {
+      background: $notification-warning-color;
+    }
+  }
+  &.d-notification_info {
+    border-color: $notification-info-color;
+    .d-notification__icon {
+      background: $notification-info-color;
+    }
+  }
+  &.d-notification_success {
+    border-color: $notification-success-color;
+    .d-notification__icon {
+      background: $notification-success-color;
+    }
+  }
+}
+
+.d-notification_self_closing {
+  &::after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: inline-block;
+    height: 5px;
+    background: $notification-self-closing-color;
+    content: "";
+
+    @include animation-duration(10s);
+    @include animation-fill-mode(both);
+    @include animation-name(selfClosingAnimation);
+    @include animation-timing-function(ease);
+    @include animation-iteration-count(infinite);
+  }
+}
+
+@keyframes selfClosingAnimation {
+  0% {
+    width: 0;
+  }
+  20% {
+    width: 40%;
+  }
+  40% {
+    width: 44%;
+  }
+  60% {
+    width: 80%;
+  }
+  80% {
+    width: 87%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@-webkit-keyframes selfClosingAnimation {
+  0% {
+    width: 0;
+  }
+  20% {
+    width: 40%;
+  }
+  40% {
+    width: 44%;
+  }
+  60% {
+    width: 80%;
+  }
+  80% {
+    width: 87%;
+  }
+  100% {
+    width: 100%;
+  }
+}

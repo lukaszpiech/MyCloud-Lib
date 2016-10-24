@@ -1,0 +1,116 @@
+@import "../dpl-components-variables";
+@import "../dpl-components-mixins";
+
+
+/* { #BEGIN VARIABLES FOR PROGRESS-BAR } */
+
+$progress-max-width: 100% !default;
+$progress-size-h1: 36px !default;
+$progress-size-h2: 24px !default;
+$progress-font-size: 14px !default;
+$progress-bar-text-color: $white           !default;
+$progress-bar-color: $teal            !default;
+$progress-bar-substrate-color: $gray-concrete   !default;
+$progress-success-color: $green           !default;
+$progress-critical-color: #f73101          !default;
+$progress-estimate-text-color: $gray-dusty      !default;
+$progress-estimate-color: $gray-mine-shaft !default;
+$progress-low-priority-color: #f2b622          !default;
+$progress-high-priority-color: #f98702          !default;
+
+
+@mixin progress-main ($width: "", $maxWidth: "", $height: "", $background: "", $fontSize: "", $lineHeight: "", $color: "") {
+  @if $width !="" {
+    width: $width;
+  }
+  @if $maxWidth != "" {
+    max-width: $maxWidth;
+  }
+  @if $height != "" {
+    height: $height;
+  }
+  @if $background != "" {
+    background: $background;
+  }
+  @if $fontSize != "" {
+    font-size: $fontSize;
+  }
+  @if $lineHeight != "" {
+    line-height: $lineHeight;
+  }
+  @if $color != "" {
+    color: $color;
+  }
+}
+
+/* { #BEGIN PROGRESS BAR }*/
+
+.d-progress {
+  position: relative;
+  z-index: 10;
+  overflow: hidden;
+
+  @include progress-main ($progress-max-width, "", $progress-font-size, $progress-bar-substrate-color);
+  @include border-radius($progress-font-size/2);
+}
+.d-progress__bar {
+  text-align: center;
+
+  @include progress-main(0, $progress-max-width, $progress-max-width, $progress-bar-color, $progress-size-h1/3, $progress-font-size, $progress-bar-text-color);
+  @include border-radius($progress-font-size/2);
+  @include transition(all .55s ease-in-out);
+}
+.d-progress_small {
+  height: $progress-font-size/2;
+}
+
+.d-progress__item {
+  float: left;
+  margin-right: 1px;
+
+  @include progress-main(0, $progress-max-width, $progress-max-width);
+  &:last-child {
+    margin-right: -4px;
+  }
+}
+.d-progress__item_success {
+  background: $progress-success-color;
+}
+.d-progress__item_low_priority {
+  background: $progress-low-priority-color;
+}
+.d-progress__item_high_priority {
+  background: $progress-high-priority-color;
+}
+.d-progress__item_critical {
+  background: $progress-critical-color;
+}
+
+/* { #STATE INFORMATION FOR PROGRESS BAR } */
+
+.d-progress-counter {
+  overflow: hidden;
+  margin-bottom: $progress-size-h2;
+}
+.d-progress-counter__text {
+  font-size: $progress-size-h2;
+  &:last-child {
+    float: right;
+  }
+}
+
+.d-progress-estimate {
+  overflow: hidden;
+  margin-top: 10px;
+}
+.d-progress-estimate__text,
+.d-progress-estimate__item {
+  font-size: $progress-font-size;
+}
+.d-progress-estimate__text {
+  color: $progress-estimate-text-color;
+}
+.d-progress-estimate__item {
+  float: right;
+  color: $progress-estimate-color;
+}

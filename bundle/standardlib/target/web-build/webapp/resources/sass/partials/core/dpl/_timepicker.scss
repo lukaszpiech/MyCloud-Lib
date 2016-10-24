@@ -1,0 +1,7 @@
+// bootstrap sets label's display to inline-block, but DPL expects the default value of 'inline'.
+// This needs to be set explicitly by the DPL.
+.d-timepicker {
+  label {
+    display: inline;
+  }
+}

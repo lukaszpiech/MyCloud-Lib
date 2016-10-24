@@ -1,0 +1,84 @@
+@import "../dpl-components-variables";
+@import "../dpl-components-mixins";
+$profile-color: $gray-dusty;
+$profile-color__hovered: $gray-dove;
+$profile-image-size__large: 120px;
+$profile-image-size__medium: 60px;
+$profile-image-size__small: 40px;
+$profile-image-size__tiny: 30px;
+$profile-status-active: $green;
+$profile-status-away: $yellow;
+$profile-status-inactive: $red;
+
+
+.d-profile {
+  display: table;
+  color: $profile-color;
+  &:hover {
+    color: $profile-color__hovered;
+    text-decoration: none;
+  }
+}
+.d-profile_size-large .d-profile__image-image {
+  height: $profile-image-size__large;
+}
+.d-profile_size-medium .d-profile__image-image {
+  height: $profile-image-size__medium;
+}
+.d-profile_size-small .d-profile__image-image {
+  height: $profile-image-size__small;
+}
+.d-profile_size-tiny .d-profile__image-image {
+  height: $profile-image-size__tiny;
+}
+
+.d-profile__image {
+  position: relative;
+  display: table-cell;
+  .d-profile__image-image {
+    display: block;
+  }
+}
+.d-profile__name {
+  display: table-cell;
+  padding-left: 10px;
+  vertical-align: middle;
+  > * {
+    display: block;
+    text-align: left;
+  }
+  /* temp hack start*/
+  &.d-icon-right-arrow_down_2:after,
+  .d-icon-right-arrow_down_2:after {
+    font-size: 12px;
+  }
+  /* temp hack end*/
+}
+[class*="d-profile_status-"] .d-profile__image:before {
+  position: absolute;
+  right: -4px;
+  bottom: -4px;
+  width: 25%;
+  height: 25%;
+  border: 1px solid $white;
+  border-radius: 50%;
+  content: "";
+}
+.d-profile_rounded {
+  &[class*="d-profile_status-"] .d-profile__image:before {
+    right: 0;
+    bottom: 0;
+  }
+  .d-profile__image-image {
+    border-radius: 50%;
+  }
+}
+.d-profile_status-active .d-profile__image:before {
+  background-color: $profile-status-active;
+}
+.d-profile_status-away .d-profile__image:before {
+  background-color: $profile-status-away;
+}
+.d-profile_status-inactive .d-profile__image:before {
+  background-color: $profile-status-inactive;
+}

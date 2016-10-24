@@ -1,0 +1,26 @@
+@import "../dpl-components-variables";
+@import "../dpl-components-mixins";
+
+// dp = datepicker
+
+$dp-box-shadow: $box-shadow-default !default;
+$dp-border-line: $formfield-border-color !default; //#d9d9d9;
+$dp-table-width: 205px !default;
+$dp-input-width: 205px !default;
+$dp-background: $white !default;
+$dp-text-color: $gray-mine-shaft !default;
+$dp-weeks-color: $gray-dove !default;
+$dp-number-color: $black !default;
+$dp-number-background-hover: $gray-concrete !default;
+$dp-number-shadow-color: $gray-alto !default;
+$dp-today-color: $teal !default;
+$dp-today-background: $white !default;
+$dp-current-day-color: $white !default;
+$dp-current-day-background: $teal !default;
+$dp-current-day-background-hover: $teal__hover !default;
+$dp-border-radius: $border-radius !default;
+$dp-icon-color: $gray-dove !default;
+$dp-icon-color-hover: $gray-ship !default;
+$dp-muted-day: $gray-dusty !default;
+$dp-disabled-day: $gray-dove !default;
+$invalid-color: $red !default;

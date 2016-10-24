@@ -1,0 +1,163 @@
+@import "../dpl-components-mixins";
+@import "datetimepicker-variables";
+
+.d-datetimepicker {
+  position: relative;
+  display: inline-block;
+  width: $dp-table-width;
+  .d-error {
+    display: none;
+  }
+  .ng-invalid-date,
+  .ng-invalid-date-format {
+    border: 1px solid $invalid-color;
+    + .d-error {
+      display: block;
+    }
+  }
+  &.is-open {
+    .d-datetimepicker__wrapper {
+      visibility: visible;
+
+      @include animation-name(slideInY75);
+    }
+  }
+  .d-textfield__label.d-icon-right-calendar:after {
+    top: inherit;
+    bottom: 0;
+  }
+}
+.d-datetimepicker_required::after {
+  @include required-field;
+}
+
+
+.d-datetimepicker__wrapper {
+  position: absolute;
+  z-index: 101;
+  //@include transform-origin(top left);
+  visibility: hidden;
+  width: 100%;
+  border: 1px solid $dp-border-line;
+  background: $dp-background;
+  text-align: center;
+
+  @include box-shadow($dp-box-shadow);
+  @include backface-visibility(hidden);
+  @include transition(visibility .15s ease, opacity .15s ease);
+  @include backface-visibility(hidden);
+  @include animation-iteration-count(1);
+  @include animation-duration(.15s);
+  @include animation-timing-function(ease);
+  @include animation-fill-mode(both);
+  @include animation-name(slideOutY75);
+  @include transform-origin-2(top, center);
+}
+
+.d-datetimepicker__date {
+  width: auto;
+  margin: 5px auto;
+  border: none;
+}
+
+.d-datetimepicker__time {
+  width: 100%;
+  padding: 11px 0;
+  border-top: 1px solid $dp-border-line;
+}
+
+.d-datetimepicker__actions {
+  padding: 10px 7px 10px 7px;
+  line-height: 23px;
+  border-top: 1px solid $dp-border-line;
+  text-align: right;
+}
+.d-datetimepicker__today {
+  float: left;
+  font-size: 12px;
+}
+
+/* { #begin animations for dropdowns } */
+@-webkit-keyframes slideInY75 {
+  0% {
+    opacity: 0;
+    -webkit-transform: scaleY(.75);
+            transform: scaleY(.75);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+  }
+}
+
+@-moz-keyframes slideInY75 {
+  0% {
+    opacity: 0;
+    -moz-transform: scaleY(.75);
+         transform: scaleY(.75);
+  }
+
+  100% {
+    opacity: 1;
+    -moz-transform: scaleY(1);
+         transform: scaleY(1);
+  }
+}
+
+@keyframes slideInY75 {
+  0% {
+    opacity: 0;
+    -webkit-transform: scaleY(.75);
+            transform: scaleY(.75);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+  }
+}
+
+@-webkit-keyframes slideOutY75 {
+  0% {
+    opacity: 1;
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: scaleY(.75);
+            transform: scaleY(.75);
+  }
+}
+
+@-moz-keyframes slideOutY75 {
+  0% {
+    opacity: 1;
+    -moz-transform: scaleY(1);
+         transform: scaleY(1);
+  }
+
+  100% {
+    opacity: 0;
+    -moz-transform: scaleY(.75);
+         transform: scaleY(.75);
+  }
+}
+
+@keyframes slideOutY75 {
+  0% {
+    opacity: 1;
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: scaleY(.75);
+            transform: scaleY(.75);
+  }
+}

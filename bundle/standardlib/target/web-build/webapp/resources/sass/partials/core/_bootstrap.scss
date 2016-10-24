@@ -1,0 +1,12 @@
+.btn-link {
+  color: $teal;
+
+  &:hover,
+  &:focus {
+    color: $teal__hover;
+  }
+}
+
+.backdrop-transparent {
+  background: none;
+}

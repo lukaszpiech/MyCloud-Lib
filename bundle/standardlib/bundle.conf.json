@@ -1,0 +1,117 @@
+{
+  "_comments": {
+    "bundle.packages.lib.scripts": {
+      "lib/angular-ui-bootstrap-1.1.2/ui-bootstrap-tpls-1.1.2": "ui-bootstrap-tpls-1.1.2 contains custom changes by BMC. Search for `TODO-BMC` to find the modified code. Verify if the same changes need to be applied when upgrading to a newer version"
+    }
+  },
+  "bundle": {
+    "id": "standardlib",
+    "version": "0.0.1",
+    "src": "./src/main/webapp",
+    "target": "./target/web-build/webapp",
+    "resources": [
+      "./"
+    ],
+    "options": {
+      "livereload-port": "39000",
+      "skip-tests": "",
+      "skip-validation": "",
+      "api-host": "localhost",
+      "api-port": "8008",
+      "host": "localhost",
+      "port": "9000"
+    },
+    "packages": {
+      "lib": {
+        "scripts": [
+          "lib/jquery-2.1.1/jquery-2.1.1",
+          "lib/jquery-ui-1.11.4.custom/jquery-ui",
+          "lib/jquery-col-resizable-1.6/colResizable-1.6",
+          "lib/angular-1.4.7/angular",
+          "lib/angular-1.4.7/angular-animate",
+          "lib/angular-1.4.7/angular-sanitize",
+          "lib/angular-1.4.7/angular-cookies",
+          "lib/angular-material-core-1.0.5/core",
+          "lib/lodash-3.10.1/lodash",
+          "lib/backbone-1.2.1/backbone",
+          "lib/rappid-1.7.1/rappid",
+          "lib/file-saver/file-saver",
+          "lib/restangular-1.4.0/restangular",
+          "lib/angular-ui-router-0.2.18/angular-ui-router",
+          "lib/angular-ui-grid-3.0.7/ui-grid",
+          "lib/angular-tree-control-0.2.9/angular-tree-control",
+          "lib/angular-ui-bootstrap-1.1.2/ui-bootstrap-tpls-1.1.2",
+          "lib/oclazyload-0.5.1/ocLazyLoad",
+          "lib/ui-utils-0.1.1/ui-utils",
+          "lib/angular-growl-0.4.0/angular-growl",
+          "lib/angular-translate-2.5.2/angular-translate",
+          "lib/angular-translate-loader-partial-2.5.2/angular-translate-loader-partial",
+          "lib/angular-dialog-service-5.2.11/dialogs",
+          "lib/angular-dialog-service-5.2.11/dialogs-default-translations",
+          "lib/angular-dragdrop-1.0.11/angular-dragdrop",
+          "lib/angular-drag-and-drop-lists-1.4.0/angular-drag-and-drop-lists",
+          "lib/ui-utils-0.1.1/ui-utils",
+          "lib/angular-busy-4.1.2/angular-busy",
+          "lib/angular-debounce-0.1.5/angular-debounce",
+          "lib/angular-ui-select-0.11.2/select",
+          "lib/ckeditor-4.5.9/ckeditor",
+          "lib/moment-2.13.0/moment-with-locales",
+          "lib/jsep-0.3.0/jsep",
+          "lib/angular-bootstrap-colorpicker-2.0/js/bootstrap-colorpicker-module",
+          "lib/ng-tags-input-3.0.0/ng-tags-input",
+          "lib/bmc-dpl-2.9.0/dist/dpl-components",
+          "lib/d3-3.5.17/d3",
+          "lib/nvd3-1.8.3/nv.d3",
+          "lib/angular-multiselect-1.2.0/multiselect",
+          "lib/bmc-help-0.2.0/bmc-help"
+        ],
+        "styles": [
+          "lib/jquery-ui-1.11.4.custom/jquery-ui",
+          "lib/bmc-dpl-iconfont-2.9.0/css/dpl-iconfont",
+          "lib/angular-tree-control-0.2.9/tree-control-attribute",
+          "lib/angular-tree-control-0.2.9/tree-control",
+          "lib/angular-growl-0.4.0/angular-growl",
+          "lib/angular-busy-4.1.2/angular-busy",
+          "lib/angular-material-core-1.0.5/core",
+          "lib/bootstrap-3.3.5/css/bootstrap",
+          "lib/angular-dialog-service-5.2.11/dialogs",
+          "lib/rappid-1.7.1/rappid",
+          "lib/angular-ui-select-0.11.2/select",
+          "lib/angular-bootstrap-colorpicker-2.0/css/colorpicker",
+          "lib/bmc-dpl-2.9.0/dist/dpl-components",
+          "lib/nvd3-1.8.3/nv.d3",
+          "lib/bmc-help-0.2.0/bmc-help"
+        ]
+      },
+      "app": {
+        "scripts": [
+          "scripts/**/*.global",
+          "scripts/**/*.module",
+          "scripts/**/*.config",
+          "scripts/**/*.run",
+          "scripts/**/*.routes",
+          "scripts/**/*.constant",
+          "scripts/**/*.filter",
+          "scripts/**/*.service",
+          "scripts/**/*.class",
+          "scripts/**/*.directive",
+          "scripts/**/*.controller",
+          "scripts/**/*.resource"
+        ],
+        "styles": [
+          "resources/sass/<%= bundle.id %>",
+          "resources/sass/theme/theme",
+          "resources/sass/theme/login-theme"
+        ],
+        "templates": [
+          "scripts/**/*.html"
+        ]
+      },
+      "ext": {
+        "scripts": [],
+        "styles": [],
+        "templates": []
+      }
+    }
+  }
+}

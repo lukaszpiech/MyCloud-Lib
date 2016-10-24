@@ -1,0 +1,115 @@
+$rx-view-component-group-width: $rx-blade-width - 1px !default;
+$rx-view-component-icon-size: 40px !default;
+$rx-view-component-group-header-height: $rx-blade-collapsible-group-header-height;
+
+rx-view-designer-stencil {
+  .rx-view-designer-stencil-wrapper {
+    position: absolute;
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: auto;
+    top: 50px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-top: 1px solid $gray-alto;
+  }
+
+  .rx-view-components-group {
+    padding-top: $rx-view-component-group-header-height;
+    position: relative;
+    min-height: $rx-view-component-group-header-height;
+    min-width: $rx-view-component-group-width;
+    width: $rx-view-component-group-width;
+  }
+
+  .rx-view-components-group-body {
+    border-bottom: 1px solid $gray-alto;
+    background: $gray-concrete;
+    overflow: hidden;
+    width: 100%;
+  }
+
+  .rx-view-components-group-header {
+    color: $gray-mine-shaft;
+    cursor: pointer;
+    height: $rx-view-component-group-header-height;
+    background: $white;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .10);
+    padding: 0 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+
+    .rx-view-components-group-title {
+      font-weight: $font-weight__bold;
+      float: left;
+      line-height: $rx-view-component-group-header-height;
+      text-transform: uppercase;
+    }
+
+    .icon {
+      float: right;
+      font-size: 18px;
+      line-height: $rx-view-component-group-header-height;
+    }
+  }
+
+  .rx-view-component {
+    color: $gray-dove;
+    background: $gray-concrete;
+    border-right: 1px solid $gray-alto;
+    cursor: pointer;
+    display: inline-block;
+    height: 90px;
+    padding: 10px 0;
+    text-align: center;
+    vertical-align: top;
+    width: 93px;
+
+    .rx-view-component-icon {
+      display: block;
+
+      &.icon {
+        font-size: $rx-view-component-icon-size;
+        height: $rx-view-component-icon-size;
+        width: $rx-view-component-icon-size;
+        margin: 0 auto;
+
+        &:before {
+          vertical-align: top;
+        }
+      }
+
+      &.image {
+        pointer-events: none;
+        max-height: $rx-view-component-icon-size;
+      }
+    }
+
+    .rx-view-component-name {
+      font-size: 10px;
+      display: inline-block;
+      width: 100%;
+    }
+
+    &.dndDragging {
+      border: 1px solid $gray-alto;
+    }
+  }
+
+  .search {
+    height: 36px;
+    text-shadow: inherit;
+    color: $gray-dusty;
+    margin: 5px 20px;
+    width: 240px;
+
+    &:focus {
+      box-shadow: none;
+      border-color: $gray-alto;
+    }
+  }
+}

@@ -1,0 +1,57 @@
+rx-data-dictionary {
+  treecontrol.tree-classic {
+    .rx-tree-node-parent {
+      padding: 5px 10px 5px 5px;
+    }
+
+    .rx-tree-node-leaf {
+      padding: 5px;
+    }
+
+    .tree-leaf {
+      .rx-tree-node-label {
+        display: flex;
+        padding: 5px;
+        align-items: center;
+      }
+
+      .rx-data-dictionary-item {
+        display: flex;
+        width: calc(100% - 30px);
+      }
+
+      .rx-data-dictionary-item-value {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 100%;
+        float: none;
+      }
+    }
+  }
+}
+
+.rx-data-dictionary-item {
+    display: inline-block;
+    vertical-align: middle;
+
+    .rx-data-dictionary-item-icon {
+        color: white;
+        background: $blue;
+        display: inline-block;
+        padding: 3px 8px;
+        border-radius: 3px 0 0 3px;
+    }
+
+    .rx-data-dictionary-item-value {
+        display: inline-block;
+        padding: 3px 12px;
+        background-color: $gray-alto;
+        border-radius: 0 3px 3px 0;
+    }
+}
+
+.rx-data-dictionary-invalid-item {
+    border: 2px solid $red;
+    border-radius: 5px 3px 3px 5px;
+}

@@ -1,0 +1,25 @@
+rx-rich-expression-editor {
+  position: relative;
+  display: flex;
+
+  &.rx-error-expression {
+    > div {
+      border-color: $red;
+    }
+  }
+
+  > div {
+    border: 1px solid transparent;
+    padding: 20px 20px 0 20px;
+    overflow-y: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    .rx-data-dictionary-item {
+      margin-bottom: 5px;
+    }
+  }
+}

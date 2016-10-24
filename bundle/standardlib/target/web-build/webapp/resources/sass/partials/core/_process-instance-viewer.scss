@@ -1,0 +1,95 @@
+$rx-process-instance-viewer-blade-width: 350px;
+
+rx-process-instance-viewer {
+  form {
+    height: 100%;
+  }
+
+  .rx-editor-content {
+    padding: 0;
+  }
+
+  .rx-simple-json-editor-container {
+    display: block;
+    height: 100%;
+    padding: 2em;
+
+    textarea {
+      display: block;
+      height: 100%;
+      width: 100%;
+      padding: 10px;
+      font: 14px monospace;
+    }
+  }
+
+  .rx-blade {
+    top: 46px;
+
+    &.rx-blade-dock-right {
+      &.rx-blade-expanded {
+        width: $rx-process-instance-viewer-blade-width;
+      }
+    }
+
+    .rx-blade-toggle {
+      width: $rx-process-instance-viewer-blade-width;
+    }
+
+    .rx-blade-content {
+      width: $rx-process-instance-viewer-blade-width;
+    }
+  }
+
+  .rx-process-instance-details {
+    width: 100%;
+    height: 100%;
+
+    .tms-process-preview {
+      position: absolute;
+      top: 50px;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+
+    rx-designer-canvas {
+      position: absolute;
+      top: 46px;
+      right: 0;
+      bottom: 0;
+      left: 0;
+
+      &.rx-blade-expanded-right {
+        right: $rx-process-instance-viewer-blade-width !important;
+      }
+
+      .rx-designer-canvas-toolbar {
+        padding: 2px 5px 0 15px;
+        margin: 0;
+      }
+
+      .halo {
+        border: 1px dashed $orange;
+
+        .handle {
+          display: none !important;
+        }
+
+        &[data-type="rx.StartEvent"], &[data-type="rx.EndEvent"] {
+          border: none !important;
+        }
+      }
+
+      .SequenceFlow {
+        @include rx-non-interactive-sequence-flow;
+
+        &:hover {
+          .tool-options {
+            opacity: 0;
+          }
+        }
+      }
+    }
+  }
+}

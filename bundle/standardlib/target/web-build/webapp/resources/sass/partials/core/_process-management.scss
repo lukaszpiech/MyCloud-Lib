@@ -1,0 +1,342 @@
+rx-process-management-console {
+  .rx-process-management {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 6px); // this is needed because of small orange line of popup header in the top of the screen
+
+    .rx-editor-header {
+      flex-grow: 0;
+      flex-shrink: 0;
+    }
+
+    &__content {
+      display: flex;
+      flex-grow: 1;
+      flex-shrink: 1;
+    }
+
+    &__column {
+      display: flex;
+      min-height: 600px;
+
+      &_left {
+        flex-basis: 390px;
+        flex-grow: 0;
+        flex-shrink: 0;
+        overflow: hidden;
+      }
+
+      &_right {
+        flex-grow: 1;
+        flex-shrink: 1;
+      }
+    }
+  }
+
+  .rx-process-definition-picker {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    flex-shrink: 1;
+    border-right: 1px solid $gray-alto;
+    overflow: hidden;
+
+    &__actions {
+      display: flex;
+      flex-basis: 46px;
+      flex-grow: 0;
+      flex-shrink: 0;
+      align-items: center;
+      padding-left: 15px;
+      border-bottom: 1px solid $gray-alto;
+      font-weight: $font-weight__medium;
+    }
+
+    &__search {
+      margin-top: 15px;
+      padding: 0 15px;
+
+      .d-textfield {
+        margin-bottom: 10px;
+      }
+    }
+
+    &__processes-list {
+      display: flex;
+      flex-direction: column;
+      overflow: auto;
+      flex: 1;
+    }
+  }
+
+  .rx-actions__item {
+    margin-right: 20px;
+    color: $gray-dove;
+
+    &:hover {
+      color: $teal;
+    }
+
+    &_disabled {
+      color: $gray-dusty;
+      cursor: default;
+
+      &:hover {
+        color: $gray-dusty;
+      }
+    }
+  }
+
+  .rx-process-list__item {
+    flex-grow: 0;
+    flex-shrink: 0;
+    height: 32px;
+    vertical-align: middle;
+    padding: 0 15px;
+    line-height: 32px;
+    cursor: pointer;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    &_selected {
+      background: rgba($teal, 0.1);
+    }
+
+    &:hover {
+      background: rgba($gray-alto, 0.4);
+    }
+  }
+
+  .rx-process-instances {
+    display: flex;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-direction: column;
+
+    &__row_top {
+      display: flex;
+      flex-basis: 405px;
+      flex-grow: 0;
+      flex-shrink: 0;
+      border-bottom: 1px solid $gray-alto;
+    }
+
+    &__row_middle {
+      flex-basis: 53px;
+      flex-grow: 0;
+      flex-shrink: 0;
+      border-bottom: 1px solid $gray-alto;
+      padding: 7px 25px;
+    }
+
+    &__row_bottom {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      flex-shrink: 1;
+    }
+  }
+
+  .rx-process-instances-chart-zone {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    flex-shrink: 1;
+
+    &__time-frame {
+      flex-basis: 61px;
+      flex-grow: 0;
+      flex-shrink: 0;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding-right: 75px;
+    }
+
+    &__chart {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      flex-shrink: 1;
+    }
+  }
+
+  .rx-process-instance-run-times {
+    flex-basis: 420px;
+    flex-grow: 0;
+    flex-shrink: 0;
+  }
+
+  .rx-process-instances-status-filter {
+    border-bottom: 1px solid $gray-alto;
+    border-top: 1px solid $gray-alto;
+
+    &_item {
+      border-left: 1px solid $gray-alto;
+
+      &:last-of-type {
+        border-right: 1px solid $gray-alto;
+      }
+    }
+
+    .d-button-group__item {
+      padding-left: 0;
+    }
+  }
+
+  .rx-process-instances-grid {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    flex-shrink: 1;
+
+    rx-record-grid-toolbar {
+      border: none;
+    }
+  }
+}
+
+.rx-start-process-modal {
+  .modal-dialog {
+    width: 720px;
+  }
+
+  .modal-content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .modal-header {
+    padding: 25px 20px;
+  }
+
+  &__row {
+    &_top {
+      flex-basis: 76px;
+      flex-grow: 0;
+      flex-shrink: 0;
+    }
+
+    &_middle {
+      flex-grow: 1;
+      flex-shrink: 1;
+      overflow: auto;
+    }
+
+    &_bottom {
+      flex-basis: 76px;
+      flex-grow: 0;
+      flex-shrink: 0;
+      border-top: 1px solid $gray-alto;
+    }
+  }
+
+  &__modal-header {
+    height: 100%;
+  }
+
+  &__action-buttons {
+    display: flex;
+    justify-content: flex-end;
+    padding: 20px;
+
+    &_item {
+      margin: 0 5px;
+
+      &:last-of-type {
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+.rx-preview-process-modal {
+  .modal-dialog {
+    width: 1100px;
+  }
+
+  &__preview {
+    height: 600px;
+    width: 100%;
+  }
+
+  &__action-buttons {
+    text-align: right;
+    padding: 20px;
+
+    &_item {
+      margin: 0 5px;
+
+      &:last-of-type {
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+rx-process-instances-chart {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  flex-shrink: 1;
+
+  svg {
+    flex-grow: 1;
+    flex-shrink: 1;
+  }
+}
+
+.rx-time-frame-dropdown {
+  &__label {
+    margin-right: 20px;
+  }
+
+  &__head {
+    min-width: 225px;
+    text-align: start;
+    border-color: $gray-alto;
+    padding-right: 20px;
+
+    &::after {
+      position: absolute;
+      right: 10px;
+    }
+  }
+
+  &__body {
+    min-width: 225px;
+    margin-top: 0;
+
+    .d-dropdown__link {
+      // TODO needs to be removed after dpl 2.9 is used
+      &.is-checked {
+        background: rgba($teal, 0.1);
+      }
+    }
+  }
+
+  &__datetimepicker-item {
+    margin: 15px 10px;
+
+    .datetimepicker-label {
+      margin-bottom: 5px;
+    }
+
+    .input-group-btn {
+      vertical-align: top;
+    }
+
+    .uib-day {
+      button {
+        padding: 4px 8px;
+      }
+    }
+  }
+
+  &__apply-custom-range {
+    float: right;
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+}

@@ -1,0 +1,200 @@
+@import "../dpl-components-mixins";
+@import "steps-variables";
+
+.d-steps {
+  display: table;
+  width: $step-size-width;
+  margin: 0 0 $step-distance;
+  padding: 0;
+  list-style: none;
+}
+
+.d-steps__link {
+  display: block;
+  overflow: hidden;
+  padding-left: $step-distance;
+  font-size: $step-size-h6;
+  line-height: 1.4;
+  color: $step-font-color;
+  white-space: nowrap;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  &[class*="d-icon"]::before {
+    padding-right: $step-size__small;
+  }
+}
+
+.d-steps__counter {
+  display: inline-block;
+  width: $step-size-h5;
+  height: $step-size-h5;
+  margin-right: $step-size__small;
+  font-size: $step-size__font;
+  line-height: $step-size-h6;
+  color: $step-font-color;
+  border: 1px solid $step-border-color;
+  background: $step-counter-background-color;
+  text-align: center;
+  vertical-align: 1px;
+
+  @include border-radius($step-size-width/2);
+}
+
+.d-steps__cell {
+  display: table-cell;
+  height: 44px;
+  vertical-align: middle;
+  &:last-child {
+    &::after,
+    &::before {
+      content: none;
+    }
+  }
+  &:first-child {
+    .d-steps__link {
+      padding-left: $step-size-h4;
+      border-top-left-radius: $step-size__item/6;
+      border-bottom-left-radius: $step-size__item/6;
+    }
+  }
+  &::after,
+  &::before {
+    position: absolute;
+    top: $step-size-width/2;
+    left: $step-size-width;
+    display: block;
+    width: 0;
+    height: 0;
+    margin-top: -$step-size-h3;
+    line-height: 0;
+    border-width: $step-size-h3 0 $step-size-h3 $step-size-h6;
+    border-style: solid;
+    content: "";
+    /*#for better rendering in Firefox*/
+    -moz-transform: scale(.9999);
+  }
+  &::after {
+    z-index: 2;
+    border-color: transparent transparent transparent $step-white-color;
+  }
+  &::before {
+    z-index: 1;
+    margin-left: 1px;
+    border-color: transparent transparent transparent $step-border-before-color;
+  }
+  &:hover,
+  &.is-active {
+    color: $step-hover-color;
+    background: $step-counter-background-color;
+    &::after {
+      border-color: transparent transparent transparent $step-counter-background-color;
+    }
+    .d-steps__link {
+      color: $step-hover-color;
+    }
+    .d-steps__counter {
+      color: $step-white-color;
+      border: 1px solid $step-hover-color;
+      background: $step-hover-color;
+    }
+  }
+}
+
+.d-steps__cell,
+.d-steps__item {
+  position: relative;
+  border: 1px solid #d9d9d9;
+  background: $step-white-color;
+  cursor: pointer;
+
+  @include user-select(none);
+}
+
+.d-steps_large {
+  .d-steps__link[class*="d-icon"]::before {
+    position: absolute;
+    top: 13px;
+    left: 36px;
+  }
+  .d-steps__cell {
+    height: 64px;
+    &::after,
+    &::before {
+      margin-top: -$step-size-h1;
+      border-width: $step-size-h1 0 $step-size-h1 $step-size-h6;
+    }
+    &:first-child {
+      .d-steps__link {
+        padding-left: 46px;
+        &[class*="d-icon"]::before {
+          left: 21px;
+        }
+      }
+    }
+  }
+  .d-steps__link {
+    padding-left: 62px;
+  }
+}
+
+.d-steps__upper,
+.d-steps__under {
+  display: block;
+}
+
+.d-steps__upper {
+  padding-bottom: 4px;
+  line-height: 18px;
+}
+
+.d-steps__under {
+  font-size: 14px;
+  line-height: 16px;
+  color: #999;
+}
+
+.d-steps_list {
+  display: block;
+}
+
+.d-steps__item {
+  display: block;
+  margin-top: -1px;
+  &:hover,
+  &.is-active {
+    color: $step-hover-color;
+    background: $step-counter-background-color;
+    &::after,
+    &::before {
+      position: absolute;
+      top: $step-size-width/2;
+      left: $step-size-width;
+      display: block;
+      width: 0;
+      height: 0;
+      margin-top: -$step-size-h3;
+      line-height: 0;
+      border-width: $step-size-h3 0 $step-size-h3 $step-size-h6;
+      border-style: solid;
+      content: "";
+      /*#for better rendering in Firefox*/
+      -moz-transform: scale(.9999);
+    }
+    &::before {
+      z-index: 1;
+      margin-left: 1px;
+      border-color: transparent transparent transparent $step-border-before-color;
+    }
+    &::after {
+      z-index: 2;
+      border-color: transparent transparent transparent $step-counter-background-color;
+    }
+
+    .d-steps__link {
+      color: $step-hover-color;
+    }
+  }
+  .d-steps__link {
+    padding: 11px $step-size__small 11px $step-size-h4;
+  }
+}

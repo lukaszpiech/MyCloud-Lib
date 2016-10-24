@@ -1,0 +1,278 @@
+@import "../dpl-components-variables";
+@import "../dpl-components-mixins";
+$button-border-radius: $border-radius;
+// Primary button
+$button-primary-text-color: $white;
+$button-primary-bg-color: $orange;
+$button-primary-bg-color-hover: $orange__hover;
+$button-primary-bg-color-active: $orange__active;
+
+// Primary service button
+$button-primary-service-text-color: $white;
+$button-primary-service-bg-color: $teal;
+$button-primary-service-bg-color-hover: $teal__hover;
+$button-primary-service-bg-color-active: $teal__active;
+
+// Secondary button
+$button-secondary-text-color: $gray-mine-shaft;
+$button-secondary-border-color: $gray-dusty;
+$button-secondary-bg-color: $white;
+$button-secondary-bg-color-hover: $white__hover;
+$button-secondary-bg-color-active: $white__active;
+
+// Secondary success button
+$button-secondary-success-text-color: $green;
+$button-secondary-success-text-color-hover: $green__hover;
+$button-secondary-success-text-color-active: $green__active;
+
+// Secondary error button
+$button-secondary-error-text-color: $red;
+$button-secondary-error-text-color-hover: $red__hover;
+$button-secondary-error-text-color-active: $red__active;
+
+
+// Action button
+$button-action-text-color: $gray-dove;
+$button-action-text-color-hover: $teal;
+$button-action-text-color-active: $teal__hover;
+$button-default: ".d-button";
+@mixin d-button() {
+  display: inline-block;
+  cursor: pointer;
+  white-space: nowrap;
+  &:empty {
+    &:before {
+      padding: 0;
+    }
+    &:after {
+      display: none;
+    }
+  }
+  &[disabled] {
+    cursor: not-allowed;
+  }
+}
+
+@mixin d-button-type($type: "primary", $size : "") {
+  @if ($type == "primary") {
+    color: $button-primary-text-color !important;
+    border-radius: $button-border-radius;
+    background-color: $button-primary-bg-color;
+    &:not([disabled]):not(.is-checked):hover {
+      border-color: $button-primary-bg-color-hover;
+      background-color: $button-primary-bg-color-hover;
+    }
+    &.is-checked,
+    &:not([disabled]):not(.is-checked):active {
+      border-color: $button-primary-bg-color-active;
+      background-color: $button-primary-bg-color-active;
+    }
+    &[disabled] {
+      @include opacity($disabled-opacity);
+    }
+  } @else if ($type == "secondary") {
+    color: $button-secondary-text-color;
+    border: 1px solid $button-secondary-border-color;
+    border-radius: $button-border-radius;
+    background-color: $button-secondary-bg-color;
+    &:hover {
+      color: $button-secondary-text-color;
+    }
+    &:not([disabled]):not(.is-checked):hover {
+      background-color: $button-secondary-bg-color-hover;
+    }
+    &.is-checked,
+    &:not([disabled]):not(.is-checked):active {
+      background-color: $button-secondary-bg-color-active;
+    }
+    &[disabled] {
+      @include opacity($disabled-opacity);
+    }
+  } @else if ($type == "action") {
+    padding: 0;
+    color: $button-action-text-color;
+    border: none;
+    background: transparent;
+    &:hover,
+    [disabled] {
+      color: $button-action-text-color-hover;
+    }
+    &[disabled] {
+      color: $button-action-text-color;
+      cursor: not-allowed;
+
+      @include opacity($disabled-opacity);
+    }
+    &:active:not([disabled]),
+    &.is-checked {
+      color: $button-action-text-color-active;
+    }
+    @if ($size == "large") {
+      line-height: 36px;
+      &:before,
+      &:after {
+        font-size: 18px;
+        vertical-align: text-top;
+      }
+    } @else if ($size == "small") {
+      line-height: 28px;
+      &:before,
+      &:after {
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+@mixin d-button-style($type: "primary", $style : "default") {
+  @if ($type == "primary") {
+    @if ($style == "service") {
+      color: $button-primary-service-text-color !important;
+      border-color: $button-primary-service-bg-color;
+      background-color: $button-primary-service-bg-color;
+      &:not([disabled]):not(.is-checked):hover {
+        border-color: $button-primary-service-bg-color-hover;
+        background-color: $button-primary-service-bg-color-hover;
+      }
+      &.is-checked,
+      &:not([disabled]):not(.is-checked):active {
+        border-color: $button-primary-service-bg-color-active;
+        background-color: $button-primary-service-bg-color-active;
+      }
+      &[disabled] {
+        @include opacity($disabled-opacity);
+      }
+    }
+  } @else if ($type == "secondary") {
+    @if ($style == "success") {
+      color: $button-secondary-success-text-color;
+      &:hover {
+        color: $button-secondary-success-text-color-hover;
+        background-color: lighten($green, 40%) !important;
+      }
+      &.is-checked,
+      &:not([disabled]):not(.is-checked):active {
+        color: $button-secondary-success-text-color-active;
+        background-color: lighten($green, 35%) !important;
+      }
+    } @else if ($style == "error") {
+      color: $button-secondary-error-text-color;
+      &:hover {
+        color: $button-secondary-error-text-color-hover;
+        background-color: lighten($red, 45%) !important;
+      }
+      &.is-checked,
+      &:not([disabled]):not(.is-checked):active {
+        color: $button-secondary-error-text-color-active;
+        background-color: lighten($red, 40%) !important;
+      }
+    }
+  }
+}
+
+@mixin d-button-size($size: "large") {
+  @if ($size == "large") {
+    height: 36px;
+    padding: 7px 19px;
+    font-size: 14px;
+    line-height: 20px;
+    &[class*="d-icon-left"]:before {
+      padding-right: .5em;
+    }
+    &[class*="d-icon-right"]:after {
+      padding-left: .5em;
+    }
+  } @else if ($size == "small") {
+    height: 28px;
+    padding: 5px 14px;
+    font-size: 12px;
+    line-height: 16px;
+    &[class*="d-icon-left"]:before {
+      padding-right: 6px;
+    }
+    &[class*="d-icon-right"]:after {
+      padding-left: 6px;
+    }
+  }
+}
+
+
+
+
+
+@mixin d-action-button-large() {
+  line-height: 36px;
+  &[class*="d-icon-left"]:before,
+  &[class*="d-icon-right"]:after {
+    font-size: 18px;
+  }
+  &[class*="d-icon-left"]:not(:empty):before {
+    padding-right: 10px;
+  }
+  &[class*="d-icon-right"]:not(:empty):after {
+    padding-left: 10px;
+  }
+}
+@mixin d-action-button-small() {
+  line-height: 28px;
+  &[class*="d-icon-left"]:before,
+  &[class*="d-icon-right"]:after {
+    font-size: 14px;
+  }
+  &[class*="d-icon-left"]:not(:empty):before {
+    padding-right: 6px;
+  }
+  &[class*="d-icon-right"]:not(:empty):after {
+    padding-left: 6px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.d-button {
+  @include d-button();
+}
+.d-button_primary {
+  @include d-button-type("primary");
+  &.d-button_service {
+    @include d-button-style("primary", "service");
+  }
+}
+.d-button_secondary {
+  @include d-button-type("secondary");
+  &.d-button_success {
+    @include d-button-style("secondary", "success");
+  }
+  &.d-button_error {
+    @include d-button-style("secondary", "error");
+  }
+}
+.d-button_action {
+  &.d-button_small {
+    @include d-button-type("action", "small");
+  }
+  &.d-button_large {
+    @include d-button-type("action", "large");
+  }
+}
+.d-button_large {
+  @include d-button-size("large");
+}
+.d-button_small {
+  @include d-button-size("small");
+}

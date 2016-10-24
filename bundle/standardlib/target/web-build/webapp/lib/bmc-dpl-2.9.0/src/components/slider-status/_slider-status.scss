@@ -1,0 +1,83 @@
+@import "../dpl-components-mixins";
+@import "slider-status-variables";
+
+/* { #BEGIN SLA PROGRESS BAR WIDTH ICONS } */
+
+.d-sla {
+  display: table;
+  width: $d-sla-width;
+}
+
+.d-sla__state,
+.d-sla__wrap,
+.d-sla__item {
+  display: table-cell;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.d-sla__state {
+  padding: 0 20px 0 0;
+  font-size: $d-sla-size-h6;
+  color: $d-sla-resolved-color;
+  border: none;
+  text-align: left;
+  &[class*="d-icon-"] {
+    &::after {
+      padding-left: $d-sla-size-h6/4;
+      color: $d-sla-resolved-color;
+    }
+  }
+  &:hover,
+  &:hover::after {
+    color: darken($d-sla-resolved-color, $d-sla-width/10);
+  }
+}
+
+.d-sla__state_resolved {
+  &[class*="d-icon-"]::after {
+    padding-left: 20px;
+  }
+}
+
+.d-sla__item {
+  padding-left: 20px;
+  font-size: $d-sla-font-size;
+  color: $d-sla-item-color;
+  text-align: right;
+}
+
+.d-sla__wrap {
+  position: relative;
+  width: $d-sla-width;
+  text-align: center;
+}
+
+.d-sla__colored {
+  background: $d-sla-colored-color !important;
+}
+
+.d-sla__critical {
+  background: $d-sla-critical-color !important;
+}
+
+.d-sla__resolved {
+  background: $d-sla-resolved-color !important;
+}
+
+.d-sla__icon {
+  position: absolute;
+  z-index: 11;
+  top: 0;
+  &::after,
+  &::before {
+    padding: 0;
+    font-size: $d-sla-size-h3;
+    line-height: $d-sla-size-h3;
+    color: $d-sla-icon-color;
+    background: $d-sla-white-color;
+    text-align: center;
+
+    @include border-radius($d-sla-width/2);
+  }
+}

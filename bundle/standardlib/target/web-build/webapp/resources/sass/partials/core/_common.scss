@@ -1,0 +1,70 @@
+$rx-blocker-z-index: 150;
+
+textarea {
+  resize: none !important;
+}
+
+.tooltip {
+  border: none;
+  background-color: transparent;
+}
+
+.input[type="checkbox"].rx-custom-checkbox {
+  display: none;
+}
+
+.rx-empty-text {
+  background: inherit;
+  text-align: left;
+  padding-left: 24px;
+  font-weight: normal;
+  font-size: 14px;
+  margin-right: 20px;
+  margin-top: 15px;
+  color: $gray-dusty;
+}
+
+a.rx-highlight-on-hover {
+  color: $gray-dove;
+
+  &:hover {
+    color: $teal;
+  }
+}
+
+.icon {
+  display: inline;
+  margin: 0;
+  margin-right: 4px;
+  overflow: hidden;
+}
+
+.modal .modal-title {
+  word-wrap: break-word;
+}
+
+.modal-preloader {
+  position: absolute;
+  top: 50%;
+  margin-top: -55px;
+  left: 0;
+  right: 0;
+}
+
+.rx-blocker {
+  cursor: not-allowed;
+  background: $gray-alto;
+  opacity: .3;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: $rx-blocker-z-index;
+}
+
+// hack for IE: remove native clear button if we use custom button with the same function
+// http://stackoverflow.com/questions/14007655/remove-ie10s-clear-field-x-button-on-certain-inputs
+button[class^="cross"] + input::-ms-clear {
+  display: none;
+}

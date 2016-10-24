@@ -1,0 +1,129 @@
+rx-record-grid-toolbar {
+  position: relative;
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  flex: 0 0 45px;
+
+  .d-button_large {
+    min-width: 25px;
+    line-height: 36px;
+
+    &.d-button_action:before {
+      vertical-align: middle;
+    }
+  }
+
+  .d-dropdown_selected-columns {
+    .d-dropdown__menu {
+      min-width: 170px;
+    }
+
+    .d-button_primary {
+      padding: 1px 5px;
+      height: auto;
+
+      &[disabled] {
+        background-color: $orange;
+      }
+    }
+
+    .d-dropdown__menu-options-item-option {
+      &:before {
+        padding-right: 5px;
+        font-family: "dpl-icon-font";
+        font-weight: normal;
+        font-style: normal;
+        font-variant: normal;
+        line-height: 1;
+        vertical-align: baseline;
+        text-transform: none;
+      }
+
+      &:not(.is-checked) {
+        &:before {
+          content: "\e69c";
+        }
+      }
+
+      &.is-checked {
+        &:before {
+          content: "\e624";
+        }
+      }
+    }
+  }
+}
+
+.rx-record-grid-toolbar {
+  &__right {
+    display: flex;
+    margin-left: auto;
+    align-items: center;
+
+    .d-dropdown__menu {
+      left: auto;
+      right: 0;
+    }
+  }
+
+  &__item {
+    position: relative;
+    display: block;
+    margin: 0 10px;
+    line-height: 1;
+    text-align: center;
+
+    &_search {
+      .d-textfield__input {
+        width: 220px;
+        padding-right: 48px;
+      }
+
+      .d-icon-cross {
+        right: 32px;
+        width: 16px;
+      }
+    }
+
+    &_selected-row-count {
+      color: $gray-dusty;
+    }
+
+    .d-textfield {
+      margin-bottom: 0;
+    }
+  }
+
+  &__action-bar {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    align-items: center;
+    background-color: $white;
+    z-index: 10;
+
+    &.active {
+      display: flex;
+    }
+  }
+
+  &__action-buttons {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+  }
+
+  &__submit {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 32px;
+    opacity: 0;
+  }
+}

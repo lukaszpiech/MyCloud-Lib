@@ -1,0 +1,14 @@
+@import "../dpl-components-variables";
+$notification-text-color: $white !default;
+$notification-text-diff-color: $gray-mine-shaft !default;
+$notification-max-size: 100% !default;
+$notification-min-height: 56px !default;
+$notification-flex-size: 18px !default;
+$notification-border-radius: $border-radius !default;
+$notification-info-color: $blue !default;
+$notification-warning-color: $yellow !default;
+$notification-error-color: $red !default;
+$notification-success-color: $green !default;
+$notification-gray-color: $gray-dusty !default;
+$notification-effect-color: rgba(0, 0, 0, .3) !default;
+$notification-self-closing-color: rgba(0, 0, 0, .2) !default;

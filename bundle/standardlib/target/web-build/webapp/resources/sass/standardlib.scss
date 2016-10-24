@@ -1,0 +1,5 @@
+$rx-path: "/standardlib";
+$rx-image-path: $rx-path + "/resources/images";
+$rx-font-path: $rx-path + "/resources/fonts";
+
+@import "partials/core/all";

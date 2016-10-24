@@ -1,0 +1,28 @@
+.rx-clear-recent-stencil {
+  position: absolute;
+  bottom: 0px;
+  padding: 1em;
+  margin-left: -15px;
+  background: $rx-blade-background;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  font-weight: $font-weight__bold;
+  color: $gray-dove;
+
+  &:focus {
+    outline-color: #fff;
+  }
+
+  &:before {
+    margin-right: 10px;
+  }
+  
+  &:hover {
+    color: $teal;
+  }
+
+  &:disabled {
+    color: $gray-dove;
+  }
+}

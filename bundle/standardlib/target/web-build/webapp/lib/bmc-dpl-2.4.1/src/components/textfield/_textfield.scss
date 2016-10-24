@@ -1,0 +1,172 @@
+@import "../dpl-components-variables";
+@import "../dpl-components-mixins";
+
+/* { #BEGIN VARIABLES FOR D-TEXTFIELD } */
+
+$textfield-invalid-color: $red !default; //#f83200
+$textfield-valid-color: $green !default; //#89c341
+$textfield-max-width: 100% !default;
+$textfield-h1: 60px !default;
+$textfield-h2: 32px !default;
+$textfield-h3: 28px !default;
+$textfield-large: 36px !default;
+
+/* {#BEGIN TEXTFIELD} */
+
+.d-textfield {
+  margin-bottom: 20px;
+}
+
+.d-textfield__label {
+  position: relative;
+  display: block;
+  &[class*="d-icon-left"]::before,
+  &[class*="d-icon-right"]::after {
+    position: absolute;
+    top: 24px;
+    width: $textfield-h2;
+    height: $textfield-h3;
+    line-height: $textfield-h3;
+    text-align: center;
+  }
+  &[class*="d-icon-left"] {
+    &::before {
+      left: 0;
+    }
+    .d-textfield__input {
+      padding-left: $textfield-h2;
+    }
+  }
+  &[class*="d-icon-right"] {
+    &::after {
+      right: 0;
+    }
+    .d-textfield__input {
+      padding-right: $textfield-h2;
+    }
+  }
+}
+
+.d-textfield__item {
+  display: block;
+  padding-bottom: 10px;
+  font-size: 14px;
+  line-height: 1;
+}
+
+/*BEGIN D-TEXTFIELD_LABEL_REQUIRED*/
+
+.d-textfield_required {
+  .d-textfield__item::after {
+    @include required-field;
+  }
+}
+
+/*BEGIN D-TEXTFIELD_LABEL_HIDDEN*/
+
+.d-textfield_label_hidden {
+  .d-textfield__label {
+    &[class*="d-icon-left"]::before,
+    &[class*="d-icon-right"]::after {
+      top: 0;
+    }
+  }
+  .d-textfield__item {
+    position: absolute;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+  }
+}
+
+/*BEGIN D-TEXTFIELD_INLINE*/
+
+.d-textfield_inline {
+  .d-textfield__label {
+    display: table;
+    width: $textfield-max-width;
+    &[class*="d-icon-left"]::before,
+    &[class*="d-icon-right"]::after {
+      bottom: 0;
+    }
+    &[class*="d-icon-left"]::before {
+      left: 20%;
+    }
+    .d-textfield__input,
+    .d-textfield__item {
+      display: table-cell;
+      vertical-align: middle;
+    }
+    .d-textfield__item {
+      width: 20%;
+      padding-bottom: 0;
+    }
+  }
+}
+
+/*BEGIN D-TEXTFIELD_LARGE*/
+
+.d-textfield_large {
+  .d-textfield__input {
+    padding-top: 6px;
+    padding-bottom: 6px;
+  }
+  .d-textfield__label {
+    &[class*="d-icon-left"]::before,
+    &[class*="d-icon-right"]::after {
+      height: $textfield-large;
+      line-height: $textfield-large;
+    }
+  }
+}
+
+/*BEGIN D-TEXTFIELD_DISABLED*/
+
+.d-textfield_disabled {
+  .d-textfield__label {
+    cursor: not-allowed;
+  }
+}
+
+/*BEGIN D-TEXTFIELD VALIDATION*/
+
+.d-textfield_invalid {
+  .d-textfield__label[class*="d-icon-"] {
+    &::after {
+      color: $textfield-invalid-color;
+      content: "\e646";
+    }
+  }
+  .d-textfield__input {
+    border-color: $textfield-invalid-color;
+    &:focus,
+    &:hover {
+      border-color: $textfield-invalid-color;
+    }
+  }
+}
+
+.d-textfield_valid {
+  .d-textfield__label[class*="d-icon-right"] {
+    &::after {
+      color: $textfield-valid-color;
+      content: "\e622";
+    }
+  }
+  .d-textfield__input {
+    border-color: $textfield-valid-color;
+    &:focus,
+    &:hover {
+      border-color: $textfield-valid-color;
+    }
+  }
+}
+.d-textfield_focus_tab {
+  .d-textfield__input {
+    outline: 1px solid rgba(0, 167, 157, .7) !important;
+  }
+}

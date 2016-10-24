@@ -1,0 +1,919 @@
+$rx-designer-inspector-content-margin: 18px;
+$rx-designer-inspector-group-height: $rx-blade-collapsible-group-header-height;
+
+@mixin rx-designer-inspector-empty-text {
+  background: inherit;
+  text-align: left;
+  padding-left: 24px;
+  font-weight: normal;
+  font-size: 14px;
+  margin-right: 20px;
+  margin-top: 15px;
+  color: $gray-dusty;
+}
+
+@mixin rx-designer-inspector-group {
+  border-bottom: $rx-designer-stencil-border;
+  padding: 0 0 10px;
+  position: relative;
+  min-width: $rx-blade-width - 2*$rx-designer-inspector-content-margin;
+
+  > .group-label {
+    left: 0;
+    margin-right: 0;
+    padding: 0 10px 0 20px;
+    line-height: $rx-designer-inspector-group-height;
+    border: none;
+    font-size: $font-size;
+    text-transform: uppercase;
+    font-weight: 700;
+    background: $rx-designer-stencil-background;
+    color: $gray-mine-shaft;
+    cursor: pointer;
+    user-select: none;
+
+    &:before {
+      display: none;
+    }
+
+    &:after {
+      content: "\e606";
+      position: absolute;
+      right: 20px;
+      font-family: dpl-icon-font;
+      font-size: 18px;
+    }
+  }
+
+  &.closed {
+    height: $rx-designer-inspector-group-height + 1px;
+
+    > .group-label {
+      margin-bottom: 10px;
+
+      &:after {
+        content: "\e603";
+      }
+    }
+  }
+}
+
+rx-designer-inspector {
+  display: block;
+
+  .hidden {
+    display: none !important;
+  }
+
+  .readonly {
+    button {
+      display: none !important;
+    }
+  }
+
+  .rx-blocker {
+    //Allows user to scroll inspector when it is in disabled state i.e. covered with rx-blocker
+    right: 12px;
+  }
+
+  .rx-inspector-empty-text {
+    @include rx-designer-inspector-empty-text;
+  }
+
+  .inspector {
+    background-color: $white;
+    color: $gray-dusty;
+    overflow-y: auto;
+
+    input {
+      height: 28px;
+      text-shadow: none;
+      box-shadow: none;
+    }
+
+    // suppress the rule that adds a ':' to labels in the inspector
+    // since it interferes with the rule that adds the '*' for required fields
+    label:after {
+      content: "";
+    }
+
+    .text,
+    .number,
+    .textarea,
+    textarea,
+    input[type=text],
+    .select {
+      @extend .rx-input;
+      text-shadow: none;
+    }
+
+    .select {
+      @extend .rx-select;
+    }
+
+    .group {
+      @include rx-designer-inspector-group;
+      overflow: visible;
+
+      > .field {
+        padding: 0 20px;
+
+        .tooltip-icon {
+          float: right;
+        }
+      }
+
+      .field {
+        output {
+          display: inline-block;
+          font-size: $rx-font-size-small;
+          color: $gray-dusty;
+        }
+
+        .toggle {
+          padding-bottom: 25px;
+
+          > input[type=checkbox] {
+            width: 51px;
+          }
+
+          > span {
+            width: 50px;
+            height: 24px;
+            border-radius: 2px;
+            background-color: $gray-dusty;
+            box-shadow: none;
+            text-shadow: none;
+
+            &:hover {
+              background-color: $gray-dove;
+            }
+
+            > i {
+              height: 20px;
+              width: 20px;
+              background-color: $rx-blade-background;
+              background: linear-gradient($rx-blade-background, $rx-blade-background);
+              top: 2px;
+              right: 28px;
+              box-shadow: none;
+
+              &:before {
+                content: "";
+              }
+            }
+          }
+
+          input[type=checkbox]:hover + span {
+            background-color: $gray-dove;
+          }
+
+          input:checked:hover + span {
+            background-color: $teal__hover;
+          }
+
+          input:checked + span {
+            background: $teal;
+          }
+
+          input:checked + span i {
+            right: 2px;
+          }
+
+          input:checked + span i:before {
+            right: 30px;
+            top: 7px;
+            font-size: 13px;
+            border-radius: 2px;
+            content: "\e625";
+            color: $rx-blade-background;
+            padding-left: 5px;
+            font-family: dpl-icon-font;
+          }
+
+          input:disabled + span {
+            background: $gray-dusty;
+          }
+
+          input:disabled:hover + span {
+            background-color: $gray-dusty;
+          }
+        }
+
+        input[type=range] {
+          margin-bottom: 10px;
+        }
+
+        p {
+          margin: 0 !important;
+        }
+
+        label {
+          margin: 10px 0 6px 0;
+          font-family: inherit;
+          color: $gray-dusty;
+          word-wrap: break-word;
+
+          &.d-icon-check_circle:before,
+          &.d-icon-circle_o:before {
+            font-size: 16px;
+          }
+        }
+
+        label.teal.d-icon-check_circle:before {
+          color: $teal;
+        }
+
+        .rx-inspector-checkbox-multiselect {
+          .inspectorToggleGroup {
+            border: 1px solid $gray-alto;
+            border-bottom: none;
+            height: 100%;
+
+            &:last-of-type {
+              border-bottom: 1px solid $gray-alto;
+            }
+          }
+
+          .selectionItem {
+            margin-left: 10px;
+            width: auto;
+          }
+        }
+
+        .rx-inspector-optional-select {
+          .rx-inspector-optional-select-group {
+            display: flex;
+          }
+
+          .rx-inspector-optional-select-options {
+            flex-grow: 1;
+          }
+
+          .toggle {
+            width: auto;
+            margin-right: 5px;
+          }
+
+          select {
+            font-size: 13px;
+            padding: 2px 2px;
+            height: 25px;
+          }
+        }
+
+        .rx-inspector-optional-expression {
+          .rx-inspector-optional-expression-group {
+            display: flex;
+          }
+
+          .rx-inspector-optional-expression-select {
+            flex-grow: 1;
+          }
+
+          .rx-inspector-optional-expression-input {
+            label {
+              display: inline-block;
+              vertical-align: top;
+            }
+          }
+
+          .toggle {
+            width: auto;
+            margin-right: 5px;
+          }
+
+          select {
+            font-size: 13px;
+            padding: 2px 2px;
+            height: 25px;
+          }
+        }
+
+        .rx-inspector-link {
+          font-size: $rx-font-size-small;
+          font-family: inherit;
+        }
+
+        .rx-inspector-select-expression-dropdown {
+          .dropdown-menu {
+            left: initial;
+            min-width: 241px;
+          }
+        }
+
+        .rx-inspector-expression-field,
+        .rx-inspector-expression-node-field,
+        .rx-inspector-expression-textarea-field,
+        .rx-inspector-timer-textarea-field,
+        .rx-inspector-expression-select,
+        .rx-inspector-expression-input-select,
+        .rx-inspector-optional-select,
+        .rx-inspector-optional-expression,
+        .rx-inspector-approval-flow-selector-field,
+        .rx-inspector-tooltip-field,
+        .rx-inspector-timer-field,
+        .rx-inspector-input-map-fields,
+        .rx-inspector-select-expression-dropdown,
+        .rx-inspector-expression-field-label,
+        .rx-inspector-read-only-text {
+
+          .rx-new-expression-link {
+            display: block;
+          }
+
+          .full-expression {
+            padding: 3px;
+            color: $gray-dusty;
+
+            .rx-compiled-expression {
+              width: 100%;
+              overflow: hidden;
+              text-overflow: ellipsis;
+            }
+
+            &:hover {
+              background-color: $gray-concrete;
+            }
+
+            .rx-inspector-expression-tag {
+              margin-bottom: 4px;
+              padding: 0 3px;
+              display: inline-block;
+              color: $gray-dove;
+              background-color: $gray-alto;
+              border: 1px solid $gray-alto;
+              border-radius: 2px;
+            }
+
+            .rx-inspector-invalid-tag {
+              padding: 0 3px;
+              display: inline-block;
+              background-color: $red;
+              color: $white;
+            }
+
+            .rx-inspector-operator-tag {
+              display: inline-block;
+              color: $gray-mine-shaft;
+            }
+          }
+
+          > label {
+            vertical-align: top;
+          }
+
+          .edit-link {
+            margin-left: 5px;
+
+            @extend .rx-inspector-link;
+            float: right;
+            display: inline-block;
+
+            &:before {
+              padding-right: 10px;
+            }
+          }
+
+          .field-item {
+              margin-top: 5px;
+              border: 1px solid $gray-alto;
+              border-radius: 2px;
+              padding: 5px 10px;
+              font-size: 14px;
+              color: $gray-mine-shaft;
+              display: flex;
+              justify-content: space-between;
+              word-break: break-all;
+              font-weight: bold;
+          }
+        }
+
+        .rx-inspector-tooltip-field {
+          .edit-link {
+            &:before {
+              padding-right: 0;
+            }
+
+            &:hover {
+              color: $teal;
+            }
+          }
+        }
+
+        .list {
+          margin-top: 10px;
+
+          .list-item {
+            position: relative;
+            background-color: $white;
+            border: none;
+            border-radius: 2px;
+            margin-top: 10px;
+
+            input, select {
+              width: 100% !important;
+            }
+
+            .object {
+              margin-top: -3px;
+
+              .object-properties {
+                .object-property {
+                  .field > label {
+                    margin-top: 10px;
+                  }
+
+                  .rx-inspector-expression-field > label {
+                    width: 139px;
+                  }
+
+                  .input-group-btn > .btn {
+                    height: 28px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .rx-group-list {
+      background-color: $gray-concrete;
+      margin: 1px 0px;
+      padding-bottom: 5px;
+
+      .group-label {
+        line-height: $rx-designer-inspector-group-height;
+        padding-left: 20px;
+        border-bottom: $rx-designer-stencil-border;
+      }
+
+      .list {
+        .list-item {
+          .btn-list-del {
+            margin: 0px -8px;
+            padding: 0px;
+          }
+        }
+
+        .btn-list-add {
+          padding: 0px;
+        }
+      }
+    }
+
+    .btn-list-add {
+      box-shadow: none;
+      color: $gray-concrete;
+      width: auto;
+      margin: 0;
+      border: none;
+      outline: none;
+
+      &:before {
+        content: "\e684";
+        font-family: dpl-icon-font;
+        color: $teal;
+      }
+
+      &:after {
+        content: "Add";
+        font-size: $rx-font-size-small;
+        bottom: 2px;
+        color: $teal;
+      }
+
+      &:hover, &:focus {
+        border: none;
+        box-shadow: none;
+        outline: none;
+      }
+    }
+
+    .btn-list-del {
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      box-shadow: none;
+      margin-top: -6px;
+      margin-right: -4px;
+      color: $gray-concrete;
+      border: none;
+      outline: none;
+
+      &:before {
+        content: "\e639";
+        font-family: dpl-icon-font;
+        visibility: visible;
+        color: $gray-dove;
+      }
+
+      &:hover, &:focus {
+        border: none;
+        box-shadow: none;
+        outline: none;
+      }
+    }
+
+    .d-dropdown {
+      .d-dropdown__menu {
+        left: auto;
+        right: 0;
+      }
+    }
+
+    rx-inspector-group-button {
+      .d-button-group {
+        width: 100%;
+      }
+    }
+  }
+}
+
+rx-inspector-checkbox-field {
+  margin: 10px 0 6px;
+  display: block;
+
+  .d-checkbox__label {
+    &,
+    rx-designer-inspector .inspector .group & {
+      display: inline;
+      color: $gray-dove;
+      font-size: 14px;
+    }
+  }
+}
+
+rx-date-field-editor,
+rx-date-time-field-editor,
+rx-inspector-datetimepicker,
+rx-inspector-datepicker,
+rx-inspector-timepicker {
+  ul.dropdown-menu table {
+    .btn-sm, .btn-group-sm > .btn {
+      font-size: 10px;
+      padding: 4px 8px;
+    }
+  }
+}
+
+rx-date-field-editor,
+rx-date-time-field-editor {
+  .input-group span.input-group-btn > .btn {
+    padding: 3px 12px;
+  }
+}
+
+rx-inspector-datetimepicker,
+rx-inspector-datepicker {
+  .input-group-btn .btn {
+    padding: 3px 12px;
+  }
+
+  .ng-invalid-date {
+    &,
+    rx-designer-inspector .inspector .group & {
+      &,
+      &:focus,
+      & ~ .input-group-btn .btn {
+        border: 1px solid $red;
+      }
+    }
+  }
+}
+
+rx-inspector-datetimepicker,
+rx-inspector-timepicker {
+  .d-timepicker {
+    &.ng-invalid-time input.d-timepicker__input {
+      border: 1px solid $red;
+    }
+
+    .d-timepicker {
+      &__label {
+        display: inline-block;
+      }
+    }
+
+    label {
+      rx-designer-inspector .inspector .group & {
+        margin: 0;
+      }
+    }
+
+    .d-timepicker__increase,
+    .d-timepicker__decrease {
+      height: 14px;
+    }
+  }
+
+  .rx-inspector-timepicker__clear {
+    margin-top: 10px;
+  }
+}
+
+rx-inspector-datetimepicker {
+  .d-timepicker {
+    margin: 10px 0 6px;
+  }
+}
+
+rx-selection-field-editor {
+  select {
+    width: 100%;
+  }
+}
+
+.rx-inspector-expression-field > label {
+  width: 159px;
+}
+
+rx-inspector-multiselect-dropdown {
+  .d-dropdown {
+    .d-dropdown__trigger {
+      box-shadow: none;
+      color: $teal;
+      width: auto;
+      margin: 0;
+      border: none;
+      outline: none;
+
+      &:before {
+        padding-right: 3px;
+      }
+    }
+
+    .d-dropdown__menu {
+      padding: 5px;
+
+      [type="search"] {
+        text-shadow: none;
+      }
+
+      .options-container {
+        height: 300px;
+        padding-left: 5px;
+        overflow-y: auto;
+        overflow-x: hidden;
+
+        label > span {
+          color: $gray-mine-shaft;
+        }
+      }
+    }
+  }
+
+  .selected-options {
+    border: 1px solid $gray-dusty;
+    border-radius: 2px;
+    padding: 5px 10px 5px;
+    margin: 3px 0;
+    color: $gray-mine-shaft;
+  }
+}
+
+rx-inspector-filter-select {
+  display: inline-block;
+  width: 100%;
+
+  .rx-inspector-filter-select > label {
+    position: relative;
+
+    .tooltip-icon {
+      margin-right: 80px;
+    }
+  }
+
+  rx-search-filter {
+    display: inline;
+    padding: 0;
+    float: right;
+    width: 100%;
+
+    .d-accordion {
+      overflow: auto;
+      max-height: 300px;
+    }
+
+    > .d-dropdown {
+      position: absolute;
+      top: 0;
+      width: 30%;
+      right: 0;
+      margin: 0;
+    }
+
+    .d-dropdown__trigger.d-button_large {
+      line-height: 18px;
+      height: 20px;
+      font-size: $rx-font-size-small;
+    }
+
+    .d-dropdown__trigger.d-icon-left-filter:before,
+    .d-dropdown__trigger.d-icon-right-angle_down:after {
+      font-size: $rx-font-size-small;
+      vertical-align: middle;
+    }
+
+    .search__filter-dropdown {
+      width: 260px;
+
+      .dropdown-item_date-ranges {
+        min-height: 220px;
+      }
+
+      .dropdown-item_date-range > .dropdown-menu {
+        top: 0 !important;
+        left: 0 !important;
+        padding: 2px 0 0;
+        margin: 0;
+
+        .btn {
+          font-size: 10px;
+        }
+      }
+    }
+  }
+
+  rx-tag-pills {
+    display: inline-block;
+    padding: 5px 0;
+
+    .tag-pill-item span.d-tag {
+      height: inherit;
+    }
+
+    .show__more-tags.d-dropdown {
+      width: 100%;
+    }
+
+    ul.d-dropdown__menu {
+      left: 0 !important;
+      right: 0 !important;
+    }
+  }
+}
+
+rx-inspector-text-message {
+  font-size: $rx-font-size-small;
+}
+
+.rx-inspector-dialog {
+  .modal-dialog {
+    margin: 0;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 350px;
+  }
+
+  .modal-header {
+    background-color: $gray-alto;
+  }
+
+  .modal-title {
+    font-size: $font-size;
+  }
+
+  .modal-body {
+    max-height: 400px;
+    overflow: auto;
+  }
+}
+
+.rx-inspector-select-with-validation-messages {
+  margin-bottom: 10px;
+
+  &__validation-issue {
+    &-message {
+      color: $gray-mine-shaft;
+      font-size: 12px;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    &-action {
+      font-size: 13px;
+      color: $red;
+      display: block;
+      margin-bottom: 15px;
+      text-align: right;
+    }
+  }
+}
+
+rx-inspector-tag-input {
+  tags-input .d-input-tags {
+    overflow: auto;
+    height: auto;
+    padding-left: 3px;
+  }
+
+  tags-input .autocomplete {
+      z-index: 999;
+  }
+
+  tags-input .autocomplete .suggestion-list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    border: 1px solid $border-color;
+    color: $gray-dove;
+  }
+
+  tags-input .autocomplete .suggestion-item {
+    padding: 5px 10px;
+    cursor: pointer;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  tags-input .autocomplete .suggestion-item.selected {
+    background-color: $gray-concrete;
+  }
+
+  .d-input-tags input[type=text] {
+    width: 100% !important;
+    margin: 2px;
+  }
+}
+
+rx-inheritance-selector {
+  [class*="d-icon-"] {
+    color: $gray-mine-shaft;
+  }
+  .d-checkbox {
+    .d-icon-left-question_circle {
+      margin-left: 5px;
+    }
+  }
+  .rx-inheritance-record-form {
+    border: 1px solid $border-color;
+    padding: 5px;
+
+    > .d-dropdown {
+      width: 100%;
+    }
+  }
+}
+
+rx-inspector-column-span {
+  display: block;
+
+  table {
+    border: 0;
+
+    td {
+      height: 28px;
+      border: 1px solid $border-color;
+      text-align: center;
+    }
+  }
+}
+
+rx-customization-perspective {
+  > div {
+    min-height: 5px;
+  }
+}
+
+.rx-customization-options-modal {
+  .modal-dialog {
+    width: 800px;
+  }
+
+  .d-modal__content {
+    position: relative;
+  }
+
+  .rx-customization-option {
+    margin-bottom: 5px;
+  }
+
+  .rx-customization-option-hint {
+    padding-left: 24px;
+    margin: 10px 0;
+    font-size: 12px;
+  }
+
+  .rx-customization-option-dependants-table {
+    margin-top: 15px;
+    width: 100%;
+
+    .rx-customization-option-dependant-scroll-area {
+      height: 300px;
+      overflow-y: auto;
+    }
+
+    .rx-customization-option-dependant-cell {
+      display: inline-block;
+      border-bottom: 1px solid $border-color;
+      height: 28px;
+      line-height: 28px;
+      width: 33%;
+    }
+  }
+}

@@ -1,0 +1,140 @@
+﻿.rx-global-search-header {
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.tms-tasks-grid-container {
+  height: inherit;
+}
+
+.rx-global-search-label {
+  float: left;
+}
+
+.rx-global-search-bar {
+  float: left;
+  position: absolute;
+  display: block;
+  margin: 8px 10px 0px 300px;
+  line-height: 1;
+  text-align: center;
+}
+
+.rx-global-search-textField {
+  width: 400px !important;
+}
+
+.rx-global-search-filter {
+  margin: 7px 10px 0px 720px;
+  padding-top: 12px;
+}
+
+.global-search .d-icon-left-filter {
+  color: $teal;
+  line-height: 32px;
+}
+
+.rx-global-search-dropdown {
+  display: flex;
+  margin-left: auto;
+  align-items: center;
+
+  .rx-global-search-dropdown__menu-options-item-option {
+    &:before {
+      padding-right: 5px;
+      font-family: "dpl-icon-font";
+      font-weight: normal;
+      font-style: normal;
+      font-variant: normal;
+      line-height: 1;
+      vertical-align: baseline;
+      text-transform: none;
+    }
+  }
+
+  .dropdown-menu > li > a {
+    color: $teal;
+    background-color: transparent;
+    text-decoration: none;
+    padding: 0px;
+    display: inline;
+  }
+}
+
+.rx-global-search-dropdown_menu {
+  padding: 10px;
+}
+
+.rx-global-search-dropdown_menu_item {
+  margin-bottom: 10px;
+}
+
+.rx-global-search-dropdown_menu_item_none {
+  margin-left: 15px
+}
+
+.rx-global-search-dropdown-item_selected {
+  &:before {
+    content: "\e624";
+  }
+}
+
+.rx-global-search-dropdown-item {
+  &:before {
+    content: "\e69c";
+  }
+}
+
+.rx-global-search-highlighted {
+  background: $yellow;
+}
+
+.rx-global-search {
+  height: 96%;
+
+  rx-record-grid-toolbar {
+    display: none !important;
+  }
+
+  .ui-grid {
+    height: 100% !important;
+
+  }
+
+  .ui-grid-render-container-body {
+    height: inherit !important;
+  }
+
+  .ui-grid-pinned-container {
+    display: none !important;
+  }
+
+  .ui-grid-viewport {
+    overflow-x: hidden !important;
+    height: inherit !important;
+  }
+
+  .ui-grid-row {
+    float: left;
+    height: auto !important;
+
+    .ui-grid-cell {
+      border-bottom: 0px !important;
+      height: auto !important;
+      padding-bottom: 10px;
+      border-right: none !important;
+      max-width: 90% !important;
+    }
+
+    .ui-grid-cell:first-child {
+      max-width: 30px !important;
+      min-width: 30px !important;
+    }
+
+    :hover {
+      .ui-grid-cell {
+        background-color: $white !important;
+      }
+    }
+  }
+}

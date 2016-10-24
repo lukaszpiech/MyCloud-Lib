@@ -1,0 +1,89 @@
+@import "../dpl-components-variables";
+@import "../dpl-components-mixins";
+$button-group-border-radius: $border-radius;
+$button-group-primary-text-color: $gray-dove;
+$button-group-primary-bg-color: $gray-concrete;
+$button-group-primary-bg-color-hover: $gray-concrete__hover;
+$button-group-primary-bg-color-active: $gray-concrete__active;
+$button-group-primary-bg-color-checked: $teal;
+$button-group-primary-bg-color-checked-hover: $teal__hover;
+$button-group-primary-bg-color-checked-active: $teal__active;
+
+
+@mixin d-button-group() {
+  display: table;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@mixin d-button-group-item() {
+  display: table-cell;
+  .d-button {
+    width: 100%;
+    border-radius: 0;
+    text-align: center;
+  }
+  &:first-child {
+    .d-button {
+      border-radius: $button-group-border-radius 0 0 $button-group-border-radius;
+    }
+  }
+  &:last-child {
+    .d-button {
+      border-radius: 0 $button-group-border-radius $button-group-border-radius 0;
+    }
+  }
+}
+
+@mixin d-button-group-item-primary() {
+  padding-left: 1px;
+  &:first-child {
+    padding-left: 0;
+  }
+  .d-button {
+    &:not(.is-checked) {
+      color: $button-group-primary-text-color !important;
+      background-color: $button-group-primary-bg-color;
+      &:hover {
+        background-color: $button-group-primary-bg-color-hover;
+      }
+      &:active {
+        background-color: $button-group-primary-bg-color-active;
+      }
+    }
+    &.is-checked {
+      background-color: $button-group-primary-bg-color-checked;
+      &:hover {
+        background-color: $button-group-primary-bg-color-checked-hover;
+      }
+      &:active {
+        background-color: $button-group-primary-bg-color-checked-active;
+      }
+    }
+  }
+}
+@mixin d-button-group-item-secondary() {
+  .d-button {
+    border-left-width: 0;
+  }
+  &:first-child {
+    .d-button {
+      border-left-width: 1px;
+    }
+  }
+}
+
+
+.d-button-group {
+  @include d-button-group();
+}
+.d-button-group__item {
+  @include d-button-group-item();
+}
+.d-button-group_primary .d-button-group__item {
+  @include d-button-group-item-primary();
+}
+.d-button-group_secondary .d-button-group__item {
+  @include d-button-group-item-secondary();
+}

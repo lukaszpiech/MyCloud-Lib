@@ -1,0 +1,60 @@
+.rx-multiselect {
+  position: relative;
+
+  &.open .rx-multiselect__drop {
+    visibility: visible;
+  }
+}
+
+.rx-multiselect__trigger {
+  text-align: left;
+  
+  &:after {
+    float: right;
+    margin-top: 3px;
+  }
+}
+
+.rx-multiselect-search__textfield {
+  margin-bottom: 0;
+}
+
+.rx-multiselect__drop {
+  position: absolute;
+  z-index: 101;
+  top: 100%;
+  left: 0;
+  padding: 10px;
+  overflow: hidden;
+  min-width: 145px;
+  border: 1px solid $gray-alto;
+  background: $white;
+  text-align: left;
+  max-width: 100%;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, .2);
+  visibility: hidden;
+}
+
+.rx-multiselect-search__button.d-button {
+  color: $teal;
+
+  & + & {
+    margin-left: 5px;
+  }
+}
+
+.rx-multiselect-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.rx-multiselect-list__item {
+  & + & {
+    margin-top: 5px;
+  }
+
+  .d-checkbox__label {
+    margin-top: 0;
+  }
+}

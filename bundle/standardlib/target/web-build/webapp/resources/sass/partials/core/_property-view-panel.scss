@@ -1,0 +1,37 @@
+rx-property-view-panel {
+  .rx-property-view-panel-section {
+    margin: 18px 18px 0;
+    padding: 0;
+    position: relative;
+    min-width: 244px;
+    overflow: visible;
+  }
+
+  .rx-property-view-panel-field {
+    margin-bottom: 15px;
+  }
+
+  .rx-property-label {
+    color: $gray-dusty;
+    margin-bottom: 5px;
+  }
+
+  .rx-property-view-panel-groups {
+    position: absolute;
+    top: 36px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow: auto;
+
+    .rx-property-view-panel-group {
+      @include rx-designer-inspector-group;
+
+      &.closed {
+        .rx-property-view-panel-section {
+          display: none;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,78 @@
+@import "../dpl-components-mixins";
+@import "carousel-variables";
+
+.d-carousel {
+  position: relative;
+  overflow: hidden;
+  width: 720px;
+  margin: 0 auto;
+}
+
+.d-carousel__list {
+  position: relative;
+  width: 20000em;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.d-carousel__item {
+  float: left;
+}
+
+.d-carousel__next,
+.d-carousel__prev {
+  position: absolute;
+  top: $carousel-max-width/2;
+  display: table-cell;
+  width: 100px;
+  height: 42px;
+  margin-top: -21px;
+  font-size: 42px;
+  line-height: 42px;
+  color: $carousel-btn-color;
+  cursor: pointer;
+  text-align: center;
+  vertical-align: middle;
+
+  @include transition(color .25s ease-in-out);
+  &:hover {
+    color: $carousel-btn-color-hover;
+  }
+}
+
+.d-carousel__next {
+  right: 0;
+}
+
+.d-carousel__prev {
+  left: 0;
+}
+
+.d-carousel-pagination {
+  margin-top: 22px;
+  text-align: center;
+  /*==Default styles from plugin==*/
+  > a {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 16px;
+    font-size: 0;
+    background: $carousel-btn-color;
+    text-align: center;
+
+    @include transition(background .3s linear);
+    @include border-radius(50%);
+    &:last-child {
+      margin-right: 0;
+    }
+    &:hover {
+      background: $carousel-pagination-color-hover;
+    }
+  }
+  /*==Default classes from plugin==*/
+  .active {
+    background: $carousel-pagination-color-active;
+  }
+}

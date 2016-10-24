@@ -1,0 +1,155 @@
+@import "/standardlib/lib/ckeditor-4.5.9/skins/moono/editor_ie.css";
+
+.cke_chrome {
+    box-shadow: none;
+}
+
+.cke_inner {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+}
+
+.cke_top {
+    background: transparent none;
+    box-shadow: none;
+}
+
+.cke_float .cke_top {
+    border: none;
+}
+
+.cke_toolbar_separator {
+    margin: 5px 10px 0;
+    background: none;
+    box-shadow: none;
+}
+
+.cke_toolbar:first-child {
+    margin: 5px 0 5px;
+}
+
+.cke_toolbar:nth-child(3) {
+    margin-left: 5px;
+}
+
+.cke_toolgroup {
+    background: transparent none;
+    border: none;
+    box-shadow: none;
+}
+
+.cke_combo_text {
+    color: #666;
+}
+
+.cke_combo__format .cke_combo_text,
+.cke_combo__styles .cke_combo_text,
+.cke_combo__font .cke_combo_text {
+    width: 100px;
+}
+
+a.cke_button {
+    height: 22px;
+}
+
+.cke_button_icon {
+    width: 20px;
+    height: 20px;
+}
+
+a.cke_button_off:hover,
+a.cke_button_off:focus,
+a.cke_button_off:active {
+    box-shadow: none;
+    background: #f3f3f3;
+}
+
+a.cke_button_on {
+    box-shadow: 0 0 3px rgba(0, 0, 0, .3) inset;
+    background: none;
+}
+
+a.cke_button_on:hover,
+a.cke_button_on:focus,
+a.cke_button_on:active {
+    background: #c5c5c5;
+    box-shadow: 0 0 3px rgba(0, 0, 0, .3) inset;
+}
+
+a.cke_combo_button {
+    border: none;
+    background: transparent none;
+    box-shadow: 0 0 2px rgba(0, 0, 0, .5);
+}
+
+.cke_combo_off a.cke_combo_button:active,
+.cke_combo_off a.cke_combo_button:hover,
+.cke_combo_off a.cke_combo_button:focus {
+    border: none;
+    background: #f3f3f3 none;
+    box-shadow: 0 0 2px rgba(0, 0, 0, .5);
+}
+
+.cke_combo_on a.cke_combo_button,
+.cke_combo_on a.cke_combo_button,
+.cke_combo_on a.cke_combo_button {
+    border: none;
+    background: #f3f3f3 none;
+    box-shadow: 0 0 3px rgba(0, 0, 0, .3) inset;
+}
+
+.cke_combo_on a.cke_combo_button:active,
+.cke_combo_on a.cke_combo_button:hover,
+.cke_combo_on a.cke_combo_button:focus {
+    border: none;
+    background: #c5c5c5 none;
+    box-shadow: 0 0 3px rgba(0, 0, 0, .3) inset;
+}
+
+.cke_button__bold_icon {
+    background: url(icons.png) no-repeat 0 2px !important;
+}
+
+.cke_button__italic_icon {
+    background: url(icons.png) no-repeat 0 -22px !important;
+}
+
+.cke_button__strike_icon {
+    background: url(icons.png) no-repeat 0 -46px !important;
+}
+
+.cke_button__underline_icon {
+    background: url(icons.png) no-repeat 0 -70px !important;
+}
+
+.cke_button__link_icon {
+    background: url(icons.png) no-repeat 0 -95px !important;
+}
+
+.cke_button__unlink_icon {
+    background: url(icons.png) no-repeat 0 -143px !important;
+}
+
+.cke_ltr .cke_button__numberedlist_icon {
+    background: url(icons.png) no-repeat 0 -192px !important;
+}
+
+.cke_ltr .cke_button__bulletedlist_icon {
+    background: url(icons.png) no-repeat 0 -240px !important;
+}
+
+.cke_ltr .cke_button__outdent_icon {
+    background: url(icons.png) no-repeat 0 -289px !important;
+}
+
+.cke_ltr .cke_button__indent_icon {
+    background: url(icons.png) no-repeat 0 -361px !important;
+}
+
+.cke_button__expressioneditor_icon,
+.cke_button__justifyleft_icon,
+.cke_button__justifycenter_icon,
+.cke_button__justifyright_icon,
+.cke_button__textcolor_icon {
+    background-size: auto !important;
+}

@@ -1,0 +1,104 @@
+@import "../dpl-components-mixins";
+@import "counter-variables";
+
+.d-counter {
+  margin-bottom: 10px;
+
+  &.d-timepicker__no-label {
+    .d-timepicker__label_name {
+      @extend .sr-only;
+    }
+  }
+  .d-counter__unit,
+  .d-counter__label_name {
+    display: block;
+  }
+  .d-counter__label_name {
+    margin-bottom: 10px;
+  }
+}
+.d-counter_required {
+  .d-counter__label_name {
+    &:after {
+      font-size: $font-size-small;
+      color: $required-label-color;
+      content: " (required)";
+    }
+  }
+}
+
+.d-counter__inline {
+  .d-counter__unit,
+  .d-counter__label_name {
+    display: inline-block;
+  }
+  .d-counter__label_name {
+    margin-bottom: 0;
+  }
+}
+
+.d-timepicker__label_name {
+  display: block;
+  margin-bottom: 10px;
+}
+.d-counter__increase,
+.d-counter__decrease {
+  position: absolute;
+  right: 1px;
+  width: 16px;
+  height: 13px;
+  font-size: $font-size-small;
+  color: $counter-arrows-color;
+  border-left: 1px solid $formfield-border-color;
+  background: $counter-arrows-background;
+  text-align: center;
+  &:hover {
+    color: $counter-arrows-color-hover;
+  }
+  &:before {
+    vertical-align: 2px;
+  }
+  &.is-disabled {
+    cursor: not-allowed;
+    &:hover {
+      color: $counter-arrows-color;
+    }
+  }
+}
+.d-counter__increase {
+  top: 1px;
+}
+
+.d-counter__decrease {
+  bottom: 1px;
+  border-radius: 0 0 1px 0;
+}
+
+.d-counter__unit {
+  position: relative;
+  display: inline-block;
+  width: auto;
+  min-width: 53px;
+  .d-counter__input {
+    padding-right: 2px;
+  }
+  &:hover {
+    .d-counter__input {
+      border-color: $formfield-border-color__focus;
+    }
+    .d-icon-angle_up,
+    .d-icon-angle_down {
+      border-left-color: $formfield-border-color__focus;
+      background: $counter-arrows-background-hover;
+      cursor: pointer;
+      &.is-disabled {
+        cursor: not-allowed;
+      }
+    }
+  }
+}
+.d-counter__small {
+  .d-counter__unit {
+    width: 80px;
+  }
+}

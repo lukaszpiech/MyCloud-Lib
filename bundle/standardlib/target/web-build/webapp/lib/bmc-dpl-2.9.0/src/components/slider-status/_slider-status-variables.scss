@@ -1,0 +1,14 @@
+@import "../dpl-components-variables";
+
+/* { #BEGIN VARIABLES FOR SLA PROGRESS } */
+
+$d-sla-width: 100% !default;
+$d-sla-font-size: 14px !default;
+$d-sla-size-h6: 16px !default;
+$d-sla-size-h3: 20px !default;
+$d-sla-white-color: $white           !default;// #fff
+$d-sla-colored-color: $green           !default;// #89c341
+$d-sla-critical-color: $red             !default;// #f83200
+$d-sla-resolved-color: $gray-dusty      !default;// #999;
+$d-sla-icon-color: $gray-dove       !default;// #666;
+$d-sla-item-color: $gray-mine-shaft !default;// #333;

@@ -1,0 +1,22 @@
+.decorator_login .page_login {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+
+    .logo__wrapper {
+        text-align: left;
+    }
+
+    .block {
+        display: block;
+        height: auto;
+
+        & > * {
+            display: block;
+        }
+    }
+
+    .block_form {
+        flex: 1;
+    }
+}

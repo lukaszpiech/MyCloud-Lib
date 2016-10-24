@@ -1,0 +1,37 @@
+@import "../dpl-components-variables";
+$button-border-radius: $border-radius !default;
+// Primary button
+$button-primary-text-color: $white !default;
+$button-primary-bg-color: $orange !default;
+$button-primary-bg-color-hover: $orange__hover !default;
+$button-primary-bg-color-active: $orange__active !default;
+
+// Primary service button
+$button-primary-service-text-color: $white !default;
+$button-primary-service-bg-color: $teal !default;
+$button-primary-service-bg-color-hover: $teal__hover !default;
+$button-primary-service-bg-color-active: $teal__active !default;
+
+// Secondary button
+$button-secondary-text-color: $gray-mine-shaft;
+$button-secondary-border-color: $gray-dusty;
+$button-secondary-bg-color: $white;
+$button-secondary-bg-color-hover: $white__hover;
+$button-secondary-bg-color-active: $white__active;
+
+// Secondary success button
+$button-secondary-success-text-color: $green !default;
+$button-secondary-success-text-color-hover: $green__hover !default;
+$button-secondary-success-text-color-active: $green__active !default;
+$button-secondary-success-bg-color-hover: lighten($green, 40%) !default;
+
+// Secondary error button
+$button-secondary-error-text-color: $red !default;
+$button-secondary-error-text-color-hover: $red__hover !default;
+$button-secondary-error-text-color-active: $red__active !default;
+$button-secondary-error-bg-color-hover: lighten($red, 45%) !default;
+
+// Action button
+$button-action-text-color: $gray-dove !default;
+$button-action-text-color-hover: $teal !default;
+$button-action-text-color-active: $teal__hover !default;

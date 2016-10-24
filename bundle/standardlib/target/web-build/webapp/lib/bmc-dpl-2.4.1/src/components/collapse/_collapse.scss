@@ -1,0 +1,13 @@
+.d-details {
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.d-collapse-panel {
+  &.collapse {
+    display: none;
+  }
+  &.in {
+    display: block;
+  }
+}

@@ -1,0 +1,64 @@
+@import "../components/dpl-components-variables";
+
+// CSS CLASSES FOR PRELOADER
+
+$loading          : ".d-loading"             !default;
+$loading-white    : ".d-loading_white"       !default;
+$loading-stick    : ".d-loading__stick"      !default;
+$loading-number   : 12                       !default;
+$i                : 0                        !default;
+
+$d-pr-width       : 100%           !default;
+$d-pr-size__min   : 40px           !default;
+$d-pr-color       : $gray-concrete !default;
+$d-pr-color__gray : $gray-dusty    !default;
+$d-pr-color__hoar : $gray-dove     !default;
+$d-pr-color__white: $white         !default;
+
+// MIXIN FOR PRELOADER
+
+@mixin loading() {
+  #{$loading} {
+    position: relative;
+    display: inline-block;
+    min-width: $d-pr-size__min;
+    min-height: $d-pr-size__min;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  #{$loading-stick} {
+    position: absolute;
+    top: $d-pr-width/2;
+    left: $d-pr-width/2;
+    width: $d-pr-size__min/20;
+    height: $d-pr-size__min/4;
+    margin-top: -$d-pr-size__min/8;
+    margin-left: -1px;
+    background: $black;
+    @include opacity(0);
+    @include border-radius(3px);
+    @include animation(d-loading .67s linear infinite);
+    text-transform: none;
+    -webkit-transform-style: preserve-3d;
+    -webkit-backface-visibility: hidden;
+    -moz-transform-style: preserve-3d;
+    -moz-backface-visibility: hidden;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+  }
+  @for $i from ($i + 1) through $loading-number {
+  #{$loading-stick}_#{$i} {
+      @include transform(((360/12)*$i)+deg, 0, -15px);
+      @include animation-delay($i*(-.61)+s);
+    }
+  }
+}
+
+@mixin loading-white() {
+  #{$loading-white} {
+    #{$loading-stick} {
+      background: $white;
+    }
+  }
+}

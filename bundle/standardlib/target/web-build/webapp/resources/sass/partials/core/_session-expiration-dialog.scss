@@ -1,0 +1,27 @@
+.rx-session-expiration-dialog .modal-dialog {
+  width: 500px;
+}
+
+.rx-session-expiration-content {
+  font-size: 15px;
+}
+
+.rx-session-expiration-countdown {
+  color: $orange;
+  font-size: 15px;
+  font-weight: bold;
+  float: left;
+  margin-top: 7px;
+
+  &:before {
+    margin-right: 5px;
+  }
+}
+
+.rx-session-expiration-button.d-button {
+  width: auto;
+
+  & + & {
+    margin-left: 5px;
+  }
+}

@@ -1,0 +1,162 @@
+.rx-permission-editor {
+  .rx-permission-editor-item {
+    display: inline-block;
+    padding: 5px 0;
+    width: 100%;
+
+    .d-tag {
+      height: 20px;
+      line-height: 20px;
+      font-size: 10px;
+    }
+  }
+
+  .rx-permitted-group-name {
+    overflow: hidden;
+    width: 65%;
+    display: inline-block;
+  }
+}
+
+.rx-permission-editor-dialog {
+  .modal-dialog {
+    width: 800px;
+  }
+
+  .d-modal__content-item {
+    margin-bottom: 10px;
+  }
+
+  .close {
+    color: $white;
+  }
+
+  .preloader-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: $gray-concrete;
+    opacity: 0.5;
+    z-index: 999;
+
+    .d-preloader {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+    }
+  }
+
+  .rx-permissions-notification {
+    padding: 10px;
+    margin-bottom: 10px;
+
+    .align-right {
+      float: right;
+      width: 95%;
+    }
+  }
+
+  .d-notification {
+    padding: 15px;
+    font-size: 16px;
+  }
+
+  .rx-permissions-editor {
+    position: relative;
+    padding: 5px 10px;
+    min-height: 400px;
+
+    .rx-permissions-editor-table {
+      display: table;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    .rx-permissions-editor-table-header {
+      .rx-permissions-editor-table-group-role-column {
+        vertical-align: bottom;
+      }
+
+      h6 {
+        margin: 0;
+        color: $gray-dusty;
+        min-width: 56px;
+      }
+
+    }
+
+    .rx-permissions-editor-table-row {
+      display: table-row;
+      border-bottom: 1px solid $gray-alto;
+
+      > div {
+        display: table-cell;
+        vertical-align: middle;
+        padding: 5px 0;
+      }
+
+      .d-button_small {
+        height: 24px;
+        line-height: 24px;
+        padding: 0 10px;
+
+        &:before {
+          font-size: 16px;
+        }
+      }
+
+      &.disabled-permission {
+        background: $gray-concrete;
+      }
+    }
+
+    .rx-permissions-editor-table-type-column {
+      width: 25%;
+
+      button {
+        margin-right: 2px;
+      }
+    }
+
+    .rx-permissions-editor-table-group-role-column {
+      width: 40%;
+      max-width: 40%;
+
+      .d-dropdown {
+        min-width: 250px;
+        vertical-align: middle;
+      }
+
+      .d-dropdown__menu {
+        padding: 5px;
+        min-width: 370px;
+
+        input[type='text'] {
+          border: 1px solid $gray-alto;
+        }
+
+        .d-dropdown__menu-options {
+          max-height: 300px;
+          overflow-y: auto;
+          overflow-x: hidden;
+        }
+      }
+    }
+
+    .rx-permissions-editor-restrictions-selector {
+      text-align: center;
+    }
+  }
+
+  .rx-dropdown__menu-group {
+    color: $gray-dusty;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+
+  .d-modal__footer button {
+    width: inherit;
+  }
+}

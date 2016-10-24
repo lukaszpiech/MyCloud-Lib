@@ -1,0 +1,15 @@
+.d-tabs__item {
+    padding: 0;
+}
+
+.d-tabs__panel, .d-tabs__tab {
+    background-color: $white;
+}
+
+.d-tabs__tab {
+    background-color: $gray-concrete;
+
+    &.is-checked {
+    	background-color: $white;
+    }
+}

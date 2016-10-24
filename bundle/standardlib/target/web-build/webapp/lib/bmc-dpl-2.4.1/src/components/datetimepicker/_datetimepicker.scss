@@ -1,0 +1,40 @@
+@import "../dpl-components-variables";
+@import "../dpl-components-mixins";
+
+// dp = datepicker
+
+$dp-border-line: $gray-alto !default; //#d9d9d9;
+$dp-table-width: 205px !default;
+$invalid-color: $red !default;
+
+.d-datetimepicker {
+  display: inline-block;
+  width: $dp-table-width;
+  .d-error {
+    display: none;
+  }
+  .ng-invalid-date,
+  .ng-invalid-date-format {
+    border: 1px solid $invalid-color;
+    + .d-error {
+      display: block;
+    }
+  }
+}
+
+.d-datetimepicker__wrapper {
+  border: 1px solid $dp-border-line;
+  text-align: center;
+}
+
+.d-datetimepicker__date {
+  width: auto;
+  margin: 5px auto;
+  border: none;
+}
+
+.d-datetimepicker__time {
+  width: 100%;
+  padding: 11px 0;
+  border-top: 1px solid $dp-border-line;
+}

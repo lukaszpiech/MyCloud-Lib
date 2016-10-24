@@ -1,0 +1,9 @@
+@import "../dpl-components-mixins";
+@import "../dpl-components-variables";
+$cp-border-color: $border-color !default;
+$cp-background-color: $white !default;
+$cp-text-color: $gray-mine-shaft !default; //#333
+$cp-box-shadow-black: $black !default; //#000;
+
+$cp-dropdown-background-color: $gray-concrete !default; //#f2f2f2
+$cp-dropdown-background-color-active: $dropdown-list-active !default;

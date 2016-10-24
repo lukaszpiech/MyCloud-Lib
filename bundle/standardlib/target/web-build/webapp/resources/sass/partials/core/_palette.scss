@@ -1,0 +1,172 @@
+$rx-palette-border: 1px solid $gray-alto !default;
+$rx-palette-item-color: $gray-ship !default;
+$rx-palette-search-background: $white !default;
+$rx-palette-category-background: $gray-dusty !default;
+$rx-palette-category-border: $gray-dove !default;
+
+rx-palette {
+  display: block;
+  width: 300px;
+  height: 100%;
+  padding: 0 !important;
+}
+
+.rx-palette-search {
+  width: 100%;
+  display: table;
+  border: $rx-palette-border;
+  background: $rx-palette-search-background;
+
+  > * {
+    display: table-cell;
+    vertical-align: middle;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    border: 0;
+  }
+
+  > i {
+    width: 3%;
+    background: $rx-palette-search-background;
+    text-align: center;
+    padding-top: 6px;
+
+    span {
+      padding-right: 10px;
+    }
+  }
+
+  > input {
+    height: 100%;
+    line-height: 1.3em;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    margin: 0;
+    font-weight: lighter;
+    padding-left: 1.0em;
+    padding-top: 0;
+    width: 100%;
+
+    // no outline for search input
+    &:focus {
+      outline-width: 0;
+    }
+
+    // no default clear button in IE
+    &::-ms-clear {
+      display: none;
+    }
+  }
+}
+
+.rx-palette-container {
+  float: left;
+  display: table;
+  margin-right: 2.35765%;
+  width: 100%;
+  table-layout: fixed;
+  height: 100%;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  &:after {
+    display: table;
+    clear: both;
+  }
+}
+
+.rx-palette-categories {
+  position: relative;
+  float: left;
+  width: 33.33333%;
+  vertical-align: top;
+  height: 100%;
+  border-right: 2px solid $rx-palette-category-border;
+  right: -2px;
+  background: $rx-palette-category-background;
+  overflow-y: auto;
+}
+
+.rx-palette-category {
+  text-align: center;
+  padding: 20px 6px 6px 6px;
+  height: 96px;
+
+  &.active {
+    background: $rx-palette-item-color;
+    color: $rx-palette-category-background;
+  }
+
+  > .icon {
+    font-size: 1.8em;
+  }
+
+  > .rx-palette-category-label {
+    display: block;
+    font-size: 0.8em;
+    text-transform: capitalize;
+    line-height: 1.1em;
+  }
+}
+
+.rx-palette-items {
+  float: left;
+  height: 100%;
+  background: $white;
+  width: 66.66667%;
+  overflow-y: auto;
+}
+
+.rx-palette-item {
+  position: relative;
+  width: 50%;
+  float: left;
+  height: 96px;
+  text-align: center;
+  background: $white;
+  color: $rx-palette-item-color;
+  border: $rx-palette-border;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:nth-child(2n) {
+    border-top: none;
+    border-left: none;
+  }
+
+  &:nth-child(2n+1) {
+    border-top: none;
+  }
+
+  > .icon {
+    font-size: 1.8em;
+    display: block;
+    margin-top: 20px;
+  }
+}
+
+.rx-palette-item-label {
+  font-size: 0.8em;
+  display: block;
+  max-width: 80px;
+  margin: 0 auto;
+  line-height: 1.1em;
+}
+
+/**
+ * TODO-AB: replace temporary icon to provided
+ */
+.rx-palette-item,
+.rx-palette-category {
+  > .icon {
+    &:before {
+      content: "\l";
+    }
+  }
+}

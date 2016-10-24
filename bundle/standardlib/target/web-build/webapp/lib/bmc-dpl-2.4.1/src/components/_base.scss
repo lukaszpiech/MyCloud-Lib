@@ -1,0 +1,356 @@
+@import "dpl-components-variables";
+@import "dpl-components-mixins";
+
+* {
+  @include box-sizing(border-box);
+}
+
+*:before,
+*:after {
+  @include box-sizing(border-box);
+}
+
+*:focus {
+  outline: none !important;
+  //background-color: darken($gray-concrete, 5%) !important;
+  &.__focus {
+    //border-color: #3cb6ce !important;
+    z-index: 1;
+    outline: 1px solid rgba(0, 167, 157, .7) !important;
+    //box-shadow: 0 0 1p  x #3cb6ce;
+    //background-color: red !important;
+  }
+}
+html {
+  height: 100%;
+  font-family: $font-family;
+  font-weight: $font-weight__normal;
+}
+body {
+  height: 100%;
+  font-family: $font-family;
+  font-size: 14px;
+  font-weight: $font-weight__normal;
+  color: $gray-mine-shaft;
+  background-color: $white;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+object {
+  outline: 0;
+}
+
+p {
+  margin: 0 0 15px;
+  line-height: $line-height-ratio;
+}
+cite {
+  font-style: normal;
+}
+ul,
+ol {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+figure {
+  margin: 0;
+}
+
+
+
+abbr[title] {
+  border-bottom: 1px dotted $gray-dove;
+  cursor: help;
+}
+abbr[data-original-title] {
+  border-bottom: 1px dotted $gray-dove;
+  cursor: help;
+}
+
+
+img {
+  vertical-align: middle;
+}
+
+hr {
+  height: 1px;
+  margin: 20px 0;
+  border: 0;
+  background-color: $gray-dusty;
+}
+
+kbd {
+  padding: 2px 4px;
+  color: $white;
+  border-radius: 2px;
+  background-color: $gray-mine-shaft;
+
+  @include box-shadow(inset 0 -1px 0 rgba(0,0,0,.25));
+  kbd {
+    padding: 0;
+    font-size: 100%;
+
+    @include box-shadow(none);
+  }
+}
+
+output {
+  display: block;
+  padding-top: 7px;
+  font-size: 14px;
+  color: $gray-dove;
+}
+
+fieldset {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+legend {
+  display: block;
+  width: 100%;
+  margin-bottom: 30px;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: inherit;
+  //color: $gray-mine-shaft;
+  //border-bottom: 1px solid $gray-alto;
+}
+
+input[type="search"] {
+  -webkit-appearance: none;
+}
+input[type="checkbox"] {
+  margin: 1px 0 0;
+  line-height: normal;
+}
+input[type="checkbox"]:focus {
+  outline: thin dotted;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+input[type="radio"] {
+  margin: 1px 0 0;
+  line-height: normal;
+}
+input[type="radio"]:focus {
+  outline: thin dotted;
+  outline: 5px auto -webkit-focus-ring-color; //WTF? Why? What for?
+  outline-offset: -2px;
+}
+input[type="file"] {
+  display: block;
+}
+input[type="file"]:focus {
+  outline: thin dotted;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+input[type="range"] {
+  display: block;
+  width: 100%;
+}
+select {
+  line-height: inherit;
+}
+select[multiple] {
+  height: auto;
+}
+select[size] {
+  height: auto;
+}
+textarea {
+  line-height: inherit;
+}
+
+pre {
+  max-height: 300px;
+  margin: 0;
+  padding: 20px;
+  border: none;
+  border-radius: 0;
+  background: none;
+}
+
+
+// Addresses
+address {
+  margin-bottom: 20px;
+  font-style: normal;
+}
+
+dl {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+dt {
+  font-weight: bold;
+}
+dd {
+  margin-left: 0;
+}
+
+// Only display content to screen readers
+//
+// See: http://a11yproject.com/posts/how-to-hide-content/
+.sr-only {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+}
+
+// Use in conjunction with .sr-only to only display content when it's focused.
+// Useful for "Skip to main content" links; see http://www.w3.org/TR/2013/NOTE-WCAG20-TECHS-20130905/G1
+// Credit: HTML5 Boilerplate
+
+.sr-only-focusable {
+  &:active,
+  &:focus {
+    position: static;
+    overflow: visible;
+    clip: auto;
+    width: auto;
+    height: auto;
+    margin: 0;
+  }
+}
+
+.d-noselect {
+  -webkit-touch-callout: none;
+  -khtml-user-select: none;
+  @include user-select(none);
+}
+
+input[type="text"],
+input[type="password"],
+input[type="search"],
+input[type="email"],
+input[type="tel"],
+input[type="url"],
+input[type="number"],
+input[type="datetime"],
+.d-input-like {
+  display: block;
+  width: 100%;
+  padding: 2px 10px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: $gray-mine-shaft;
+  border: 1px solid $gray-alto;
+  border-radius: 2px;
+  background-color: $white;
+
+  @include placeholder($gray-dusty);
+
+  &:hover {
+    border-color: $gray-dusty;
+  }
+  &:focus {
+    border-color: $gray-dusty;
+    outline: 0;
+  }
+
+  &[disabled],
+  fieldset[disabled] & {
+    border-color: $gray-alto;
+    background-color: $gray-concrete;
+    cursor: not-allowed;
+
+    @include opacity(1);
+  }
+}
+
+label {
+  margin: 0;
+  font-weight: normal;
+  color: $gray-dove;
+  cursor: pointer;
+
+  @extend .d-noselect;
+}
+
+.__required-field {
+  label {
+    span {
+      &:after {
+        color: $orange;
+        content: " *";
+      }
+    }
+  }
+}
+
+textarea {
+  display: block;
+  min-width: 100%;
+  max-width: 100%;
+  min-height: 84px;
+  padding: 6px 12px;
+  font-size: 14px;
+  color: #333;
+  border: 1px solid $gray-alto;
+  background-color: #fff;
+  background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+
+  @include border-radius(2px);
+  @include placeholder(#999);
+  &:hover {
+    border-color: #999;
+  }
+  &:focus {
+    border-color: #999;
+    outline: 0;
+  }
+
+  &[disabled],
+  fieldset[disabled] & {
+    border-color: $gray-alto;
+    background-color: #f2f2f2;
+    cursor: not-allowed;
+
+    @include opacity(1);
+  }
+}
+
+blockquote {
+  margin: 0 0 20px;
+  padding: 10px 20px;
+  font-size: 17.5px;
+  border-left: 5px solid $gray-alto;
+}
+
+.clearfix {
+  &:after,
+  &:before {
+    display: table;
+    clear: both;
+    content: "";
+  }
+}
+
+.d-error {
+  margin: 8px 0 0;
+  padding: 0;
+  font-size: 12px;
+  line-height: 1.4;
+  color: #f83200;
+}
+
+.fade {
+  opacity: 0;
+  -webkit-transition: opacity .15s linear;
+       -o-transition: opacity .15s linear;
+          transition: opacity .15s linear;
+}
+.fade.in {
+  opacity: 1;
+}

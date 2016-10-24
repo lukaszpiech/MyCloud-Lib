@@ -1,0 +1,54 @@
+@import "../dpl-components-variables";
+@import "../dpl-components-mixins";
+
+
+/*#BEGIN D-WAVES EFFECT FOR BUTTONS*/
+
+.d-ripple,
+[d-ripple] {
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  overflow: hidden;
+  cursor: pointer;
+  vertical-align: middle;
+
+  -webkit-tap-highlight-color: transparent;
+  will-change: opacity, transform;
+  @include transition(all .2s cubic-bezier(.4, 0, .2, 1));
+  @include user-select(none);
+}
+
+.d-ripple__effect {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  margin-top: -10px;
+  margin-left: -10px;
+  background: rgba(0, 0, 0, .2);
+  -webkit-transition-property: -webkit-transform, opacity;
+     -moz-transition-property:    -moz-transform, opacity;
+       -o-transition-property:      -o-transform, opacity;
+          transition-property:         transform, opacity;
+  pointer-events: none;
+
+  @include border-radius(50%);
+  @include opacity(0);
+  @include transition-duration(.5s);
+  @include transition-timing-function(ease-in-out);
+  @include scale(0);
+}
+
+.d-ripple_light .d-ripple__effect {
+  background: rgba(255, 255, 255, .4);
+}
+
+.d-ripple_lighter .d-ripple__effect {
+  background: rgba(0, 0, 0, .03);
+}
+
+/* Firefox Bug: link not triggered */
+a.d-ripple .d-ripple__effect,
+a[d-ripple] .d-ripple__effect {
+  z-index: -1;
+}

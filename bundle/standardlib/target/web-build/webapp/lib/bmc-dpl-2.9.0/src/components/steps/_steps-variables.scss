@@ -1,0 +1,22 @@
+@import "../dpl-components-variables";
+@import "../dpl-components-mixins";
+
+/* { #BEGIN VARIABLES FOR STEPS } */
+
+$step-size__small: 10px !default;
+$step-size__item: 12px !default;
+$step-size__font: 14px !default;
+$step-size-h6: 16px !default;
+$step-size-h5: 18px !default;
+$step-size-h4: 20px !default;
+$step-size-h3: 22px !default;
+$step-size-h2: 24px !default;
+$step-size-h1: 32px !default;
+$step-distance: 36px !default;
+$step-size-width: 100% !default;
+$step-white-color: $white !default; // #fff;
+$step-font-color: $gray-mine-shaft !default; // #333;
+$step-border-color: $gray-alto !default; // #d9d9d9;
+$step-hover-color: $teal !default; // #00a79d;
+$step-counter-background-color: $gray-concrete !default; // #f2f2f2;
+$step-border-before-color: $gray-alto !default; // #d9d9d9;

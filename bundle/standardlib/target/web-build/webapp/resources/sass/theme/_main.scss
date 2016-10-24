@@ -1,0 +1,395 @@
+// Local vars
+$rx-hover-darken-amount: 5%;
+$rx-active-darken-amount: 7%;
+$rx-disabled-opacity: .6;
+
+// Base
+.rx-theme-main-text-color {
+  color: $rx-theme-main-text-color;
+}
+
+.rx-theme-main-border-color, .rx-default-border {
+  border-color: $rx-theme-main-border-color;
+}
+
+.rx-theme-main-background-color {
+  background-color: $rx-theme-main-background-color;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: $rx-theme-heading-color;
+}
+
+body {
+  color: $rx-theme-main-text-color;
+  background-color: $rx-theme-main-background-color;
+}
+
+label {
+  &,
+  .rx-editor-content & {
+    color: $rx-theme-main-text-color;
+  }
+}
+
+a {
+  color: $rx-theme-link-color;
+
+  &:hover,
+  &:focus {
+    color: darken($rx-theme-link-color, $rx-hover-darken-amount);
+  },
+
+  &:active {
+    color: darken($rx-theme-link-color, $rx-active-darken-amount);
+  }
+}
+
+// Buttons
+$button-primary-text-color: $rx-theme-primary-button-text-color;
+$button-primary-bg-color: $rx-theme-primary-button-background-color;
+$button-primary-bg-color-hover: darken($button-primary-bg-color, $rx-hover-darken-amount);
+$button-primary-bg-color-active: darken($button-primary-bg-color, $rx-active-darken-amount);
+
+$button-secondary-text-color: $rx-theme-secondary-button-text-color;
+$button-secondary-border-color: $rx-theme-secondary-button-border-color;
+$button-secondary-bg-color: $rx-theme-secondary-button-background-color;
+$button-secondary-bg-color-hover: darken($button-secondary-bg-color, $rx-hover-darken-amount);
+$button-secondary-bg-color-active: darken($button-secondary-bg-color, $rx-active-darken-amount);
+
+@mixin d-button-type($type: "primary") {
+  @if ($type == "primary") {
+    color: $button-primary-text-color !important;
+    background-color: $button-primary-bg-color;
+    &:not([disabled]):not(.is-checked):hover {
+      border-color: $button-primary-bg-color-hover;
+      background-color: $button-primary-bg-color-hover;
+    }
+    &.is-checked,
+    &:not([disabled]):not(.is-checked):active {
+      border-color: $button-primary-bg-color-active;
+      background-color: $button-primary-bg-color-active;
+    }
+    &[disabled] {
+      opacity: $rx-disabled-opacity;
+    }
+  } @else if ($type == "secondary") {
+    color: $button-secondary-text-color;
+    border-color: $button-secondary-border-color;
+    background-color: $button-secondary-bg-color;
+    &:hover {
+      color: $button-secondary-text-color;
+    }
+    &:not([disabled]):not(.is-checked):hover {
+      background-color: $button-secondary-bg-color-hover;
+    }
+    &.is-checked,
+    &:not([disabled]):not(.is-checked):active {
+      background-color: $button-secondary-bg-color-active;
+    }
+    &[disabled] {
+      opacity: $rx-disabled-opacity;
+    }
+  }
+}
+
+.d-button_primary {
+  @include d-button-type("primary");
+}
+
+.d-button_secondary {
+  @include d-button-type("secondary");
+}
+
+// Navigation bar
+.d-n-nav {
+  background-color: $rx-theme-nav-background-color;
+}
+
+.d-n-menu__link,
+.d-n-hamburger__nav-link,
+.d-n-header .d-n-dropdown__name_rx,
+.d-n-menu__divider,
+.d-n-profile__arrow,
+.d-n-dropdown__link {
+  color: $rx-theme-nav-text-color;
+}
+
+// UI-grid
+.ui-grid-top-panel {
+  &,
+  &:hover {
+    @extend .rx-theme-main-background-color;
+  }
+}
+
+.ui-grid-row:nth-child(even),
+.ui-grid-row:nth-child(odd) {
+  .ui-grid-cell {
+    background-color: $rx-theme-main-background-color;
+  }
+}
+
+.ui-grid-header,
+.ui-grid-cell {
+  @extend .rx-theme-main-border-color;
+}
+
+.ui-grid-cell_customize {
+  @extend .rx-theme-main-text-color;
+}
+
+// TODO Remove after update DPL with resolved ticket https://jira.bmc.com/browse/UX-142
+.ui-grid .ui-grid__link {
+  color: $rx-theme-link-color;
+}
+
+//Inputs
+$border-color-hover: $rx-theme-input-border-color;
+
+.rx-input-theme {
+  background-color: $rx-theme-input-background-color;
+
+  &,
+  &[disabled] {
+    color: $rx-theme-input-text-color;
+    border-color: $rx-theme-input-border-color;
+  }
+
+  &:focus,
+  &:hover {
+    border-color: $border-color-hover;
+  }
+}
+
+input[type="text"],
+input[type="password"],
+input[type="search"],
+input[type="email"],
+input[type="tel"],
+input[type="url"],
+input[type="number"],
+input[type="datetime"],
+textarea,
+.d-input-like,
+.d-input-tags .bootstrap-tagsinput,
+tags-input .d-input-tags,
+.ui-select-bootstrap .btn-default,
+.input-group .btn-default,
+.rx-definition-picker__fake-input {
+  @extend .rx-input-theme;
+}
+
+rx-designer-inspector .inspector{
+  .text,
+  .number,
+  .textarea,
+  .select
+  input[type=text],
+  textarea {
+    @extend .rx-input-theme;
+  }
+}
+
+.d-textfield select {
+  border-color: $rx-theme-input-border-color;
+}
+
+.d-timepicker__unit {
+  .d-timepicker {
+    &__input,
+    &__increase,
+    &__decrease {
+      border-color: $rx-theme-input-border-color;
+      background: $rx-theme-input-background-color;
+    }
+  }
+
+  &:hover {
+    .d-timepicker {
+      &__input,
+      &__increase,
+      &__decrease {
+        border-color: $border-color-hover;
+        background: $rx-theme-input-background-color;
+      }
+    }
+  }
+}
+
+.input-group .btn-default {
+  &:active:hover {
+    color: $rx-theme-input-text-color;
+    background-color: $rx-theme-input-background-color;
+    border-color: $border-color-hover;
+  }
+}
+
+/* UI-select rewrite */
+.dropdown-menu {
+  background: $rx-theme-selected-panel-background-color;
+  border-color: $rx-theme-main-border-color;
+}
+
+.ui-select-bootstrap .ui-select-choices-row > a {
+  color: $rx-theme-selected-panel-text-color;
+}
+
+//Notifications
+.rx-theme-notification-text-color {
+  color: $rx-theme-notification-text-color;
+}
+
+.rx-theme-notification-error-background-color {
+  background-color: $rx-theme-notification-error-background-color;
+}
+
+.rx-theme-notification-warning-background-color {
+  background-color: $rx-theme-notification-warning-background-color;
+}
+
+.rx-theme-notification-info-background-color {
+  background-color: $rx-theme-notification-info-background-color;
+}
+
+.rx-theme-notification-success-background-color {
+  background-color: $rx-theme-notification-success-background-color;
+}
+
+.rx-error {
+  color: $rx-theme-notification-text-color;
+  background-color: $rx-theme-notification-error-background-color;
+}
+
+.rx-warning {
+  color: $rx-theme-notification-text-color;
+  background-color: $rx-theme-notification-warning-background-color;
+}
+
+.rx-info {
+  color: $rx-theme-notification-text-color;
+  background-color: $rx-theme-notification-info-background-color;
+}
+
+.rx-success {
+  color: $rx-theme-notification-text-color;
+  background-color: $rx-theme-notification-success-background-color;
+}
+
+.d-notification, .d-notification_error, .d-notification_warning, .d-notification_info, .d-notification_success {
+  color: $rx-theme-notification-text-color;
+}
+
+.d-notification_error {
+  background-color: $rx-theme-notification-error-background-color;
+}
+
+.d-notification_warning {
+  background-color: $rx-theme-notification-warning-background-color;
+}
+
+.d-notification_info {
+  background-color: $rx-theme-notification-info-background-color;
+}
+
+.d-notification_success {
+  background-color: $rx-theme-notification-success-background-color;
+}
+
+//Tooltip
+.rx-theme-tooltip-text-color {
+  color: $rx-theme-tooltip-text-color;
+}
+
+.rx-theme-tooltip-background-color {
+  background-color: $rx-theme-tooltip-background-color;
+}
+
+.rx-tooltip {
+  color: $rx-theme-tooltip-text-color;
+  background-color: $rx-theme-tooltip-background-color;
+}
+
+.tooltip {
+  color: $rx-theme-tooltip-text-color;
+  .tooltip-inner {
+    background-color: $rx-theme-tooltip-background-color;
+  }
+  &.top .tooltip-arrow {
+    border-top-color: $rx-theme-tooltip-background-color;
+  }
+  &.top-left .tooltip-arrow {
+    border-top-color: $rx-theme-tooltip-background-color;
+  }
+  &.top-right .tooltip-arrow {
+    border-top-color: $rx-theme-tooltip-background-color;
+  }
+  &.right .tooltip-arrow {
+    border-right-color: $rx-theme-tooltip-background-color;
+  }
+  &.left .tooltip-arrow {
+    border-left-color: $rx-theme-tooltip-background-color;
+  }
+  &.bottom .tooltip-arrow {
+    border-bottom-color: $rx-theme-tooltip-background-color;
+  }
+  &.bottom-left .tooltip-arrow {
+    border-bottom-color: $rx-theme-tooltip-background-color;
+  }
+  &.bottom-right .tooltip-arrow {
+    border-bottom-color: $rx-theme-tooltip-background-color;
+  }
+}
+
+//Panels
+.rx-theme-default-panel-text-color {
+  color: $rx-theme-default-panel-text-color;
+}
+
+.rx-theme-default-panel-background-color {
+  background-color: $rx-theme-default-panel-background-color;
+}
+
+.rx-theme-selected-panel-text-color {
+  color: $rx-theme-selected-panel-text-color;
+}
+
+.rx-theme-selected-panel-background-color {
+  background: $rx-theme-selected-panel-background-color;
+}
+
+.rx-tab {
+  color: $rx-theme-default-panel-text-color;
+  background-color: $rx-theme-default-panel-background-color;
+}
+
+.rx-tab_selected {
+  color: $rx-theme-selected-panel-text-color;
+  background-color: $rx-theme-selected-panel-background-color;
+}
+
+.d-tabs__tab {
+  color: $rx-theme-default-panel-text-color;
+  background-color: $rx-theme-default-panel-background-color;
+}
+
+.d-tabs__tab.is-checked {
+  color: $rx-theme-selected-panel-text-color;
+  background-color: $rx-theme-selected-panel-background-color;
+}
+
+.rx-theme-small-logo-light {
+  background: $rx-theme-small-logo-light no-repeat left top/contain;
+}
+
+.rx-theme-small-logo-dark {
+  background: $rx-theme-small-logo-dark no-repeat left top/contain;
+}
+
+.rx-theme-large-logo-light {
+  background: $rx-theme-large-logo-light no-repeat left top/contain;
+}
+
+.rx-theme-large-logo-dark {
+  background: $rx-theme-large-logo-dark no-repeat left top/contain;
+}

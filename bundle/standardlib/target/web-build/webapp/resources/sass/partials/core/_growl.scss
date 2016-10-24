@@ -1,0 +1,93 @@
+.growl {
+  position: fixed;
+  top: 10px;
+  left: 45%;
+  float: right;
+  width: 90% !important;
+  max-width: 500px;
+  margin-left: -200px;
+  z-index: 9999;
+}
+
+/*
+ * growl-item styles
+ */
+.growl > .growl-item {
+  position: relative;
+  padding: 15px 50px 5px 65px;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 2px;
+  color: $white;
+}
+
+.growl-item > button.close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50px;
+  font-size: 22px;
+  font-weight: 300;
+  line-height: 46px;
+  color: $white;
+  text-align: center;
+  opacity: 1;
+  &:hover, &:focus {
+    opacity: 0.5;
+  }
+}
+
+/*
+ * growl-message styles
+ */
+.growl-item > div {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  margin: 0 0 15px;
+  cursor: default;
+}
+
+/*
+ * growl background images
+ */
+%growl-icon {
+  position: absolute;
+  top: 15px;
+  left: 20px;
+  font-family: "dpl-icon-font";
+  font-size: 18px;
+}
+
+.growl > .alert-info {
+  background-color: $blue;
+  &:before {
+    @extend %growl-icon;
+    content: "\e667";
+  }
+}
+
+.growl > .alert-error,
+.growl > .alert-danger {
+  background-color: $red;
+  &:before {
+    @extend %growl-icon;
+    content: "\e646";
+  }
+}
+
+.growl > .alert-success {
+  background-color: $green;
+  &:before {
+    @extend %growl-icon;
+    content: "\e622";
+  }
+}
+
+.growl > .alert-warning {
+  background-color: $yellow;
+  &:before {
+    @extend %growl-icon;
+    content: "\e646";
+  }
+}

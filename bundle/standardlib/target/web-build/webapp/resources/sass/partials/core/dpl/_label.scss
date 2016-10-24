@@ -1,0 +1,11 @@
+// TODO: remove when rx-content and rx-editor-content
+// classes are eliminated and all inputs are styled based on DPL
+.rx-content, .rx-editor-content {
+  .d-textfield__label {
+    margin-top: 0;
+
+    .tooltip-icon {
+      float: right;
+    }
+  }
+}

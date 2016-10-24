@@ -1,0 +1,372 @@
+rx-record-grid {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border: 1px solid $gray-alto;
+
+  .ui-grid {
+    flex-grow: 1;
+  }
+}
+
+rx-record-grid-design {
+  .ui-grid {
+    width: 100%;
+    height: 37px;
+    overflow: hidden;
+
+    .ui-grid-viewport {
+      height: 100% !important;
+    }
+  }
+
+  ul[dnd-list] {
+    min-height: 42px !important;
+    background-color: $gray-concrete;
+    border: 2px solid $gray-alto;
+
+    li {
+      display: inline-block;
+      border: 2px solid $gray-concrete;
+      margin-bottom: 0;
+    }
+
+    li.dndPlaceholder {
+      min-height: 30px !important;
+      width: 10px;
+      display: inline-block;
+      border: none;
+      margin: 5px;
+      vertical-align: bottom;
+
+      &:before {
+        display: none;
+      }
+
+      &:after {
+        display: none;
+      }
+    }
+
+    .rx-view-designer-item-halo {
+      min-width: 120px;
+    }
+  }
+
+  ul[dnd-list]:empty {
+    &:after {
+      content: 'Drop Action Buttons Here';
+      display: block;
+      text-align: center;
+      line-height: 42px;
+      color: $gray-alto;
+      font-size: $font-size;
+    }
+  }
+
+  .rx-record-grid-toolbar {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 45px;
+    border-bottom: none;
+    border-top: none;
+
+    .d-textfield {
+      margin: 0;
+    }
+
+    &:after {
+      content: '';
+      display: block;
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      left: 0;
+    }
+  }
+}
+
+rx-inspector-record-grid-column-editor {
+  .selected-options {
+    margin-bottom: 5px;
+    border: 1px solid $gray-alto;
+    padding: 5px 10px;
+    font-size: 12px;
+    font-weight: bold;
+    color: $gray-mine-shaft;
+
+    span {
+      width: 165px;
+      display: inline-block;
+      position: relative;
+      margin-bottom: 5px;
+      line-height: 1;
+      top: 1px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-size: $font-size;
+    }
+
+    .column-type {
+      font-size: 10px;
+      color: $gray-dusty;
+    }
+
+    .action-buttons {
+      float: right;
+      display: inline-block;
+
+      > div {
+        display: inline-block;
+        margin-left: 5px;
+      }
+    }
+  }
+}
+
+.rx-inspector-record-grid-sort-editor {
+  &__container {
+    display: flex;
+  }
+
+  &__select {
+    flex-grow: 1;
+    margin-right: 5px;
+  }
+
+  &__buttons:not(.visible) {
+    visibility: hidden;
+  }
+}
+
+.rx-record-grid-column-editor {
+  padding: 0;
+
+  &__checkbox-fields {
+    flex-wrap: wrap;
+    display: flex;
+    margin: 10px 0;
+  }
+
+  &__checkbox-field {
+    flex: 1 1 (100%/3);
+    margin: 9px 0;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    rx-action-list {
+      display: block;
+      margin: 9px 0 0;
+    }
+  }
+
+  .rx-record-grid-column-editor-panel {
+    float: left;
+    box-sizing: border-box;
+    position: relative;
+    height: 698px;
+  }
+
+  .rx-record-grid-column-editor-data {
+    padding: 0 25px;
+    width: 658px;
+
+    .rx-record-grid-column-editor-data-header {
+      margin-bottom: 10px;
+
+      .expand-collapse-buttons {
+        margin-top: 24px;
+      }
+
+      h5 {
+        padding-top: 25px;
+        margin: 0;
+      }
+    }
+
+    .selected-columns {
+      overflow: auto;
+
+      &.dndDragover {
+        border-color: $yellow__disabled;
+      }
+
+      .dndPlaceholder {
+        background-color: $yellow__disabled;
+        min-height: 70px;
+        margin: 2px;
+        display: block;
+        position: relative;
+        border: none;
+      }
+
+      .dndDraggingSource {
+        display: none;
+      }
+
+      .selected-column-container {
+        margin-bottom: 10px;
+
+        .button-open-column {
+          padding: 0 15px 0 12px;
+          border: 1px solid $gray-alto;
+          height: 34px;
+          width: 100%;
+          background-color: $gray-concrete;
+          border-radius: 2px;
+          display: flex;
+          color: $gray-mine-shaft;
+
+          .left-header-block,
+          .right-header-block {
+            display: flex;
+            align-items: center;
+          }
+
+          .header-icon {
+            padding: 0;
+            margin: 0;
+            background-color: inherit;
+            color: $gray-mine-shaft;
+            cursor: move;
+          }
+
+          .left-header-block {
+            flex-grow: 1;
+            min-width: 0;
+            font-size: 14px;
+
+            .d-icon-left-dots {
+              margin-right: 15px;
+            }
+
+            .column-name {
+              overflow: hidden;
+              text-overflow: ellipsis;
+            }
+          }
+
+          .right-header-block {
+            .remove-button {
+              display: flex;
+              align-items: center;
+              margin-left: 24px;
+              font-size: 19px;
+
+              .remove-button-text {
+                margin-left: 6px;
+                font-size: 12px;
+              }
+            }
+
+            .arrow-pointer {
+              font-size: 22px;
+              margin-left: 24px;
+              cursor: pointer;
+            }
+
+            .index-buttons {
+              display: flex;
+              font-size: 19px;
+
+              .header-icon {
+                padding: 0 5px;
+              }
+            }
+          }
+        }
+
+        .collapse-content {
+          overflow: hidden;
+          padding: 0 20px;
+          margin-top: -1px;
+          border: 1px solid $gray-alto;
+
+          .rx-record-grid-column-editor-text-fields {
+            input[type="text"] {
+              width: 231px;
+            }
+
+            label {
+              margin: 10px 0 6px 0;
+              font-family: inherit;
+              color: $gray-dusty;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .rx-column-available-columns {
+    padding: 20px;
+    width: 322px;
+    border-right: 1px solid $gray-concrete;
+
+    > h5 {
+      padding-top: 3px;
+      display: inline-block;
+    }
+
+    .rx-record-grid-column-editor-available-list {
+      width: 282px;
+      height: 552px;
+      padding: 0 10px;
+      border: 1px solid $gray-concrete;
+      overflow-x: hidden;
+      overflow-y: auto;
+
+      .available-column {
+        padding: 8px 0;
+        cursor: pointer;
+      }
+
+      .column-pill {
+        position: relative;
+        padding-left: 23px;
+      }
+
+      .column-pill-icon {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        padding-left: 1px;
+        transform: translateY(-50%);
+      }
+
+      .column-pill-label {
+        word-wrap: break-word;
+        line-height: 1.2;
+      }
+    }
+  }
+
+  .rx-record-grid-column-editor-navigation-buttons {
+    display: inline-block;
+    float: left;
+  }
+
+  .rx-record-grid-column-editor-wrapper {
+    border-bottom: 1px solid $gray-concrete;
+    overflow: hidden;
+  }
+
+  .rx-record-grid-column-editor-action-buttons {
+    text-align: right;
+    padding: 20px;
+
+    .d-error {
+      display: inline-block;
+      float: left;
+    }
+  }
+}
+
+.rx-record-grid-column-editor-dialog {
+  .modal-dialog {
+    width: 984px;
+  }
+}

@@ -1,0 +1,16 @@
+@import "../dpl-components-variables";
+
+// begin .d-radiobutton variables
+
+$radio-margin: 15px !default;
+$radio-size: 16px !default;
+$radio-size-unit: 50% !default;
+$radio-size-circle: .5 !default;
+$radio-unit: .6 !default;
+$radio-padding-unit: 24px !default;
+$radio-color-active: $teal !default;
+$radio-border-color: $gray-dusty !default; //#999;
+$radio-color-hover: $gray-mine-shaft !default; //#333;
+$radio-color-disabled: $gray-concrete !default; //#f2f2f2;
+
+$radio-required-title-color: $gray-dove !default; //#666

@@ -1,0 +1,140 @@
+@import "../dpl-components-variables";
+@import "../dpl-components-mixins";
+$invalid-color: $red;
+$font-size-small: 12px;
+$required-label-color: $orange;
+$timepicker-arrows-color: $gray-dove;
+$timepicker-arrows-color-hover: $gray-mine-shaft;
+$timepicker-arrows-background: $gray-concrete;
+
+.d-timepicker {
+  display: inline-block;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+
+  -webkit-touch-callout: none;
+   -khtml-user-select: none;
+  label {
+    display: inline;
+  }
+
+  &.ng-invalid-time {
+    .d-error {
+      display: block;
+      margin: 10px 0 0 0;
+      font-size: $font-size-small;
+      font-weight: $font-weight__light;
+      color: $invalid-color;
+    }
+
+    .d-timepicker__input {
+      border: 1px solid $invalid-color;
+    }
+
+    .d-icon-angle_down,
+    .d-icon-angle_up {
+      color: $invalid-color;
+      border-left: 1px solid $invalid-color;
+    }
+  }
+  //TODO: move to own validation component
+  .d-error {
+    display: none;
+  }
+
+  &.d-timepicker__no-label {
+    .d-timepicker__label_name {
+      @extend .sr-only;
+    }
+  }
+}
+.d-timepicker_required {
+  .d-timepicker__label_name {
+    &:after {
+      font-size: 12px;
+      color: $required-label-color;
+      content: " (required)";
+    }
+  }
+}
+
+.d-timepicker__label_name {
+  display: block;
+  margin-bottom: 10px;
+}
+.d-timepicker__increase,
+.d-timepicker__decrease {
+  position: absolute;
+  right: 1px;
+  width: 16px;
+  height: 13px;
+  font-size: 12px;
+  color: $timepicker-arrows-color;
+  border-left: 1px solid $formfield-border-color;
+  text-align: center;
+  &:hover {
+    color: $timepicker-arrows-color-hover;
+  }
+  &:before {
+    vertical-align: 2px;
+  }
+  &.is-disabled {
+    cursor: not-allowed;
+    &:hover {
+      color: $timepicker-arrows-color;
+    }
+  }
+}
+.d-timepicker__increase {
+  top: 1px;
+}
+
+.d-timepicker__decrease {
+  bottom: 1px;
+  border-radius: 0 0 1px 0;
+}
+
+.d-timepicker__unit {
+  position: relative;
+  display: inline-block;
+  width: 53px;
+  &:hover {
+    .d-timepicker__input {
+      border-color: $formfield-border-color__focus;;
+    }
+    .d-icon-angle_up,
+    .d-icon-angle_down {
+      border-left-color: $formfield-border-color__focus;
+      background: $timepicker-arrows-background;
+      cursor: pointer;
+      &.is-disabled {
+        cursor: not-allowed;
+      }
+    }
+  }
+}
+.d-timepicker__unit_hours {
+  margin-right: 15px;
+  &:after {
+    position: absolute;
+    top: 4px;
+    right: -12px;
+    content: ":";
+  }
+}
+.d-timepicker__meridian {
+  margin-left: 10px;
+  cursor: pointer;
+  input {
+    padding-left: 8px;
+  }
+  .is-disabled {
+    cursor: not-allowed;
+  }
+}
+
+.d-timepicker__label {
+  margin-bottom: 10px;
+}

@@ -1,0 +1,303 @@
+rx-action-list {
+  .modify-actions {
+    display: inline-block;
+    margin-bottom: 10px;
+  }
+
+  .action-item {
+    margin-bottom: 5px;
+    border: 1px solid #d9d9d9;
+    padding: 5px 10px;
+    font-size: 12px;
+    font-weight: bold;
+    color: $gray-mine-shaft;
+
+    &.dialog-view {
+      display: none;
+    }
+
+    span {
+      width: 165px;
+      display: inline-block;
+      position: relative;
+      top: 3px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-size: 14px;
+      white-space: nowrap;
+    }
+
+    .action-buttons {
+      float: right;
+      display: inline-block;
+      font-size: 12px;
+      font-weight: bold;
+      margin-top: 4px;
+      color: $gray-mine-shaft;
+
+      > div {
+        display: inline-block;
+        margin-left: 5px;
+      }
+    }
+  }
+}
+
+rx-action-editor {
+  display: block;
+  width: 50%;
+
+  label {
+    display: inline-block;
+    font-family: inherit;
+    color: $gray-dusty;
+    word-wrap: break-word;
+  }
+
+  select {
+    display: block;
+    width: 100%;
+    height: 28px;
+    padding: 2px 10px;
+    font-size: 14px;
+    line-height: 1.6;
+    border: 1px solid $gray-alto;
+    border-radius: 2px;
+    color: $gray-dove;
+    background-color: $white;
+    box-shadow: none;
+  }
+
+  .empty-list {
+    margin-bottom: 20px;
+    color: $gray-dusty;
+  }
+
+  rx-action-definition-picker {
+    label {
+      padding-bottom: 10px;
+    }
+
+    rx-definition-picker {
+      padding-bottom: 20px;
+    }
+  }
+}
+
+.rx-action-editor-dialog {
+  .data-subheader {
+    margin-bottom: 10px;
+  }
+
+  .d-icon-left-triangle_up[disabled]:before, .d-icon-left-triangle_down[disabled]:before {
+    color: $gray-alto;
+  }
+
+  .d-icon-left-cross:before {
+    position: relative;
+    top: -2px;
+    font-size: 13px;
+  }
+}
+
+// TODO-mkoretsk: these `rx-inspector-expression-field` styles should be removed after expression-node-renderer integration
+.rx-inspector-expression-field {
+  .edit-link {
+    float: right;
+    display: inline-block;
+    margin: 10px 0 6px 0;
+  }
+}
+
+.rx-action-editor-dialog .modal-dialog {
+  width: 984px;
+}
+
+.rx-action-editor-dialog-body {
+  padding: 0;
+
+  .rx-action-editor-dialog-panel {
+    float: left;
+    box-sizing: border-box;
+    position: relative;
+    height: 698px;
+  }
+
+  .rx-action-editor-dialog-data {
+    padding: 0 25px;
+    width: 658px;
+
+    &-header {
+      margin-bottom: 10px;
+
+      .expand-collapse-buttons {
+        margin-top: 24px;
+      }
+
+      h5 {
+        padding-top: 25px;
+        margin: 0;
+      }
+    }
+
+    .selected-actions {
+      overflow: auto;
+
+      &.dndDragover {
+        border-color: $yellow__disabled;
+      }
+
+      .dndPlaceholder {
+        background-color: $yellow__disabled;
+        min-height: 70px;
+        margin: 2px;
+        display: block;
+        position: relative;
+        border: none;
+      }
+
+      .dndDraggingSource {
+        display: none;
+      }
+
+      .selected-action-container {
+        margin-bottom: 10px;
+
+        .button-open-action {
+          padding: 0 15px 0 12px;
+          border: 1px solid $gray-alto;
+          height: 34px;
+          width: 100%;
+          background-color: $gray-concrete;
+          border-radius: 2px;
+          display: flex;
+          color: $gray-mine-shaft;
+
+          .left-header-block,
+          .right-header-block {
+            display: flex;
+            align-items: center;
+          }
+
+          .header-icon {
+            padding: 0;
+            margin: 0;
+            background-color: inherit;
+            color: $gray-mine-shaft;
+            cursor: move;
+          }
+
+          .left-header-block {
+            flex-grow: 1;
+            min-width: 0;
+            font-size: 14px;
+
+            .d-icon-left-dots {
+              margin-right: 15px;
+            }
+
+            .action-name {
+              overflow: hidden;
+              text-overflow: ellipsis;
+            }
+          }
+
+          .right-header-block {
+            .remove-button {
+              display: flex;
+              align-items: center;
+              margin-left: 24px;
+              font-size: 19px;
+
+              .remove-button-text {
+                margin-left: 6px;
+                font-size: 12px;
+              }
+            }
+
+            .arrow-pointer {
+              font-size: 22px;
+              margin-left: 24px;
+              cursor: pointer;
+            }
+
+            .index-buttons {
+              display: flex;
+              font-size: 19px;
+
+              .header-icon {
+                padding: 0 5px;
+              }
+            }
+          }
+        }
+
+        .collapse-content {
+          overflow: hidden;
+          padding-left: 20px;
+          padding-top: 20px;
+          margin-top: -1px;
+          border: 1px solid $gray-alto;
+        }
+      }
+    }
+  }
+
+  .rx-column-available-actions {
+    padding: 20px;
+    width: 322px;
+    border-right: 1px solid $gray-concrete;
+
+    > h5 {
+      padding-top: 5px;
+      display: inline-block;
+    }
+
+    .rx-action-editor-dialog-available-list {
+      width: 282px;
+      height: 552px;
+      padding: 0 10px;
+      border: 1px solid $gray-concrete;
+      overflow-x: hidden;
+      overflow-y: auto;
+
+      .available-action {
+        padding: 8px 0;
+        cursor: pointer;
+      }
+
+      .action-pill {
+        position: relative;
+        padding-left: 23px;
+      }
+
+      .action-pill-icon {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        padding-left: 1px;
+        transform: translateY(-50%);
+      }
+
+      .action-pill-label {
+        word-wrap: break-word;
+        line-height: 1.2;
+      }
+    }
+  }
+
+  .rx-action-editor-dialog-wrapper {
+    border-bottom: 1px solid $gray-concrete;
+    overflow: hidden;
+  }
+
+  .rx-action-editor-dialog-action-buttons {
+    text-align: right;
+    padding: 20px;
+
+    .d-error {
+      display: inline-block;
+      float: left;
+    }
+  }
+}

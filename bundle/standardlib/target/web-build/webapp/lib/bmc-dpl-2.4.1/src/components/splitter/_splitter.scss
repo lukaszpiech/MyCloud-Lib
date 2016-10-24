@@ -1,0 +1,162 @@
+@import "../dpl-components-variables";
+
+/**
+  UI.Layout CSS
+*************************************/
+.stretch {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  /* Can be changed by hand ;)*/
+  overflow: auto;
+}
+
+.ui-splitbar {
+  position: absolute;
+  z-index: 1010;
+  right: auto;
+  display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+  display:    -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;      /* TWEENER - IE 10 */
+  display: -webkit-flex;     /* NEW - Chrome */
+  display:         flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
+  background-color: $white;
+
+  -webkit-justify-content: center;
+          justify-content: center;
+}
+
+.ui-layout-row > .ui-splitbar {
+  overflow-y: hidden;
+  width: 100%;
+  height: 8px;
+  border-width: 1px 0;
+  border-style: solid;
+  border-color: $gray-alto;
+  background: $gray-concrete;
+  cursor: row-resize;
+  text-align: center;
+
+  justify-content: center;
+  align-items: center;
+}
+.ui-layout-column > .ui-splitbar {
+  overflow-x: hidden;
+          flex-direction: column;
+  width: 8px;
+  height: 100%;
+  border-width: 0 1px;
+  border-style: solid;
+  border-color: $gray-alto;
+  background: $gray-concrete;
+  cursor: col-resize;
+
+  -webkit-flex-direction: column;
+}
+
+.ui-layout-column > .ui-splitbar > a,
+.ui-layout-row > .ui-splitbar > a {
+  font-size: 16px;
+  color: $white;
+  background-color: $gray-alto;
+  cursor: pointer;
+  text-align: center;
+}
+
+.ui-layout-row > .ui-splitbar > a {
+  width: 20px;
+}
+.ui-layout-column > .ui-splitbar > a:nth-child(2) {
+  margin-top: .35rem;
+}
+
+.ui-layout-row > .ui-splitbar > a:nth-child(2) {
+  margin-left: .35rem;
+}
+
+
+/**
+* Icons
+**/
+
+.splitter-mark {
+  text-align: center;
+}
+.splitter-mark:before {
+  height: 10px;
+  font-family: "dpl-icon-font";
+  color: $gray-alto;
+  content: "\e6c4";
+}
+.ui-layout-row .splitter-mark,
+.ui-layout-column .ui-layout-row .splitter-mark {
+  margin: 0 20px;
+  -webkit-transform: rotate(90deg);
+     -moz-transform: rotate(90deg);
+      -ms-transform: rotate(90deg);
+       -o-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+.ui-layout-column .splitter-mark,
+.ui-layout-row .ui-layout-column .splitter-mark {
+  margin: 10px 0;
+}
+
+.ui-splitbar-icon {
+  display: inline-block;
+  width: 8px;
+  height: 20px;
+  font-family: "dpl-icon-font";
+}
+.ui-splitbar-icon-up,
+.ui-splitbar-icon-down {
+  width: 20px;
+  height: 8px;
+}
+
+.ui-splitbar-icon-up:before {
+  content: "\e606";
+}
+
+.ui-splitbar-icon-down:before {
+  content: "\e603";
+}
+
+.ui-splitbar-icon-right:before {
+  content: "\e605";
+}
+
+.ui-splitbar-icon-left:before {
+  content: "\e604";
+}
+
+/* Allow disabling of icons */
+.no-toggle .ui-splitbar-icon {
+  display: none;
+}
+
+@media only screen and (max-device-width: 480px) {
+  .no-mobile-toggle .ui-splitbar-icon {
+    display: none;
+  }
+}
+
+@media print {
+  .ui-splitbar {
+    display: none;
+  }
+
+  .stretch {
+    position: relative;
+  }
+  /* The last item can take up any amount of space. */
+  .stretch.ui-layout-container:last-child {
+    position: static;
+    overflow: visible;
+  }
+}
+.ui-layout-container {
+  background-color: $white;
+}

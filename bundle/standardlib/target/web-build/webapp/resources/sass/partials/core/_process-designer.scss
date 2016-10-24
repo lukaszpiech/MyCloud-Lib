@@ -1,0 +1,186 @@
+@mixin rx-non-interactive-sequence-flow {
+  &:hover {
+    .marker-arrowheads, .tool-remove {
+      opacity: 0;
+    }
+  }
+
+  .connection-wrap:hover {
+    opacity: 0;
+  }
+
+  .connection-wrap {
+    cursor: auto;
+  }
+}
+
+@media print {
+  body:before {
+    content: '';
+  }
+}
+
+rx-process-designer {
+  .rx-blade {
+    top: $rx-editor-header-height;
+  }
+
+  form {
+    height: 100%;
+
+    &.rx-no-header {
+      .rx-editor-content {
+        .rx-joint-process-designer {
+          .rx-blade, rx-designer-canvas {
+            top: 0;
+          }
+        }
+      }
+    }
+  }
+
+  .rx-editor-content {
+    padding: 0;
+
+    .row {
+      height: 100%;
+    }
+
+    .rx-simple-json-editor-container {
+      padding: $rx-content-padding;
+      height: 100%;
+
+      textarea {
+        height: 100%;
+        width: 100%;
+      }
+    }
+
+    .rx-joint-process-designer {
+      rx-designer-canvas {
+        position: absolute;
+        top: $rx-editor-header-height;
+        right: 0;
+        bottom: 0;
+        left: 0;
+
+        .SequenceFlow.rx-non-interactive {
+          @include rx-non-interactive-sequence-flow;
+        }
+
+        .halo {
+          &.rx-cell-expanded {
+            &[data-type="rx.CallActivity"] {
+              .clone, .fork, .resize {
+                display: none;
+              }
+            }
+          }
+
+          &[data-type="rx.SubProcess"] {
+            .clone, .fork {
+              display: none;
+            }
+          }
+
+          &[data-type="rx.StartEvent"] {
+            .clone, .fork {
+              display: none;
+            }
+          }
+
+          &[data-type="rx.EndEvent"] {
+            .link, .fork {
+              display: none;
+            }
+          }
+
+          &[data-type="rx.TextAnnotation"] {
+            .fork {
+              display: none;
+            }
+          }
+
+          &[data-type="rx.TimerEvent"] {
+            .clone, .fork, .resize {
+              display: none;
+            }
+          }
+
+          &[data-parent-type="rx.CallActivity"] {
+            border: 1px dashed $orange;
+
+            .handle {
+              display: none !important;
+            }
+          }
+        }
+      }
+
+      rx-designer-inspector {
+        position: absolute;
+        top: 36px;
+        right: 0;
+        bottom: 0;
+        left: 0;
+
+        input {
+          height: 28px;
+        }
+
+        .sequence-flow-label {
+          button {
+            display: none !important;
+          }
+
+          .list-item {
+            padding: 0 !important;
+            box-shadow: none;
+            background: $white !important;
+
+            label {
+              color: $gray-dusty;
+            }
+
+            input[type = "range"] {
+              @include input-type-range;
+              height: 25px;
+              box-shadow: none;
+            }
+          }
+
+          div[data-field = "labels/0/attrs/text/text"] {
+            label {
+              display: none;
+            }
+          }
+        }
+
+        .group {
+          .field[data-field="rxData/inputParams"] > label,
+          .field[data-field="rxData/outputMap"] > label,
+          .field[data-field="rxData/outputParams"] > label,
+          .field[data-field="rxData/multiInstanceLoopDefinition"] > label,
+          .field[data-field="rxData/signalParams"] > label,
+          .field[data-field="rxData/permissions"] > label {
+            display: none;
+          }
+
+          .list-item {
+            .field[data-field*="rxData/signalParams"] > label {
+              display: block;
+            }
+          }
+        }
+      }
+    }
+
+    .rx-process-designer-transitions-disabled {
+      @include rx-transitions-disabled;
+
+      .rx-blade {
+        @include rx-transitions-disabled;
+      }
+    }
+  }
+}

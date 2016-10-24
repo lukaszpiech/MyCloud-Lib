@@ -1,0 +1,61 @@
+@import "../dpl-components-mixins";
+@import "../dpl-components-variables";
+$split-border-color: $gray-alto !default;
+$split-content-color: $white !default;
+$split-gutter-color: $gray-concrete !default;
+
+.d-split {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.d-split_content {
+  padding: 10px;
+  border: 1px solid $split-border-color;
+  background-color: $split-content-color;
+}
+
+.gutter {
+  background: $split-gutter-color;
+  &.gutter-horizontal,
+  &.gutter-vertical {
+    position: relative;
+    cursor: col-resize;
+    &::after {
+      position: absolute;
+      display: inline-block;
+      font-family: "dpl-icon-font";
+      font-size: 16px;
+      color: $split-border-color;
+      content: "\e6c4";
+      text-align: center;
+      vertical-align: middle;
+    }
+  }
+  &.gutter-horizontal {
+    &::after {
+      top: 50%;
+      left: 0;
+      width: 10px;
+      height: 14px;
+      margin-top: -7px;
+    }
+  }
+  &.gutter-vertical {
+    &::after {
+      top: 0;
+      left: 50%;
+      width: 14px;
+      height: 10px;
+      margin-left: -5px;
+
+      @include rotate(90deg);
+    }
+  }
+}
+
+.d-split.d-split_horizontal,
+.gutter.gutter-horizontal {
+  float: left;
+  height: 100%;
+}

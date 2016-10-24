@@ -1,0 +1,56 @@
+// TODO - Should be taken from dpl
+$nav-links-color: $white;
+
+.d-n-header {
+  position: relative;
+  z-index: 100;
+
+  rx-navigation-bar {
+    float: left;
+  }
+
+  // Override Bootstrap`s colors
+  // TODO remove after DPL added this styles to library
+  a:not(.is-active) {
+    &:focus {
+      color: $orange__hover;
+    }
+  }
+
+  // Rewrite profile name header, because DPL team don`t approve profile with name instead image
+  // start
+  .d-n-nav__profile {
+    position: relative;
+    padding: 0 15px;
+    font-size: 18px;
+    cursor: pointer;
+  }
+
+  .d-n-dropdown {
+    &__name_rx {
+      position: relative;
+      z-index: 10;
+      color: $nav-links-color;
+    }
+
+    &__profile {
+      top: $rx-header-height;
+      right: 0;
+    }
+
+    &__trigger-back {
+      top: auto;
+      bottom: -2px;
+      left: 0;
+      height: $rx-header-height - 6px;
+      width: 100%;
+      margin: 0;
+    }
+  }
+
+  .d-n-profile__arrow {
+    line-height: 1;
+  }
+  // end
+}
+

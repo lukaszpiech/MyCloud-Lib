@@ -1,0 +1,154 @@
+$rx-designer-canvas-toolbar-color: $gray-alto;
+
+rx-designer-canvas {
+  display: block;
+  overflow: hidden;
+
+  &:not(.rx-blade-expanded-left) .rx-designer-canvas-toolbar {
+    margin-left: $rx-blade-width / 2;
+  }
+
+  &:not(.rx-blade-expanded-right) .rx-designer-canvas-toolbar {
+    .refresh {
+      margin-left: auto;
+      right: 150px;
+      position: relative;
+    }
+  }
+
+  .paper-scroller {
+    background-color: $gray-alto;
+    height: 100%;
+
+    .paper {
+      background-color: $white;
+      box-shadow: 0 0 2px $gray-dusty;
+      background-position: -1px -1px;
+      background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAHUlEQVQYV2NkYGAwBuKzQIwXMBJSAJMfVUidcAQAnUQBC6jEGBUAAAAASUVORK5CYII=');
+      background-repeat: repeat;
+
+      .connection {
+        stroke: $gray-dusty;
+      }
+
+      .marker-target {
+        fill: $gray-dusty;
+        stroke: $gray-dusty;
+      }
+
+      .element .fobj div {
+        font-size: $rx-font-size-small;
+      }
+
+      .selection {
+        .selection-wrapper {
+          margin: 0;
+          padding: 0;
+        }
+
+        .selection-box {
+          margin: 0;
+          padding: 0;
+        }
+      }
+
+      g {
+        .label {
+          font-size: $rx-font-size-small;
+          font-family: $font-family;
+          font-weight: inherit;
+        }
+      }
+
+      .highlighted {
+        outline-color: $teal;
+      }
+    }
+  }
+
+  .halo {
+    > div {
+      background-color: $white;
+    }
+    .box {
+      display: none;
+    }
+    .remove {
+      background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAANdJREFUeNqkU8ENwyAMJCgDdISOAKOwQfnwzSz55tN2AlbIBmSEjsAINZGpXNdUpD3JIrLxxWfjQTGEEC5wTGCGhTaweVmWG3UOJPEMRxQSlUDkgOjxIsDkBHZSfchgtpBodMQDyQrvxr0C1HxVv8FrbBiHRa1UtxXuTWOjaaUiV8tk3xRmbJRmMMGRHonT0epP6G+zxj/XSrYWgRTwpOwqxwv31kIwC4HENBv0cdzrS0wdT/hDJrxEq8mY8oHkXCe0E+Bi2FajhAbbt2XqXOe1aObr/BRgAEufPd0C8BBZAAAAAElFTkSuQmCC');
+    }
+    .clone {
+      display: none;
+    }
+    .fork {
+      display: none;
+    }
+    .link {
+      background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAOpJREFUeNpiZEADaWlpCUAqH4gN0KQuAPHEWbNmLUAWZETSCNIwH4tGBiwGJQINugA3AKp5PxALMBAHPgCxI8gQJqjAfBI0M0DVzge7AOrn+QRsw2V4IhM0wPABRai/sYF8JkKBBvQn2L9AvACLtAELmsADIF6Iw5BEoHcfAul6ZDkmBgoBugsU0G0AggagzaBA7AfiBHQDQLFwnkA4CELTCDY14HQwkYAr7+OxYCIsJZ4nIglj2A4MXENYIAZCEwwDCUk5EB4LQJNA0WeIJ8GgZyZDqB5EbkTLzvFA7IAmdQCURtCzM0CAAQCgN0JweDo2aAAAAABJRU5ErkJggg==');
+    }
+    .resize {
+      background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAKhJREFUeNpiZMAB0tLSBIDUfiC+MGvWrERc6pgJaDYAYWNjY4WzZ89uJMoANM0wgNMQRjxecIAaxAD0Ak51TAwUAiaYs4H4PDEaQC4D4vkwPgsOP4OcfQCPFxOA+hSAdCALsmag4H8kAxixhQcSAItRHAaMyF7AF9pYXLMBiBNZgJo+AAUd0Z1IIBoXwFLnwKcDRiKTMoqzCSZlLIYswJUjGSnNzgABBgDoe1Dvg1GAGQAAAABJRU5ErkJggg==');
+    }
+    .unlink {
+      background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAMBJREFUeNpiZEADaWlpCUAqH4gN0KQuAPHEWbNmLUAWZETSCNIwH4tGBiwGJQINugA3AKp5PxALMBAHPgCxI8gQJqjAfBI0M0DVzge7AOrn+QzkgUQmaICRC/KZiAg0fMCABYvgASA+iEODPRA7IAswMVAIsLnAAd0WfIAJmjDIBeB0MJECAybCUuJ5MmLjAjAlGsICMRCaPBlISMqB8FgAmvQASBkSGR4gNYZQPYjciJad47HEBCh9LETPzgABBgBPWzFvCreu6gAAAABJRU5ErkJggg==');
+    }
+  }
+}
+
+.rx-designer-canvas-toolbar {
+  padding-left: 24px;
+  height: 36px;
+  border-bottom: 1px solid $rx-designer-canvas-toolbar-color;
+  background: $rx-blade-background;
+  color: $gray-dove;
+  z-index: 1;
+
+  > div.rx-designer-canvas-toolbar-item {
+    height: 100%;
+  }
+
+  button {
+    @include rx-icon-button;
+    padding: 0 8px;
+    font-size: 18px;
+    height: 100%;
+  }
+
+  .custom-actions-left {
+    font-size: 16px;
+    span {
+      &:before {
+        margin-right: 5px;
+      }
+    }
+  }
+
+  .custom-actions-right {
+    margin-left: auto;
+  }
+
+  .snaplines-checkbox, .grid-size {
+    padding: 0 7px;
+  }
+
+  .snaplines-label, .grid-size-label {
+    padding-right: 4px;
+  }
+
+  .grid-size {
+    button {
+      padding: 0 2px;
+      color: $rx-designer-canvas-toolbar-color;
+      background: radial-gradient(circle closest-side, $gray-mine-shaft 6px, rgba(0, 0, 0, 0) 0);
+
+      &:disabled {
+        opacity: 0.65;
+      }
+    }
+
+    input[type=range] {
+      @include input-type-range;
+      width: 70px;
+      height: 100%;
+    }
+  }
+}

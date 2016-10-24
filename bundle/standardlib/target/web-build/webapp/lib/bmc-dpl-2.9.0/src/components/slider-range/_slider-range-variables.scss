@@ -1,0 +1,10 @@
+@import "../dpl-components-variables";
+$slider-background-color: $white;
+$slider-main-color: $gray-alto;
+$slider-handle: $teal;
+$slider-handle-active: $teal;
+$slider-handle-hover: rgba(0, 167, 157, .5); //teal with 50% alpha
+$slider-handle-border: $slider-main-color;
+$slider-handle-border-radius: $border-radius;
+$slider-tick: $white;
+$slider-range-color: $teal;

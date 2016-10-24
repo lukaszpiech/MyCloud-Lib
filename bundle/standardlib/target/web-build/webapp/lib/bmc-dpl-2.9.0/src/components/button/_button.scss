@@ -1,0 +1,206 @@
+@import "button-variables";
+@import "../dpl-components-mixins";
+
+// type of buttons:
+// • primary            - orange filled
+// • secondary(default) - white outlined
+// • service            - teal filled
+// • success            - white outlined, green text
+// • danger/error       - white outlined, red text
+// • action/link        - without border
+//
+// sizes:
+// • large(default)     - 36px height
+// • small              - 28px height
+
+.d-button {
+    display: inline-block;
+    height: 36px;
+    padding: 7px 19px;
+    font-size: 14px;
+    line-height: 20px;
+    color: $button-secondary-text-color;
+    border: 1px solid $button-secondary-border-color;
+    border-radius: $button-border-radius;
+    background-color: $button-secondary-bg-color;
+    cursor: pointer;
+    vertical-align: middle;
+    white-space: nowrap;
+
+    &:hover,
+    &:focus {
+        color: $button-secondary-text-color;
+        background-color: $button-secondary-bg-color-hover;
+    }
+    &.is-checked,
+    &:active {
+        background-color: $button-secondary-bg-color-active;
+    }
+
+    &:empty {
+        &:before {
+            padding: 0;
+        }
+        &:after {
+            display: none;
+        }
+    }
+
+    &[disabled] {
+        background-color: $button-secondary-bg-color;
+        cursor: not-allowed;
+
+        @include opacity($disabled-opacity);
+    }
+    &:before,
+    &:after {
+        font-size: 18px;
+        vertical-align: bottom;
+    }
+    &[class*="d-icon-left"]:before {
+        padding-right: .5em;
+    }
+    &[class*="d-icon-right"]:after {
+        padding-left: .5em;
+    }
+}
+
+.d-button_primary {
+    color: $button-primary-text-color;
+    border-color: $button-primary-bg-color;
+    background-color: $button-primary-bg-color;
+
+    &:hover,
+    &:focus {
+        color: $button-primary-text-color;
+        border-color: $button-primary-bg-color-hover;
+        background-color: $button-primary-bg-color-hover;
+    }
+    &.is-checked,
+    &:active {
+        border-color: $button-primary-bg-color-active;
+        background-color: $button-primary-bg-color-active;
+    }
+    &[disabled] {
+        background-color: $button-primary-bg-color;
+    }
+}
+
+.d-button_service {
+    color: $button-primary-service-text-color;
+    border-color: $button-primary-service-bg-color;
+    background-color: $button-primary-service-bg-color;
+    &:hover,
+    &:focus {
+        color: $button-primary-service-text-color;
+        border-color: $button-primary-service-bg-color-hover;
+        background-color: $button-primary-service-bg-color-hover;
+    }
+    &.is-checked,
+    &:active {
+        border-color: $button-primary-service-bg-color-active;
+        background-color: $button-primary-service-bg-color-active;
+    }
+    &[disabled] {
+        background-color: $button-primary-service-bg-color;
+    }
+}
+
+.d-button_success {
+    color: $button-secondary-success-text-color;
+    &:focus,
+    &:hover {
+        color: $button-secondary-success-text-color-hover;
+        background-color: $button-secondary-success-bg-color-hover;
+    }
+    &.is-checked,
+    &:active {
+        color: $button-secondary-success-text-color-active;
+        background-color: $button-secondary-success-bg-color-hover;
+    }
+    &[disabled] {
+        color: $button-secondary-success-text-color-hover;
+        &:hover {
+            background-color: $button-secondary-bg-color;
+        }
+    }
+}
+.d-button_error,
+.d-button_danger {
+    color: $button-secondary-error-text-color;
+    &:focus,
+    &:hover {
+        color: $button-secondary-error-text-color-hover;
+        background-color: $button-secondary-error-bg-color-hover;
+    }
+    &.is-checked,
+    &:active {
+        color: $button-secondary-error-text-color-active;
+        background-color: $button-secondary-error-bg-color-hover;
+    }
+    &[disabled] {
+        color: $button-secondary-error-text-color;
+        &:hover {
+            background-color: $button-secondary-bg-color;
+        }
+    }
+}
+
+.d-button_action {
+    color: $button-action-text-color;
+    border: none;
+    background: transparent;
+    &:hover,
+    &:focus {
+        color: $button-action-text-color;
+    }
+    &[disabled] {
+        color: $button-action-text-color;
+        cursor: not-allowed;
+
+        @include opacity($disabled-opacity);
+
+        &:active,
+        &.is-checked {
+            color: $button-action-text-color;
+        }
+    }
+    &:active,
+    &.is-checked {
+        color: $button-action-text-color;
+    }
+}
+
+.d-button_action-clear {
+    @extend .d-button_action;
+    &:hover,
+    &:focus,
+    &.is-checked {
+        background: transparent;
+        color: $button-action-text-color-hover;
+    }
+    &[disabled] {
+        &:hover,
+        &.is-checked {
+            color: inherit;
+        }
+    }
+}
+
+
+.d-button_small {
+    height: 28px;
+    padding: 5px 14px;
+    font-size: 12px;
+    line-height: 14px;
+    &:before,
+    &:after {
+        font-size: 14px;
+    }
+    &[class*="d-icon-left"]:before {
+        padding-right: 6px;
+    }
+    &[class*="d-icon-right"]:after {
+        padding-left: 6px;
+    }
+}

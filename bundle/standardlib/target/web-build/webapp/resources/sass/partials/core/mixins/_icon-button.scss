@@ -1,0 +1,28 @@
+@mixin rx-icon-button {
+  background: $white;
+  border: none;
+
+  &:disabled {
+    color: $gray-dusty;
+
+    .icon:hover {
+      color: inherit;
+    }
+  }
+
+  &:focus {
+    outline-color: $white;
+  }
+
+  .icon {
+    font-size: $rx-font-size-large;
+
+    &:hover {
+      color: $teal;
+    }
+  }
+
+  .d-icon-Flow:before {
+    content: "\e644";
+  }
+}

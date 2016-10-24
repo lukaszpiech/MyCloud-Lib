@@ -1,0 +1,12 @@
+rx-dpl-checkbox {
+	display: inline-block;
+}
+
+.d-checkbox__input {
+	display: none;
+}
+
+// fix for multi-line checkbox label
+.d-checkbox_default .d-checkbox__item:after {
+	top: 8px;
+}

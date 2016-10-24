@@ -1,0 +1,32 @@
+// TODO Remove styles for .d-button_action after resolve https://jira.bmc.com/browse/UX-174
+$button-action-text-color: $gray-dove;
+$button-action-text-color-hover: $teal;
+$button-action-text-color-active: $teal__hover;
+
+.d-button_action {
+  background: transparent;
+  padding: 0;
+  border: none;
+  color: $button-action-text-color;
+
+  &:hover,
+  [disabled] {
+    color: $button-action-text-color-hover;
+  }
+
+  &[disabled] {
+    color: $button-action-text-color;
+    cursor: not-allowed;
+
+    @include opacity($disabled-opacity);
+  }
+
+  &:active:not([disabled]),
+  &.is-checked {
+    color: $button-action-text-color-active;
+  }
+}
+
+.d-button_no-padding {
+  padding: 0;
+}

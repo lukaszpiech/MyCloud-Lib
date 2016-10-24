@@ -1,0 +1,85 @@
+rx-view-designer {
+  .rx-blade {
+    top: $rx-editor-header-height;
+  }
+
+  form {
+    height: 100%;
+    background: $white;
+  }
+
+  .rx-component-view-designer-palette-readonly-text {
+    @include rx-designer-inspector-empty-text;
+  }
+
+  .rx-editor-content {
+    padding: 0;
+
+    .row {
+      height: 100%;
+    }
+
+    .rx-simple-json-editor-container {
+      padding: $rx-content-padding;
+      height: 100%;
+
+      textarea {
+        height: 100%;
+        width: 100%;
+      }
+    }
+
+    .rx-blade-dock-left {
+      .rx-blade-content {
+        padding: 0;
+      }
+    }
+  }
+
+  rx-designer-inspector {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    .group {
+      .field[data-field="rxData/visibleFieldIds"] {
+        .btn-list-add {
+          display: none;
+        }
+
+        .list-items {
+          .btn-list-del {
+            display: none;
+          }
+        }
+      }
+
+      .field[data-field="rxData/fieldList"],
+      .field[data-field="rxData/visibleFieldIds"],
+      .field[data-field="rxData/inputParams"],
+      .field[data-field="rxData/outputParams"] {
+        > label {
+          display: none;
+        }
+      }
+
+      .list-item {
+        .field[data-field*="rxData/params"] {
+          > label {
+            display: block;
+          }
+        }
+      }
+
+      .field[data-field="rxData/fieldList"] {
+        .btn-list-add {
+          &:after {
+            content: "Add Dependent Field";
+          }
+        }
+      }
+    }
+  }
+}

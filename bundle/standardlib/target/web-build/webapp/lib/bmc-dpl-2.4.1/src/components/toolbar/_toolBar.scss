@@ -1,0 +1,61 @@
+@import "../dpl-components-variables";
+@import "../dpl-components-mixins";
+$toolbar-height: 75px;
+$toolbar-height__small: 50px;
+$toolbar-border-color: $formfield-border-color;
+$toolbar-elements-padding: 20px;
+$toolbar-background: $white;
+
+
+.d-toolbar {
+  overflow: hidden;
+  width: 100%;
+  height: $toolbar-height;
+  background: $toolbar-background;
+}
+
+.d-toolbar__wrapper {
+  display: inline-table;
+  height: 100%;
+  padding: 0 $toolbar-elements-padding/2;
+
+  &:first-child {
+    padding-left: $toolbar-elements-padding;
+  }
+  &:last-child {
+    padding-right: $toolbar-elements-padding;
+  }
+}
+.d-toolbar__wrapper_border {
+  padding: 0 $toolbar-elements-padding;
+  border-width: 0 1px 0 0;
+  border-style: solid;
+  border-color: $toolbar-border-color;
+}
+.d-toolbar__wrapper_border + .d-toolbar__wrapper_border {
+  border-width: 0 1px 0 0;
+}
+
+.d-toolbar__item {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.d-toolbar_small {
+  height: $toolbar-height__small;
+}
+
+.d-toolbar_top {
+  border-bottom: 1px solid $toolbar-border-color;
+}
+
+.d-toolbar_bottom {
+  border-top: 1px solid $toolbar-border-color;
+}
+
+.d-toolbar_right-aligned {
+  text-align: right;
+  .d-toolbar__wrapper_border:last-child {
+    border-width: 0;
+  }
+}

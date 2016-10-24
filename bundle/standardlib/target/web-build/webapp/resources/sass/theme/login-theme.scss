@@ -1,0 +1,6 @@
+$img-path: "/standardlib/lib/bmc-dpl-2.9.0/dist/assets/";
+
+.d-login-form__logo-bmc {
+  height: 30px;
+  background: url("#{$img-path}logo/company.svg") no-repeat;
+}

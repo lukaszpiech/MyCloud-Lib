@@ -1,0 +1,67 @@
+@import "../dpl-components-variables";
+@import "../dpl-components-mixins";
+@import "select-variables";
+
+.d-select {
+  height: 28px;
+  @extend .d-input-like;
+}
+
+.d-dropdown_select {
+  min-width: $select-min-width;
+  .d-dropdown__list {
+    min-width: $select-min-width;
+    border-top: none;
+  }
+  .d-textfield {
+    margin-bottom: 0;
+  }
+  .d-textfield__label::before {
+    color: $select-label-color;
+  }
+  .d-textfield__input {
+    border: none;
+    color: $select-label-color;
+    @include border-radius(0);
+  }
+  .d-checkbox {
+    margin-bottom: 0;
+  }
+}
+
+.d-dropdown_select-action {
+  position: relative;
+  text-align: left;
+  display: block;
+  width: $select-max-width;
+  height: 28px;
+  padding: 4px 32px 4px 10px;
+  color: $select-color-action;
+  border: 1px solid $select-border-color;
+  border-radius: 2px;
+  background-color: $select-background-color;
+  cursor: pointer;
+
+  @include transition(border .15s ease);
+  &:hover,
+  &:focus {
+    border-color: $select-label-color;
+  }
+  &::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 32px;
+    height: 26px;
+    line-height: 26px;
+    text-align: center;
+  }
+}
+
+.d-dropdown__item_types {
+  background: $select-types-color;
+  color: $select-label-color;
+  font-size: 12px;
+  line-height: 1.5;
+  padding: 2px 10px;
+}

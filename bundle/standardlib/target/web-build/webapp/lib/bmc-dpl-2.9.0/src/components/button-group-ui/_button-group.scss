@@ -1,0 +1,96 @@
+@import "../dpl-components-mixins";
+@import "button-group-variables";
+
+.d-button-group {
+  display: table;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.d-button-group__item {
+  display: table-cell;
+
+  .d-button-group__btn,
+  .d-button {
+    border-radius: 0;
+  }
+  &:first-child {
+    .d-button-group__btn,
+    .d-button {
+      border-radius: $button-group-border-radius 0 0 $button-group-border-radius;
+    }
+  }
+  &:last-child {
+    .d-button-group__btn,
+    .d-button {
+      border-radius: 0 $button-group-border-radius $button-group-border-radius 0;
+    }
+  }
+}
+
+.d-button-group__btn {
+  width: 100%;
+  text-align: center;
+  border-left-width: 0;
+
+  @extend .d-button;
+
+}
+.d-button-group__item:first-child {
+    .d-button-group__btn,
+    .d-button {
+        border-left-width: 1px;
+    }
+}
+
+//types of button group:
+
+//  • large - default
+//  • secondary - default
+//  • small - .d-button-group_small
+//  • one single button - .d-button-group_single
+//  • primary - .d-button-group_primary
+
+
+.d-button-group_small {
+  .d-button-group__btn {
+    @extend .d-button_small;
+  }
+}
+
+.d-button-group_single {
+  .d-button-group__btn:first-child {
+    border-radius: $button-group-border-radius;
+  }
+}
+
+.d-button-group_primary .d-button-group__item {
+  padding-left: 1px;
+
+  &:first-child {
+    padding-left: 0;
+  }
+  .d-button {
+    border: none;
+    &:not(.is-checked) {
+      background-color: $button-group-primary-bg-color;
+      &:hover {
+        background-color: $button-group-primary-bg-color-hover;
+      }
+      &:active {
+        background-color: $button-group-primary-bg-color-active;
+      }
+    }
+    &.is-checked {
+      color: $button-group-text-color-active;
+      background-color: $button-group-primary-bg-color-checked;
+      &:hover {
+        background-color: $button-group-primary-bg-color-checked-hover;
+      }
+      &:active {
+        background-color: $button-group-primary-bg-color-checked-active;
+      }
+    }
+  }
+}

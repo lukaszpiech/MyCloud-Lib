@@ -1,0 +1,39 @@
+.ui-select-toggle {
+  .ui-select-match-text {
+    width: 100%;
+    &:not(.ui-select-allow-clear) {
+      padding-right: 12px;
+    }
+
+    &.ui-select-allow-clear {
+      padding-right: 36px;
+    }
+
+    > span {
+      width: 100%;
+      overflow: hidden;
+      display: block;
+    }
+  }
+
+  > a {
+    position: absolute;
+    right: 10px;
+  }
+}
+
+// rewrite Bootstrap styles according to DPL standarts
+.ui-select-container {
+  line-height: 1.6;
+
+  .form-control {
+    height: $formfield-height;
+    border-radius: 2px;
+  }
+
+  .btn {
+    padding-top: 2px;
+    padding-bottom: 2px;
+    line-height: inherit;
+  }
+}

@@ -1,0 +1,66 @@
+@import "../dpl-components-variables";
+@import "../dpl-components-mixins";
+$notification-border-radius: $border-radius;
+$notification-status-error-bg-color: $red;
+$notification-status-warning-bg-color: $yellow;
+$notification-status-success-bg-color: $green;
+$notification-status-info-bg-color: $blue;
+
+
+.d-notification {
+  position: relative;
+  display: table;
+  width: 100%;
+  padding: 15px 50px 5px 60px;
+  color: $white;
+  border-radius: $notification-border-radius;
+  text-align: left;
+  &[class*="d-icon"] {
+    padding-left: 64px;
+    &:before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 60px;
+      font-size: 18px;
+      line-height: 46px;
+      text-align: center;
+    }
+  }
+  > * {
+    line-height: 18px;
+  }
+}
+
+.d-notification_error {
+  background-color: $notification-status-error-bg-color;
+}
+.d-notification_warning {
+  background-color: $notification-status-warning-bg-color;
+}
+.d-notification_success {
+  background-color: $notification-status-success-bg-color;
+}
+.d-notification_info {
+  background-color: $notification-status-info-bg-color;
+}
+.d-notification__close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50px;
+  height: 100%;
+  font-size: 16px;
+  line-height: 46px;
+  color: $white !important;
+  text-align: center;
+  &:hover {
+    color: $white;
+    text-decoration: none;
+
+    @include opacity(.5);
+  }
+  &:before {
+    font-size: 16px;
+  }
+}

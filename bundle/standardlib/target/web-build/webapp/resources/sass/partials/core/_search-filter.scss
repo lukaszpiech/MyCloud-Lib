@@ -1,0 +1,180 @@
+rx-search-filter {
+  display: flex;
+
+  .d-accordion_inner {
+    .d-accordion__item {
+      margin: 0;
+      border-bottom: none;
+    }
+  }
+  .d-dropdown {
+    margin-right: 5px;
+  }
+  .d-dropdown__menu-options-item-option {
+    padding: 0 20px;
+  }
+
+  [role="menuitemcheckbox"]:before {
+    margin-right: 5px;
+    vertical-align: middle;
+  }
+
+  .d-dropdown__trigger {
+    width: 200px;
+  }
+
+  .search__filter {
+    position: relative;
+    float: left;
+    margin-right: 20px;
+    height: 40px;
+    line-height: 40px;
+  }
+
+  .search__selected-filter-title {
+    padding: 0 40px 0 10px;
+  }
+
+  .search__filter-toggle_inactive {
+    color: $gray-dusty;
+  }
+
+  .search__filter-menu {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    display: block;
+    z-index: 1000;
+    width: 300px;
+    padding: 0;
+    background-color: $white;
+    border-radius: 5px;
+  }
+
+  .search__filter-menu_hidden {
+    @extend .search__filter-menu;
+    display: none;
+  }
+
+  .search__filter-dropdown {
+    width: 300px;
+    padding: 0;
+    background-color: $white;
+    border-radius: 5px;
+    overflow-y: visible !important;
+  }
+
+  .d-dropdown__menu-caption {
+    .d-button {
+      padding: 0 5px;
+      height: auto;
+    }
+  }
+
+  .search__filter-pointer {
+    position: absolute;
+    top: -6px;
+    right: 0;
+    bottom: 0;
+    left: 36px;
+    border-style: solid;
+    border-width: 0 6px 6px 6px;
+    border-color: transparent transparent $gray-concrete transparent;
+  }
+
+  .search-filter__menu-content {
+    overflow-y: auto;
+    border-radius: 5px;
+  }
+
+  .search-filter__menu {
+    overflow-y: visible;
+    border-radius: 5px;
+  }
+
+  .search-filter__item-header {
+    height: 35px;
+    line-height: 35px;
+    padding-left: 12px;
+    border-bottom: 1px solid white;
+  }
+
+  .search-filter__option {
+    position: relative;
+    margin: 0;
+
+    .d-button {
+      font-size: 12px;
+      padding: 4px;
+      height: auto;
+    }
+  }
+
+  .search-filter__option-item_search {
+    border: none;
+    margin: 0;
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .search-filter__item-name {
+    line-height: 16px;
+    vertical-align: -2px;
+    margin-left: 10px;
+    font-size: 12px;
+  }
+
+  .dropdown-item_date-ranges,
+  .dropdown-item_range {
+    padding: 5px 10px;
+
+    .uib-datepicker-popup {
+      left: 0 !important;
+      top: 0 !important;
+
+      button {
+        font-size: 10px;
+      }
+    }
+  }
+
+  .dropdown-item_range .d-button {
+    margin-top: 5px;
+  }
+
+  .dropdown-item_date-range {
+    .d-timepicker__unit {
+      label {
+        margin: 0 !important;
+      }
+    }
+  }
+
+  .ui-bootstrap__timepicker {
+    .d-error {
+      display: none;
+    }
+
+    .d-timepicker__label {
+      display: inline-block;
+    }
+  }
+
+  .panel-group {
+    margin-bottom: 0;
+  }
+}
+
+.d-accordion_filter {
+  .d-accordion__title {
+    line-height: 35px;
+
+    &:after {
+      line-height: 35px;
+    }
+  }
+}

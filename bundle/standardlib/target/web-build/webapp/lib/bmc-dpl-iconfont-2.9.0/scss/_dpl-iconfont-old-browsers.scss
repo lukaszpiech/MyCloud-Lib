@@ -1,0 +1,12 @@
+@font-face {
+  font-family: "dpl-icon-font";
+  src: url('#{$iconfont-path}dpl-icon-font.eot'); /* IE9 Compat Modes */
+  src: local('dpl-icon-font'), local('dpl-icon-font'),
+  url('#{$iconfont-path}dpl-icon-font.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('#{$iconfont-path}dpl-icon-font.woff2') format('woff2'), /* Super Modern Browsers */
+  url('#{$iconfont-path}dpl-icon-font.woff') format('woff'), /* Modern Browsers */
+  url('#{$iconfont-path}dpl-icon-font.ttf') format('truetype'), /* Safari, Android, iOS */
+  url('#{$iconfont-path}dpl-icon-font.svg#') format('svg'); /* Legacy iOS */
+  font-weight: normal;
+  font-style: normal;
+}

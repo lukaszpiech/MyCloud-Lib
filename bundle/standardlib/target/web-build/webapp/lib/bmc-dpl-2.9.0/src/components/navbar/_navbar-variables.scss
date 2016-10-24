@@ -1,0 +1,25 @@
+@import "../dpl-components-variables";
+
+// navigation variables:
+$nav-min-width: 320px !default;
+$nav-height: 50px !default;
+$nav-bottom-line-color: $orange !default;
+$nav-background: $gray-ship !default;
+$nav-second-background: $gray-mine-shaft !default;
+$nav-menu-divider: $white !default;
+$nav-links-color: $white !default;
+$nav-links-color-active: $orange !default;
+$nav-links-color-hover: $orange__hover !default;
+$nav-links-color-secondary: $teal !default;
+$nav-links-background: $teal !default;
+$nav-text: $white !default;
+$nav-label: $gray-dusty !default;
+$nav-profile-bg: $gray-alto !default;
+$nav-profile: $gray-dove !default;
+$dropdown-border-radius: $border-radius !default;
+$dropdown-divide-color: $black !default;
+$message-counter-radius: 4px !default;
+$message-counter-background: $orange !default;
+$message-counter-border-color: $gray-ship !default;
+$hamburger-overlay-background: $gray-mine-shaft !default;
+$hamburger-close-color: $gray-concrete !default;

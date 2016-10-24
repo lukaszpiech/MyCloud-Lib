@@ -1,0 +1,14 @@
+@import "../dpl-components-variables";
+$progress-max-width: 100% !default;
+$progress-size-h1: 36px !default;
+$progress-size-h2: 24px !default;
+$progress-font-size: 14px !default;
+$progress-bar-text-color: $white !default;
+$progress-bar-color: $teal !default;
+$progress-bar-substrate-color: $gray-concrete !default;
+$progress-success-color: $green !default;
+$progress-critical-color: $red !default;
+$progress-estimate-text-color: $gray-dusty !default;
+$progress-estimate-color: $gray-mine-shaft !default;
+$progress-low-priority-color: $yellow !default;
+$progress-high-priority-color: $tangerine !default;

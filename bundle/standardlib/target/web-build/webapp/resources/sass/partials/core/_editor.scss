@@ -1,0 +1,112 @@
+$rx-editor-header-height: $rx-header-height - $rx-header-hover-line;
+$rx-editor-header-font-size: 1.3em !default;
+$rx-editor-header-title-color: $font-color !default;
+$rx-editor-header-bg-color: $white__hover;
+$rx-editor-header-left-column-width: 280px;
+
+.rx-editor-header {
+  display: flex;
+  height: $rx-editor-header-height;
+  font-size: $rx-editor-header-font-size;
+  background: $rx-editor-header-bg-color;
+  border-bottom: 1px solid $gray-alto;
+
+  &__column {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    overflow: hidden;
+
+    &_right,
+    &_one {;
+      flex-grow: 1;
+    }
+
+    &_right {
+      padding: 0 10px;
+    }
+
+    &_one {
+      padding: 0 28px;
+    }
+
+    &_left {
+      flex: 0 0 $rx-editor-header-left-column-width;
+    }
+  }
+
+
+  &__back {
+    display: flex;
+    flex: 0 0 $rx-editor-header-height;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid $gray-alto;
+    color: inherit;
+
+    &:hover {
+      color: inherit;
+    }
+  }
+
+  &__app-name,
+  &__title {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+
+  &__app-name {
+    padding: 0 10px;
+    flex: 1;
+  }
+
+  &__title {
+    flex-grow: 1;
+    padding-right: 20px;
+  }
+
+  &__buttons {
+    display: flex;
+    margin-left: auto;
+  }
+
+  &__button {
+    margin: 0 2px;
+
+    &_divider-before {
+      position: relative;
+      margin-left: 10px;
+
+      &:before {
+        content: "";
+        position: absolute;
+        left: -7px;
+        display: block;
+        height: 18px;
+        width: 1px;
+        background-color: $gray-alto;
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.rx-editor-content {
+  @extend .rx-content;
+
+  background-color: $white;
+  height: calc(100% - #{$rx-editor-header-height});
+  overflow-y: auto;
+}
+
+.rx-editor-content__heading {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 0;
+}
+
+.rx-editor-content__subheading{
+  font-size: 16px;
+}

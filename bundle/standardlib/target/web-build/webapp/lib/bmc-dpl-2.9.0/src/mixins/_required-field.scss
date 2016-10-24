@@ -1,0 +1,5 @@
+@mixin required-field($text: " (required)") {
+  content: $text;
+  font-size: 12px;
+  color: #f86e00 !important;
+}

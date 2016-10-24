@@ -1,0 +1,18 @@
+.ui-grid-canvas {
+  position: relative !important;
+  padding-top: 1px;
+}
+
+.ui-grid-sort-priority-number {
+  display: none;
+}
+
+// TODO Remove after resolve https://jira.bmc.com/browse/UX-139
+.ui-grid-row.ui-grid-row-selected:hover > [ui-grid-row] > .ui-grid-cell {
+  background: rgba(0, 167, 157, .1);
+}
+
+// TODO Remove after update DPL with resolved ticket https://jira.bmc.com/browse/UX-142
+.ui-grid .ui-grid__link {
+  color: $teal;
+}

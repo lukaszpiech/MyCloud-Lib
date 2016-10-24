@@ -1,0 +1,528 @@
+/***** COLORS *********************************************/
+/***** FONTS *********************************************/
+/***** GENERAL *********************************************/
+/***** FORMS *********************************************/
+/***** COLORS *********************************************/
+/***** FONTS *********************************************/
+/***** GENERAL *********************************************/
+/***** FORMS *********************************************/
+/*{ #BEGIN CSS CLASSES FOR PRELOADER }*/
+/*{ #BEGIN MIXIN FOR PRELOADER }*/
+/***** COLORS *********************************************/
+/***** FONTS *********************************************/
+/***** GENERAL *********************************************/
+/***** FORMS *********************************************/
+/***** COLORS *********************************************/
+/***** FONTS *********************************************/
+/***** GENERAL *********************************************/
+/***** FORMS *********************************************/
+/*{ #BEGIN CSS CLASSES FOR PRELOADER }*/
+/*{ #BEGIN MIXIN FOR PRELOADER }*/
+/* line 3, ../sass/components/_buttons.scss */
+.eh-icon-button {
+  position: relative;
+  outline: none;
+  border: none;
+  background: none;
+  padding: 1px;
+  line-height: 1;
+}
+/* line 10, ../sass/components/_buttons.scss */
+.eh-icon-button::before, .eh-icon-button::after {
+  font-size: 13px;
+}
+/* line 14, ../sass/components/_buttons.scss */
+.eh-icon-button.eh-icon-button_medium::before, .eh-icon-button.eh-icon-button_medium::after {
+  font-size: 15px;
+}
+/* line 19, ../sass/components/_buttons.scss */
+.eh-icon-button.eh-icon-button_large::before, .eh-icon-button.eh-icon-button_large::after {
+  font-size: 20px;
+}
+/* line 24, ../sass/components/_buttons.scss */
+.eh-icon-button.eh-icon-button_xlarge::before, .eh-icon-button.eh-icon-button_xlarge::after {
+  font-size: 26px;
+}
+/* line 28, ../sass/components/_buttons.scss */
+.eh-icon-button.eh-icon-button_primary {
+  color: #f86e00;
+}
+/* line 30, ../sass/components/_buttons.scss */
+.eh-icon-button.eh-icon-button_primary:hover {
+  color: #df6300;
+}
+/* line 33, ../sass/components/_buttons.scss */
+.eh-icon-button.eh-icon-button_primary[disabled] {
+  color: #f86e00;
+  opacity: 0.6;
+  filter: alpha(opacity=60);
+}
+/* line 37, ../sass/components/_buttons.scss */
+.eh-icon-button.eh-icon-button_primary.eh-icon-button_teal {
+  color: #00a79d;
+}
+/* line 39, ../sass/components/_buttons.scss */
+.eh-icon-button.eh-icon-button_primary.eh-icon-button_teal:hover {
+  color: #008d85;
+}
+/* line 42, ../sass/components/_buttons.scss */
+.eh-icon-button.eh-icon-button_primary.eh-icon-button_teal[disabled] {
+  color: #00a79d;
+}
+/* line 47, ../sass/components/_buttons.scss */
+.eh-icon-button.eh-icon-button_secondary {
+  color: #acacac;
+}
+/* line 49, ../sass/components/_buttons.scss */
+.eh-icon-button.eh-icon-button_secondary:hover {
+  color: #999;
+}
+/* line 52, ../sass/components/_buttons.scss */
+.eh-icon-button.eh-icon-button_secondary[disabled] {
+  color: #acacac;
+  opacity: 0.6;
+  filter: alpha(opacity=60);
+}
+/* line 57, ../sass/components/_buttons.scss */
+.eh-icon-button[class*="d-icon-"] {
+  font-size: 0;
+}
+/* line 60, ../sass/components/_buttons.scss */
+.eh-icon-button[class*="d-icon-left-"] {
+  font-size: 13px;
+  text-align: right;
+}
+/* line 63, ../sass/components/_buttons.scss */
+.eh-icon-button[class*="d-icon-left-"]::before {
+  float: left;
+  margin-right: 8px;
+}
+/* line 68, ../sass/components/_buttons.scss */
+.eh-icon-button[class*="d-icon-right-"] {
+  font-size: 13px;
+  text-align: left;
+}
+/* line 71, ../sass/components/_buttons.scss */
+.eh-icon-button[class*="d-icon-right-"]::after {
+  float: right;
+  margin-left: 8px;
+}
+
+/***** COLORS *********************************************/
+/***** FONTS *********************************************/
+/***** GENERAL *********************************************/
+/***** FORMS *********************************************/
+/***** COLORS *********************************************/
+/***** FONTS *********************************************/
+/***** GENERAL *********************************************/
+/***** FORMS *********************************************/
+/*{ #BEGIN CSS CLASSES FOR PRELOADER }*/
+/*{ #BEGIN MIXIN FOR PRELOADER }*/
+/* line 4, ../sass/components/_help.scss */
+eh-help-link > a:not(:empty)::before {
+  content: initial;
+}
+/* line 7, ../sass/components/_help.scss */
+eh-help-link > a:empty {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10px;
+  font-size: 24px;
+  line-height: 1;
+  padding: 5px 0;
+  color: #414042;
+}
+
+/* line 18, ../sass/components/_help.scss */
+.eh-help-popup {
+  position: fixed;
+  z-index: 99998;
+  width: 350px;
+  background: white;
+  display: none;
+  opacity: 0;
+  font-size: 10px;
+  max-height: calc(100% - 30px);
+  min-height: 200px;
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  padding: 40px 0;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+  transition: opacity 0.3s ease-in;
+}
+/* line 33, ../sass/components/_help.scss */
+.eh-help-popup.in {
+  display: block;
+  opacity: 1;
+}
+/* line 36, ../sass/components/_help.scss */
+.eh-help-popup.in.in-add {
+  opacity: 0;
+}
+/* line 39, ../sass/components/_help.scss */
+.eh-help-popup.in.in-add-active {
+  opacity: 1;
+}
+/* line 43, ../sass/components/_help.scss */
+.eh-help-popup.in-remove {
+  display: block;
+  opacity: 1;
+}
+/* line 46, ../sass/components/_help.scss */
+.eh-help-popup.in-remove.in-remove-active {
+  opacity: 0;
+}
+/* line 50, ../sass/components/_help.scss */
+.eh-help-popup.eh-help-popup__dock-left, .eh-help-popup.eh-help-popup__dock-right {
+  height: 100%;
+  border: none;
+  top: 0 !important;
+  bottom: 0 !important;
+  height: 100% !important;
+  max-height: 100% !important;
+  width: 350px !important;
+  border-radius: 0;
+  box-shadow: none !important;
+}
+/* line 61, ../sass/components/_help.scss */
+.eh-help-popup.eh-help-popup__dock-left {
+  z-index: 100000;
+  border-right: 1px solid #acacac;
+  left: 0 !important;
+  right: auto !important;
+}
+/* line 67, ../sass/components/_help.scss */
+.eh-help-popup.eh-help-popup__dock-right {
+  z-index: 100000;
+  border-left: 1px solid #acacac;
+  left: auto !important;
+  right: 0 !important;
+}
+/* line 73, ../sass/components/_help.scss */
+.eh-help-popup.eh-help-popup__minimized {
+  top: auto !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  right: auto !important;
+  height: 39px !important;
+  min-height: auto !important;
+  max-width: 120px !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+  border-bottom: 0;
+  overflow: hidden;
+}
+
+/* line 88, ../sass/components/_help.scss */
+.eh-help-popup__header {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  background: #f8f8f8;
+  border-bottom: 1px solid #d9d9d9;
+  padding: 10px;
+  height: 40px;
+  cursor: move;
+  color: #333;
+}
+/* line 98, ../sass/components/_help.scss */
+.eh-help-popup__header .dropdown-menu {
+  left: auto;
+  right: -25px;
+}
+/* line 102, ../sass/components/_help.scss */
+.eh-help-popup__header a {
+  margin: -2px 0 0 0;
+  color: black;
+}
+
+/* line 108, ../sass/components/_help.scss */
+.eh-help-popup__dock-left .eh-help-popup__header, .eh-help-popup__dock-right .eh-help-popup__header {
+  cursor: default;
+}
+
+/* line 113, ../sass/components/_help.scss */
+.eh-help-popup__minimized .eh-help-popup__header {
+  cursor: default;
+}
+/* line 115, ../sass/components/_help.scss */
+.eh-help-popup__minimized .eh-help-popup__header .dropdown-menu {
+  right: auto;
+  left: -10px;
+  top: auto;
+  bottom: 20px;
+}
+/* line 122, ../sass/components/_help.scss */
+.eh-help-popup__minimized .eh-help-popup__title {
+  max-width: calc(100% - 50px);
+}
+/* line 125, ../sass/components/_help.scss */
+.eh-help-popup__minimized .eh-help-popup__footer, .eh-help-popup__minimized .eh-help-popup__content {
+  display: none;
+}
+
+/* line 130, ../sass/components/_help.scss */
+.eh-help-popup__title {
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 20px;
+  margin: 0;
+  display: inline-block;
+  max-width: calc(100% - 145px);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* line 142, ../sass/components/_help.scss */
+.eh-help-popup__nav {
+  float: left;
+  margin-right: 10px;
+}
+/* line 145, ../sass/components/_help.scss */
+.eh-help-popup__nav .help-nav__back,
+.eh-help-popup__nav .help-nav__forward {
+  border: 1px #d9d9d9 solid;
+  border-radius: 2px;
+  margin: 0;
+  padding: 2px 6px;
+  width: 20px;
+  height: 20px;
+}
+/* line 153, ../sass/components/_help.scss */
+.eh-help-popup__nav .help-nav__back::before,
+.eh-help-popup__nav .help-nav__forward::before {
+  font-size: 14px;
+}
+
+/* line 159, ../sass/components/_help.scss */
+.eh-help-popup__buttons {
+  float: right;
+  font-size: 0;
+  margin-right: -6px;
+  margin-top: -2px;
+}
+/* line 164, ../sass/components/_help.scss */
+.eh-help-popup__buttons .eh-icon-button {
+  padding: 6px;
+}
+/* line 166, ../sass/components/_help.scss */
+.eh-help-popup__buttons .eh-icon-button::before {
+  font-size: 12px;
+}
+/* line 169, ../sass/components/_help.scss */
+.eh-help-popup__buttons .eh-icon-button:hover {
+  color: #008d85;
+}
+/* line 173, ../sass/components/_help.scss */
+.eh-help-popup__buttons .d-icon-minus::before {
+  display: inline-block;
+  transform: translateY(2px);
+}
+
+/* line 179, ../sass/components/_help.scss */
+.eh-help-popup__content {
+  font-size: 1.3em;
+  padding: 1em 1.25em 0;
+  max-height: 100%;
+  overflow-x: hidden;
+}
+/* line 14, ../../vendor/bmc-dpl-2.4.1/src/mixins/_clearfix.scss */
+.eh-help-popup__content:before, .eh-help-popup__content:after {
+  display: table;
+  content: " ";
+}
+/* line 19, ../../vendor/bmc-dpl-2.4.1/src/mixins/_clearfix.scss */
+.eh-help-popup__content:after {
+  clear: both;
+}
+/* line 185, ../sass/components/_help.scss */
+.eh-help-popup__content::after {
+  height: 1.25em;
+}
+/* line 189, ../sass/components/_help.scss */
+.eh-help-popup__content a:link, .eh-help-popup__content a:visited {
+  font-weight: 600;
+  text-decoration: none;
+  color: #357fb4;
+}
+/* line 194, ../sass/components/_help.scss */
+.eh-help-popup__content a:hover, .eh-help-popup__content a:active {
+  text-decoration: underline;
+}
+/* line 198, ../sass/components/_help.scss */
+.eh-help-popup__content h1 {
+  font-size: 1.5em;
+  line-height: 1.4;
+  font-weight: 400;
+  margin-bottom: 0.4em;
+  margin-top: 0.8em;
+}
+/* line 204, ../sass/components/_help.scss */
+.eh-help-popup__content h1:first-child {
+  margin-top: 0;
+}
+/* line 208, ../sass/components/_help.scss */
+.eh-help-popup__content h2 {
+  font-size: 1.2em;
+  line-height: 1.4;
+  font-weight: 600;
+  margin-bottom: 0.5em;
+  margin-top: 0.8em;
+}
+/* line 214, ../sass/components/_help.scss */
+.eh-help-popup__content h2:first-child {
+  margin-top: 0;
+}
+/* line 218, ../sass/components/_help.scss */
+.eh-help-popup__content p {
+  margin-bottom: 0.8em;
+  line-height: 1.4;
+}
+/* line 221, ../sass/components/_help.scss */
+.eh-help-popup__content p.stem {
+  margin-bottom: 0;
+}
+/* line 225, ../sass/components/_help.scss */
+.eh-help-popup__content ul, .eh-help-popup__content ol {
+  margin: 0 0 0.8em 0;
+  padding-left: 1.25em;
+}
+/* line 229, ../sass/components/_help.scss */
+.eh-help-popup__content ul > li {
+  margin: 0;
+  list-style-type: square;
+}
+/* line 233, ../sass/components/_help.scss */
+.eh-help-popup__content ol > li {
+  margin-bottom: 0.5em;
+  list-style-type: decimal;
+}
+/* line 237, ../sass/components/_help.scss */
+.eh-help-popup__content ul li + li {
+  padding-top: .3em;
+}
+/* line 240, ../sass/components/_help.scss */
+.eh-help-popup__content ul.tasks {
+  margin: 0;
+  padding: 0;
+}
+/* line 243, ../sass/components/_help.scss */
+.eh-help-popup__content ul.tasks li {
+  list-style: none;
+  padding: .2em 0 .4em;
+}
+/* line 247, ../sass/components/_help.scss */
+.eh-help-popup__content ul.tasks li + li {
+  border-top: 1px #d9d9d9 solid;
+}
+/* line 251, ../sass/components/_help.scss */
+.eh-help-popup__content li {
+  clear: both;
+  line-height: 1.4;
+}
+/* line 255, ../sass/components/_help.scss */
+.eh-help-popup__content .prerequisite, .eh-help-popup__content .stepresult {
+  font-style: italic;
+}
+/* line 258, ../sass/components/_help.scss */
+.eh-help-popup__content .stem {
+  margin-top: 1em;
+  font-weight: 600;
+}
+/* line 262, ../sass/components/_help.scss */
+.eh-help-popup__content table {
+  font-size: 1em;
+  width: 100%;
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+/* line 268, ../sass/components/_help.scss */
+.eh-help-popup__content th, .eh-help-popup__content td {
+  border: 1px #acacac solid;
+  padding: .1em .25em;
+  line-height: 1.4;
+}
+/* line 273, ../sass/components/_help.scss */
+.eh-help-popup__content th {
+  font-weight: 600;
+}
+/* line 276, ../sass/components/_help.scss */
+.eh-help-popup__content dl {
+  border: 1px #acacac solid;
+  margin-top: .5em;
+  padding: 0;
+  display: table;
+  max-width: 100%;
+}
+/* line 283, ../sass/components/_help.scss */
+.eh-help-popup__content dh {
+  display: block;
+  clear: both;
+  padding: .4em .5em .5em .5em;
+  font-weight: 600;
+  line-height: 1;
+  border-bottom: 1px #acacac solid;
+}
+/* line 291, ../sass/components/_help.scss */
+.eh-help-popup__content dt {
+  float: left;
+  clear: left;
+  width: 9em;
+  text-align: left;
+  padding: .25em 0 .25em .5em;
+  font-weight: 600;
+  line-height: 1.4;
+}
+/* line 300, ../sass/components/_help.scss */
+.eh-help-popup__content dd {
+  margin: 0 0 0 9em;
+  padding: .25em .5em .25em 0;
+  line-height: 1.4;
+}
+/* line 305, ../sass/components/_help.scss */
+.eh-help-popup__content dh + dd {
+  margin-left: .5em;
+}
+/* line 308, ../sass/components/_help.scss */
+.eh-help-popup__content dd + dh {
+  border-top: 1px #acacac solid;
+}
+/* line 311, ../sass/components/_help.scss */
+.eh-help-popup__content b {
+  font-weight: 600;
+}
+/* line 314, ../sass/components/_help.scss */
+.eh-help-popup__content .note {
+  clear: both;
+  border-radius: 3px;
+  background-color: #fbfbfb;
+  margin-left: -.5em;
+  margin-right: -.5em;
+  padding: .5em .5em .25em .5em;
+}
+
+/* line 324, ../sass/components/_help.scss */
+.eh-help-popup__footer {
+  position: absolute;
+  width: 100%;
+  height: 40px;
+  bottom: 0;
+  border-top: 1px #d9d9d9 solid;
+  background: #f8f8f8;
+  padding: 10px;
+}
+/* line 332, ../sass/components/_help.scss */
+.eh-help-popup__footer a {
+  display: block;
+  font-size: 12px;
+  line-height: 20px;
+}
+/* line 337, ../sass/components/_help.scss */
+.eh-help-popup__footer .eh-icon-button {
+  margin-right: 5px;
+}
+/* line 339, ../sass/components/_help.scss */
+.eh-help-popup__footer .eh-icon-button::before {
+  font-size: 12px;
+}

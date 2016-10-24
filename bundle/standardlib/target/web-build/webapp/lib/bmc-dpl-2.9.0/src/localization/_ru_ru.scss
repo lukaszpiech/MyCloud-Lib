@@ -1,0 +1,17 @@
+@import "../components/dpl-components-mixins";
+
+[lang="ru_RU"] {
+    .d-checkbox_required::after {
+        @include required-field(" (обязательно)");
+    }
+
+    .d-radio_required::after {
+        @include required-field(" (обязательно)");
+    }
+
+    .d-textfield_required {
+        .d-textfield__item::after {
+            @include required-field(" (обязательно)");
+        }
+    }
+}

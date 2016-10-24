@@ -1,0 +1,11 @@
+@import "<%= standardlibTarget %>/lib/bmc-dpl-2.9.0/src/components/dpl-components-variables";
+
+$rx-image-path: "../images/core" !default;
+$rx-font-path: "../fonts/core" !default;
+$rx-transition-time: 0.2s !default;
+$rx-transition: all $rx-transition-time ease-in-out !default;
+$rx-header-height: 52px;
+$rx-header-hover-line: 6px;
+
+$rx-font-size-small: 12px !default;
+$rx-font-size-large: 18px !default;

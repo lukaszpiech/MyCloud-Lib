@@ -1,0 +1,1 @@
+angular.module('com.example.mycloud-lib-ext', []);

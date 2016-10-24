@@ -1,0 +1,208 @@
+$rx-definition-picker-line-height: 30px;
+$rx-definition-picker-icon-triangle-size: 16px;
+$rx-definition-picker-icon-check-size: 14px;
+
+rx-definition-picker {
+  position: relative;
+  display: block;
+
+  .d-busy__cover {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    box-shadow: none;
+
+    .d-preloader {
+      margin-bottom: 0
+    }
+  }
+
+  .d-icon-left-search input {
+    padding-right: 32px;
+  }
+
+  button[class*="d-icon"] {
+    min-width: $formfield-height;
+  }
+
+  button.d-icon-arrow_left {
+    min-width: $formfield-height + 8px;
+    margin-left: -8px;
+  }
+}
+
+.rx-definition-picker {
+  &__fake-input {
+    display: block;
+    position: relative;
+    padding-right: 15px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    z-index: 109;
+
+    &:after {
+      position: absolute;
+      top: 0;
+      right: 5px;
+      line-height: $formfield-height;
+    }
+  }
+
+  &__clear-button {
+    background: transparent;
+    padding: 0;
+    border: none;
+    float: right;
+
+    &.d-icon-cross {
+      min-width: 20px;
+      position: absolute;
+      right: 15px;
+    }
+  }
+
+  &__popup {
+    position: fixed;
+    background: $white;
+    border: 1px solid $gray-alto;
+    box-shadow: 0 5px 15px rgba(0,0,0,.5);
+    z-index: 110;
+    @include border-radius(4px);
+
+    &:not(.rx-definition-picker__popup_visible) {
+      opacity: 0;
+    }
+
+    &_visible {
+      opacity: 1;
+
+      .rx-definition-picker__bundles-list {
+        display: block;
+      }
+    }
+  }
+
+  &__header {
+    padding: 10px;
+  }
+
+  &__body {
+    box-sizing: content-box;
+    padding: 5px 0;
+    height: $rx-definition-picker-line-height * 9; // 9 lines in popup
+    overflow: auto;
+  }
+
+  &__header {
+    border-bottom: 1px solid $gray-alto;
+  }
+
+  &__header-group {
+    display: flex;
+
+    .d-textfield {
+      margin: 0;
+
+      &__label {
+        // TODO Remove after simplify styles for rx-designer-inspector
+        rx-designer-inspector .inspector .group & {
+          margin: 0;
+        }
+      }
+    }
+  }
+
+  &__instances-list {
+    will-change: transform, height;
+    &.collapse {
+      display: none;
+
+      &.in {
+        display: block;
+      }
+    }
+  }
+
+  &__bundles-list,
+  &__instances-list {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  &__bundles-list {
+    display: none;
+    height: 100%;
+    overflow-y: auto;
+  }
+
+  &__bundle-label {
+    position: relative;
+    display: block;
+    margin-left: 5px;
+    padding: 0 10px 0 20px;
+    line-height: $rx-definition-picker-line-height;
+    color: $gray-dove;
+
+    &:before {
+      position: absolute;
+      left: 8px;
+      top: $rx-definition-picker-line-height / 2 - $rx-definition-picker-icon-triangle-size / 2;
+      font-size: $rx-definition-picker-icon-triangle-size;
+      transition: transform .2s ease;
+      transform: rotate(90deg);
+    }
+
+    &.isExpanded {
+      &:before {
+        transform: rotate(0deg);
+      }
+    }
+  }
+
+  &__instance-item {
+    display: block;
+    height: $rx-definition-picker-line-height;
+  }
+
+  &__bundle-label,
+  &__instance-name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  &__instance-name {
+    position: relative;
+    display: block;
+    padding: 0 30px 0 35px;
+    line-height: $rx-definition-picker-line-height;
+    color: $black;
+    cursor: pointer;
+
+    &:hover,
+    &.isChecked {
+      background: $gray-concrete;
+    }
+
+    &.isChecked {
+      &:after {
+        position: absolute;
+        top: $rx-definition-picker-line-height / 2 - $rx-definition-picker-icon-check-size / 2;
+        right: 5px;
+        font-size: $rx-definition-picker-icon-check-size;
+      }
+    }
+
+    mark {
+      padding: 0;
+      color: inherit;
+      font-weight: bold;
+      background: none;
+    }
+  }
+}

@@ -1,0 +1,5 @@
+@import "<%= standardlibTarget %>/lib/bmc-dpl-2.9.0/src/components/dpl-components-mixins";
+
+@import "mixins/input-type-range";
+@import "mixins/icon-button";
+@import "mixins/transitions-disabled";

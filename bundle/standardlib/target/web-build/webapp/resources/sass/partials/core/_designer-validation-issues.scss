@@ -1,0 +1,79 @@
+rx-designer-validation-issues {
+  display: block;
+
+  .rx-validation-issues-empty-text {
+    @include rx-designer-inspector-empty-text;
+    padding-left: 5px;
+  }
+
+  .rx-validation-issues {
+    position: absolute;
+    top: 36px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow: auto;
+
+    .rx-validation-issues-group {
+      @include rx-designer-inspector-group;
+
+      .group-label {
+        margin-left: 0;
+      }
+
+      &.closed {
+        .rx-validation-issue {
+          display: none;
+        }
+      }
+    }
+
+    .rx-validation-issue {
+      padding: 0 20px;
+      display: flex;
+
+      &:hover {
+        background-color: $gray-concrete;
+        border-radius: 3px;
+      }
+
+      .rx-validation-issue-info {
+        flex-grow: 1;
+      }
+
+      .rx-validation-issue-type {
+        text-transform: capitalize;
+      }
+
+      .rx-validation-issue-icon {
+        width: 20px;
+        min-width: 20px;
+        font-size: $rx-font-size-small;
+        margin-top: 2px;
+      }
+
+      .rx-validation-issue-message {
+        line-height: 1.1;
+      }
+
+      .rx-validation-issue-correct {
+        float: right;
+        display: inline-block;
+        color: $teal;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+.icon.d-icon-exclamation_triangle.error {
+  color: $red;
+}
+
+.icon.d-icon-exclamation_triangle.warning {
+  color: $yellow;
+}
+
+.icon.d-icon-exclamation_triangle.info {
+    color: $blue;
+}

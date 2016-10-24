@@ -1,0 +1,590 @@
+@import "../dpl-components-mixins";
+@import "../dpl-components-variables";
+@import "navbar-variables";
+
+//  Content:
+//  - general navigation bar
+//  - hamburger icon
+//  - breadcrumbs
+//  - main tab menu
+//      - logo
+//      - product name
+//      - menu items
+//      - menu dropdown (submenu)
+//  - navigation actions (icons)
+//      - messages
+//      - profile with dropdown
+//  - search
+//  - hamburger dropdown menu
+//      - logo
+//      - profile
+//      - menu items
+//      - submenu
+//  - media queries
+
+@mixin navbar-reset() {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.d-n-nav .is-hidden {
+  position: absolute;
+  z-index: -1;
+  overflow: hidden;
+  height: 1px;
+}
+
+.d-n-header {
+  width: 100%;
+  min-width: $nav-min-width;
+  border-bottom: 2px solid $nav-bottom-line-color;
+}
+
+.d-n-nav {
+  position: relative;
+  overflow: visible;
+  width: 100%;
+  height: $nav-height;
+  padding: 0 20px;
+  background: $nav-background;
+}
+
+.d-n-hamburger {
+  float: left;
+  margin-left: -20px;
+  background: $nav-second-background;
+}
+
+.d-n-hamburger__trigger {
+  position: relative;
+  display: table-cell;
+  width: 60px;
+  height: $nav-height;
+  text-align: center;
+  vertical-align: middle;
+
+  @include user-select(none);
+  @include transition(translate .3s ease);
+}
+
+.d-n-hamburger__icon {
+  font-size: 20px;
+  color: $nav-links-color;
+}
+.d-n-menu__divider {
+  color: $nav-menu-divider;
+  &:hover {
+    color: $nav-menu-divider;
+  }
+}
+
+.d-n-menu__divider:after {
+  position: absolute;
+  top: 50%;
+  right: -25px;
+  width: 1px;
+  height: 20px;
+  margin-top: -8px;
+  background: $gray-dove;
+  content: "";
+}
+
+// Should be declared such way, workaround for grunt-comb:
+.d-n-breadcrumbs {
+  @include navbar-reset;
+}
+.d-n-breadcrumbs {
+  float: left;
+  margin-left: 25px;
+}
+
+.d-n-breadcrumbs__link {
+  display: block;
+  padding: 14px 0;
+  font-size: 18px;
+  line-height: 22px;
+  color: $nav-links-color-active;
+  &:hover {
+    color: $nav-links-color-hover;
+  }
+}
+
+.d-n-menu {
+  float: left;
+
+  @include navbar-reset;
+}
+
+.d-n-menu__item {
+  float: left;
+  margin: 0;
+  &:last-child {
+    margin-right: 0;
+  }
+}
+.d-n-menu__logo {
+  float: left;
+  margin: 0;
+  padding: 11px 0 0;
+}
+
+.d-n-menu__logo-text {
+  position: relative;
+  display: block;
+  height: 100%;
+  margin: 0 35px 0 0;
+  padding: 8px 0;
+  font-size: 22px;
+  font-weight: 300;
+  line-height: normal;
+  color: $nav-links-color;
+}
+
+.d-n-menu__link {
+  position: relative;
+  display: block;
+  padding: 14px 15px;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 22px;
+  color: $nav-links-color;
+  &:active,
+  &:hover,
+  &:focus {
+    color: $nav-links-color-hover;
+  }
+  &.is-active {
+    color: $nav-links-color-active;
+  }
+  &.d-icon-right-angle_down:after {
+    position: relative;
+    z-index: 1;
+    font-size: 16px;
+    vertical-align: bottom;
+  }
+}
+
+//Dropdown
+
+.d-n-dropdown__trigger {
+  position: relative;
+}
+.d-n-dropdown__trigger:hover .d-n-dropdown {
+  display: block;
+}
+.d-n-dropdown__trigger:hover .d-n-dropdown__trigger-back {
+  display: block;
+}
+.d-n-dropdown__trigger-back {
+  position: absolute;
+  z-index: 1;
+  top: 6px;
+  display: none;
+  width: 100%;
+  height: 46px;
+  margin: 0 -15px;
+  border-radius: 5px 5px 0 0;
+  background: $nav-second-background;
+
+  @include border-radius(2px 2px 0 0);
+}
+.d-n-dropdown__trigger-title {
+  position: relative;
+  z-index: 10;
+}
+
+.d-n-dropdown {
+  position: absolute;
+  top: 52px;
+  display: none;
+  box-sizing: border-box;
+  min-width: 250px;
+  height: auto;
+  border-radius: 0 5px 5px;
+  background: $nav-second-background;
+  box-shadow: 0 3px 3px rgba(0,0,0,.2);
+
+  @include navbar-reset();
+  @include border-radius(0 $dropdown-border-radius $dropdown-border-radius);
+}
+.d-n-dropdown__divider {
+  border-bottom: 1px solid $dropdown-divide-color;
+}
+.d-n-dropdown__item {
+  &:hover {
+    color: $nav-links-color;
+    background: $nav-links-background;
+  }
+  &:first-child:hover {
+    @include border-radius(0 $dropdown-border-radius 0 0);
+  }
+  &:last-child:hover {
+    @include border-radius(0 0 $dropdown-border-radius $dropdown-border-radius);
+  }
+}
+.d-n-dropdown__link {
+  display: block;
+  margin: 0;
+  padding-left: 15px;
+  font-size: 14px;
+  line-height: 34px;
+  color: $nav-links-color;
+  &:hover {
+    color: $nav-links-color;
+  }
+  &:before {
+    margin-right: 10px;
+  }
+}
+
+// navigation action items
+.d-n-actions {
+  display: inline-block;
+  float: right;
+}
+
+.d-n-action {
+  float: right;
+  padding-left: 20px;
+  font-size: 23px;
+  line-height: 50px;
+  &:before {
+    color: $nav-links-color;
+  }
+}
+
+// navigation action items: profile
+
+.d-n-nav__profile:hover .d-n-dropdown__profile {
+  display: block;
+}
+
+.d-n-nav__profile:hover .d-n-dropdown-profile__trigger-back {
+  display: block;
+}
+
+.d-n-dropdown__profile {
+  right: 10px;
+  min-width: 147px;
+
+  @include border-radius($dropdown-border-radius 0 $dropdown-border-radius $dropdown-border-radius);
+}
+.d-n-dropdown-profile__trigger-back {
+  width: 62px;
+  margin: 0 -8px;
+}
+.d-n-profile__arrow,
+.d-n-profile__image {
+  position: relative;
+  z-index: 10;
+}
+.d-n-profile__arrow {
+  margin-left: 5px;
+  font-size: 14px;
+  color: $nav-links-color;
+}
+
+.d-n-profile__image {
+  vertical-align: middle;
+}
+.d-profile__icon {
+  display: block;
+  overflow: hidden;
+  height: 30px;
+  border-radius: 50%;
+
+  &:before {
+    font-size: 32px;
+    color: $nav-profile;
+    border-radius: 50%;
+    background: $nav-profile-bg;
+    vertical-align: top;
+  }
+}
+.d-n-profile__title {
+  padding: 8px 0 15px 0;
+  line-height: 1;
+  &:hover {
+    background: none;
+  }
+}
+.d-n-profile__name,
+.d-n-profile__label {
+  display: inline-block;
+  width: 100%;
+  margin-left: 15px;
+  line-height: 1;
+}
+.d-n-profile__name {
+  font-size: 14px;
+  color: $nav-text;
+}
+.d-n-profile__label {
+  margin-bottom: 6px;
+  font-size: 16px;
+  color: $nav-label;
+}
+
+// navigation action items: user
+
+.d-n-action__book {
+  &:hover:before {
+    color: $nav-links-color-hover;
+  }
+}
+// navigation action items: message
+
+.d-n-action__message {
+  position: relative;
+  &:hover:before {
+    color: $nav-links-color-hover;
+  }
+}
+.d-n-action__message-counter {
+  position: absolute;
+  top: 5px;
+  right: -10px;
+  width: 20px;
+  height: 20px;
+  font-size: 12px;
+  line-height: 15px;
+  color: $nav-text;
+  border: 2px solid $message-counter-border-color;
+  background: $message-counter-background;
+  text-align: center;
+
+  @include border-radius($message-counter-radius);
+}
+
+.d-n-action__search {
+  float: right;
+  line-height: 50px;
+  &::before {
+    color: $nav-links-color;
+  }
+  &:hover {
+    &::before {
+      color: $nav-links-color-hover;
+    }
+  }
+}
+
+//search
+
+.d-n-search {
+  position: absolute;
+  z-index: 100;
+  top: -100%;
+  right: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  padding: 0 10px;
+  background: $nav-background;
+
+  @include transition(all .4s ease-in-out);
+  .d-n-search__item {
+    display: block;
+    width: 100%;
+    height: 40px;
+    margin: 11px auto;
+    margin-top: 5px;
+  }
+  &.is-active {
+    top: 0;
+
+    @include opacity(1);
+  }
+}
+
+.d-n-search__close {
+  position: absolute;
+  top: 0;
+  right: 10px;
+  display: block;
+  width: 50px;
+  height: 50px;
+  font-size: 25px;
+  line-height: 50px;
+  cursor: pointer;
+  text-align: center;
+  &::before {
+    color: $nav-background;
+  }
+}
+
+
+//hamburger dropdown menu
+
+.d-n-hamburger__overlay {
+  position: fixed;
+  z-index: 1050;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: none;
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch;
+  width: 100%;
+  height: 100%;
+  &.fade {
+    @include opacity(0);
+    @include transition(opacity .15s linear);
+    .d-n-hamburger__overlay-wrap {
+      @include transition(transform .33s ease-out);
+      @include translate(-35%, 0);
+    }
+    &.in {
+      @include opacity(1);
+      .d-n-hamburger__overlay-wrap {
+        @include translate(0, 0);
+      }
+    }
+  }
+}
+.d-n-hamburger__overlay-wrap {
+  position: relative;
+  z-index: 1050;
+  right: auto;
+  left: 0;
+  display: block;
+  overflow-y: auto;
+  width: $nav-min-width;
+  height: 100%;
+  background: $hamburger-overlay-background;
+}
+
+.d-n-hamburger__close {
+  position: absolute;
+  right: 0;
+  width: 50px;
+  height: 50px;
+  font-size: 26px;
+  line-height: 46px;
+  color: $hamburger-close-color;
+  cursor: pointer;
+  text-align: center;
+  vertical-align: middle;
+  &:hover {
+    color: $nav-links-color-active;
+  }
+}
+.d-n-hamburger__logo {
+  display: inline-block;
+  margin-bottom: 20px;
+  padding-left: 20px;
+  white-space: nowrap;
+}
+
+.d-n-hamburger__logo-image {
+  float: left;
+  padding: 11px 0 0;
+}
+.d-n-hamburger__logo-text {
+  display: block;
+  height: 100%;
+  margin: 0;
+  padding: 8px 0;
+  font-size: 22px;
+  font-weight: 300;
+  line-height: normal;
+  color: $nav-links-color;
+  &:hover {
+    color: $nav-links-color;
+  }
+}
+.d-n-hamburger__logo-text_long {
+  float: left;
+  padding-left: 20px;
+  font-size: 22px;
+  font-weight: 300;
+  color: $nav-links-color;
+  &:hover {
+    color: $nav-links-color;
+  }
+}
+
+// hamburger: user profile
+.d-n-hamburger__user {
+  display: none;
+  padding: 10px 18px;
+  border-bottom: 1px solid $dropdown-divide-color;
+}
+
+.d-n-hamburger__user-name {
+  display: inline-block;
+  width: 100%;
+  margin-left: 10px;
+  padding: 0;
+  font-size: 14px;
+  line-height: 1;
+  color: $nav-text;
+}
+.d-n-hamburger__user-image {
+  vertical-align: middle;
+}
+.d-n-hamburger__user-settings {
+  margin-left: 10px;
+  color: $nav-links-background;
+  &:hover {
+    color: darken($nav-links-background, $color-hover-percent);
+  }
+}
+
+//hamburger: navigation
+
+.d-n-hamburger__nav {
+  clear: both;
+  padding: 0;
+}
+.d-n-hamburger__nav-link {
+  display: block;
+  margin: 0;
+  padding-left: 20px;
+  font-size: 16px;
+  line-height: 50px;
+  color: $nav-links-color;
+  &:hover {
+    color: $nav-links-color;
+    background: $nav-links-background;
+  }
+  &:before {
+    margin-right: 10px;
+  }
+  &.is-active {
+    color: $nav-links-color-active;
+    &:hover {
+      color: $nav-links-color;
+    }
+  }
+}
+
+.d-n-hamburger__submenu {
+  margin: 0;
+  padding: 0;
+}
+.d-n-nav__submenu-link {
+  padding-left: 40px;
+  &.is-active {
+    color: $nav-links-color-active;
+    &:hover {
+      color: $nav-links-color;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .d-n-hamburger__logo {
+    margin-bottom: 20px;
+  }
+  .d-n-nav__profile {
+    display: none;
+  }
+  .d-n-hamburger__user {
+    display: block;
+    clear: both;
+    padding-bottom: 20px;
+  }
+}

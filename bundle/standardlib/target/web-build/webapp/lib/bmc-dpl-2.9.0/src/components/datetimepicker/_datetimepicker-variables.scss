@@ -1,0 +1,9 @@
+@import "../dpl-components-variables";
+
+// dp = datepicker
+
+$dp-border-line: $formfield-border-color !default; //#d9d9d9;
+$dp-box-shadow: $box-shadow-default !default;
+$dp-background: $white !default;
+$dp-table-width: 205px !default;
+$invalid-color: $red !default;

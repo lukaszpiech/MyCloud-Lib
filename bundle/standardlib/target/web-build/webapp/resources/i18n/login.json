@@ -1,0 +1,9 @@
+{
+  "login.username": "User Name",
+  "login.password": "Password",
+  "login.login": "Login",
+  "login.poweredBy": "POWERED BY",
+  "login.poweredByBMC": "powered by BMC",
+  "login.trademark": "BMC, BMC Software and the BMC Software logo are the exclusive properties of BMC Software, Inc., are registered with the U. S. Patent and Trademark Office, and may be registered or pending registration in other countries",
+  "login.authFailed": "Authentication Failure."
+}

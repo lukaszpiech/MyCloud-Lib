@@ -1,0 +1,67 @@
+$rx-content-padding: 2em !default;
+$rx-label-color: $gray-dove !default;
+$rx-required-field-marker-color: $orange !default;
+$rx-label-margin-top: .6em !default;
+$rx-input-bg-disabled: $gray-concrete;
+
+.rx-content {
+  padding: $rx-content-padding;
+
+  label {
+    color: $rx-label-color;
+    margin-top: $rx-label-margin-top;
+
+    &.required:after {
+      content: " *";
+      color: $rx-required-field-marker-color;
+    }
+  }
+
+  .rx-crop-text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+.rx-input {
+  display: block;
+  border: 1px solid $gray-alto;
+  border-radius: 2px;
+  width: 100%;
+  height: $formfield-height;
+  padding: 2px 10px;
+  font-size: $font-size;
+  line-height: 1.6;
+  color: $gray-dove;
+  background-color: $white;
+  box-shadow: none;
+
+  &:hover,
+  &:focus {
+    border: 1px solid $gray-dusty;
+  }
+
+  &[disabled],
+  &[readonly] {
+    cursor: not-allowed;
+    background-color: $rx-input-bg-disabled !important;
+    border: 1px solid $gray-alto !important;
+    opacity: 1;
+  }
+
+  &[readonly] {
+    .d-timepicker:not([disabled]) .d-timepicker__meridian & {
+      background-color: $white !important;
+    }
+  }
+}
+
+.rx-select {
+  display: block;
+  width: 100%;
+  height: 28px;
+  padding: 2px 10px;
+  font-size: 14px;
+  line-height: 1.6;
+}

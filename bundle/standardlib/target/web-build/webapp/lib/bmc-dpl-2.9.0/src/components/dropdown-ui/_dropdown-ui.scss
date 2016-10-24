@@ -1,0 +1,147 @@
+@import "../dpl-components-mixins";
+@import "dropdown-ui-variables";
+
+.d-dropdown {
+  &.is-open {
+    .d-dropdown__list {
+      visibility: visible;
+
+      @include animation-name(slideInY);
+    }
+  }
+}
+
+.d-dropdown__list {
+  position: absolute;
+  z-index: 101;
+  top: 100%;
+  left: 0;
+  display: block;
+  visibility: hidden;
+  float: left;
+  overflow: hidden;
+  min-width: 145px;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border: 1px solid $dropdown-list-border-color;
+  background: $dropdown-list-background;
+  text-align: left;
+
+  will-change: transform, opacity;
+  @include border-radius(0);
+  @include box-shadow($dropdown-box-shadow);
+  @include transition(visibility .15s ease);
+  @include backface-visibility(hidden);
+  @include animation-iteration-count(1);
+  @include animation-duration(.15s);
+  @include animation-timing-function(ease);
+  @include animation-fill-mode(both);
+  @include animation-name(slideOutY);
+  @include transform-origin-2(top, center);
+}
+
+.d-dropdown__link {
+  display: block;
+  padding: 0 10px;
+  line-height: 34px;
+  color: $dropdown-color-text;
+  cursor: pointer;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  &:hover,
+  &:focus {
+    color: $dropdown-color-text;
+    background-color: $dropdown-list-hover;
+  }
+  &.is-checked {
+    background-color: $dropdown-list-active;
+  }
+}
+
+/* { #begin animations for dropdowns } */
+@-webkit-keyframes slideInY {
+  0% {
+    opacity: 0;
+    -webkit-transform: scaleY(0);
+            transform: scaleY(0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+  }
+}
+
+@-moz-keyframes slideInY {
+  0% {
+    opacity: 0;
+    -moz-transform: scaleY(0);
+         transform: scaleY(0);
+  }
+
+  100% {
+    opacity: 1;
+    -moz-transform: scaleY(1);
+         transform: scaleY(1);
+  }
+}
+
+@keyframes slideInY {
+  0% {
+    opacity: 0;
+    -webkit-transform: scaleY(0);
+            transform: scaleY(0);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+  }
+}
+
+@-webkit-keyframes slideOutY {
+  0% {
+    opacity: 1;
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: scaleY(0);
+            transform: scaleY(0);
+  }
+}
+
+@-moz-keyframes slideOutY {
+  0% {
+    opacity: 1;
+    -moz-transform: scaleY(1);
+         transform: scaleY(1);
+  }
+
+  100% {
+    opacity: 0;
+    -moz-transform: scaleY(0);
+         transform: scaleY(0);
+  }
+}
+
+@keyframes slideOutY {
+  0% {
+    opacity: 1;
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: scaleY(0);
+            transform: scaleY(0);
+  }
+}

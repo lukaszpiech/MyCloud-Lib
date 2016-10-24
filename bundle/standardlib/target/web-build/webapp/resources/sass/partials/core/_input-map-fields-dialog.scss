@@ -1,0 +1,177 @@
+.rx-input-map-fields-dialog {
+  .modal-dialog {
+    width: 980px;
+  }
+
+  .rx-input-map-fields-editor {
+    .rx-input-map-fields-editor-wrapper {
+      border-bottom: 1px solid $gray-concrete;
+      overflow: hidden;
+    }
+
+    .rx-input-map-fields-editor-panel {
+      float: left;
+      box-sizing: border-box;
+      position: relative;
+      height: 700px;
+    }
+
+    .rx-input-map-fields-editor-data {
+      padding: 0 25px;
+      width: 645px;
+
+      .rx-input-map-fields-editor-data-header {
+        margin-bottom: 10px;
+
+        h5 {
+          padding-top: 5px;
+          margin: 0;
+        }
+      }
+
+      .selected-columns {
+        overflow: auto;
+
+        &.dndDragover {
+          border-color: $yellow__disabled;
+        }
+
+        .dndPlaceholder {
+          background-color: $yellow__disabled;
+          min-height: 70px;
+          margin: 2px;
+          display: block;
+          position: relative;
+          border: none;
+        }
+      }
+    }
+
+    .selected-column-container {
+      margin-bottom: 10px;
+
+      .selected-column {
+        background-color: $gray-concrete;
+        border: 1px solid $gray-alto;
+        border-radius: 2px;
+        color: $gray-mine-shaft;
+        padding: 5px 15px;
+
+        .column-required {
+          color: $rx-required-field-marker-color;
+        }
+
+        .move-element {
+          cursor: move;
+        }
+
+        .left-header-block {
+          float: left;
+          font-size: 14px;
+
+          .d-icon-left-dots {
+            margin-right: 15px;
+          }
+        }
+
+        .right-header-block {
+          float: right;
+          width: 120px;
+
+          .position-buttons {
+            float: left;
+            font-size: 18px;
+            line-height: 18px;
+
+            .d-icon-left-triangle_up {
+              padding-left: 10px;
+            }
+          }
+
+          .remove-button {
+            float: right;
+            font-size: 18px;
+            line-height: 18px;
+
+            .d-icon-left-cross {
+              position: relative;
+              top: 2px;
+            }
+
+            .remove-button-text {
+              font-size: 12px;
+            }
+          }
+        }
+      }
+    }
+
+    .rx-input-map-fields-editor-action-buttons {
+      text-align: right;
+      padding: 20px;
+    }
+  }
+}
+
+.rx-inspector-input-map-fields {
+  .rx-input-map-record-definition-name {
+    margin: -10px 0 0;
+  }
+
+  .rx-parameter-editor-list {
+    label {
+      display: inline-block;
+    }
+  }
+
+  .rx-add-remove-input-map-fields-button {
+    display: block;
+    margin: 10px 0 0;
+  }
+}
+
+.rx-input-map-available-fields {
+  padding: 5px 20px 5px 5px;
+  width: 300px;
+  border-right: 1px solid $gray-concrete;
+
+  &__heading {
+    padding-top: 3px;
+    display: inline-block;
+  }
+}
+
+.rx-input-map-available-fields-list {
+  height: 550px;
+  padding: 0 10px;
+  border: 1px solid $gray-concrete;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.rx-input-map-available-fields-item {
+  padding: 8px 0;
+  cursor: pointer;
+
+  &__pill {
+    position: relative;
+    padding-left: 23px;
+  }
+
+  &__icon {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    padding-left: 1px;
+    transform: translateY(-50%);
+  }
+
+  &__label {
+    word-wrap: break-word;
+    line-height: 1.2;
+  }
+
+  &__required {
+    color: $rx-required-field-marker-color;
+  }
+}

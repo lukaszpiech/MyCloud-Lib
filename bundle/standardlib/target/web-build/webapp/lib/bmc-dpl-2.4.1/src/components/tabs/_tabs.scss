@@ -1,0 +1,45 @@
+@import "../dpl-components-variables";
+@import "../dpl-components-mixins";
+$tabs-border-color: $gray-alto;
+$tabs-menu-color: $gray-mine-shaft;
+$tabs-menu-color-checked: $gray-concrete;
+$tabs-menu-bg-color: $white;
+$tabs-content-bg-color: $gray-concrete;
+
+.d-tabs {
+}
+.d-tabs__tab-bar {
+  position: relative;
+  overflow: hidden;
+}
+.d-tabs__tab {
+  float: left;
+  margin: 0 -1px;
+  padding: 0 20px;
+  font-weight: 600;
+  line-height: 50px;
+  color: $tabs-menu-color;
+  border: 1px solid $tabs-border-color;
+  background-color: $tabs-menu-bg-color;
+  cursor: pointer;
+  &:first-child {
+    margin: 0;
+  }
+  &.is-checked {
+    padding-bottom: 1px;
+    border-bottom: 0;
+    background-color: $tabs-menu-color-checked;
+  }
+}
+.d-tabs__panel {
+  margin: -1px 0 0;
+  border: 1px solid $tabs-border-color;
+  background-color: $tabs-content-bg-color;
+}
+.d-tabs__item {
+  display: none;
+  padding: 20px;
+  &.is-checked {
+    display: block;
+  }
+}

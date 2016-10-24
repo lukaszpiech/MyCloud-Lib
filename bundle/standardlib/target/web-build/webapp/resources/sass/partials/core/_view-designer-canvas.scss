@@ -1,0 +1,236 @@
+$rx-view-designer-canvas-gutter: 68px;
+$rx-view-designer-placeholder-triangle-border: 8px solid $white;
+$rx-view-designer-placeholder-triangle-border-color: $white transparent transparent transparent;
+
+rx-view-designer-canvas {
+  position: absolute;
+  top: $rx-editor-header-height;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+
+  &:not(.rx-blade-expanded-left) .rx-designer-canvas-toolbar {
+    margin-left: $rx-blade-width / 2;
+  }
+
+  .rx-designer-canvas-toolbar {
+    overflow: visible;
+    height: 36px;
+    width: 100%;
+    border-bottom: 1px solid $rx-designer-canvas-toolbar-color;
+    background: $rx-blade-background;
+    padding: 2px 0 0 24px;
+    color: $gray-dove;
+    z-index: 1;
+
+    > .rx-designer-canvas-toolbar-item {
+      float: left;
+
+      &:after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+    }
+
+    > div.rx-designer-canvas-toolbar-item {
+      display: inline-block;
+      height: 100%;
+      padding: 0 6px;
+
+      > * {
+        display: inline-block;
+        vertical-align: middle;
+        margin: 6px 5px 3px 0;
+      }
+    }
+
+    button {
+      @include rx-icon-button;
+    }
+
+    [class*="d-icon-"]:before {
+      vertical-align: middle;
+    }
+  }
+
+  .dropzone-scroller {
+    background-color: $gray-dusty;
+    height: 100%;
+    padding-top: $rx-view-designer-canvas-gutter;
+    padding-left: $rx-view-designer-canvas-gutter;
+    overflow-y: auto;
+
+    .dropzone {
+      min-height: 500px;
+      background-color: $white;
+      box-shadow: 0 0 2px $gray-dusty;
+      margin-right: $rx-view-designer-canvas-gutter;
+      margin-bottom: $rx-view-designer-canvas-gutter;
+
+      > div {
+        margin-left: 0;
+        margin-right: 0;
+        padding: 12px;
+      }
+    }
+  }
+
+  ul[dnd-list],
+  ul[dnd-list] > li {
+    position: relative;
+  }
+
+  ul[dnd-list] > li {
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 2px solid $gray-concrete;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  div.component-container {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  /**
+   * The dnd-list should always have a min-height,
+   * otherwise you can't drop to it once it's empty
+   */
+  .dropzone ul[dnd-list] {
+    min-height: 200px;
+    padding: 0;
+    margin: 0;
+  }
+
+  /**
+   * The dnd-lists's child elements currently MUST have
+   * position: relative. Otherwise we can not determine
+   * whether the mouse pointer is in the upper or lower
+   * half of the element we are dragging over. In other
+   * browsers we can use event.offsetY for this.
+   */
+  .dropzone li {
+    padding: 0;
+
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+
+    &.selected {
+      border: 2px solid $teal__disabled !important;
+    }
+  }
+
+  /**
+   * Reduce opacity of elements during the drag operation. This allows the user
+   * to see where he is dropping his element, even if the element is huge. The
+   * .dndDragging class is automatically set during the drag operation.
+   */
+  .dropzone .dndDragging {
+    opacity: 0.7;
+  }
+
+  /**
+   * The dndDraggingSource class will be applied to the source element of a drag
+   * operation. It makes sense to hide it to give the user the feeling that he's
+   * actually moving it. Note that the source element has also .dndDragging class.
+   */
+  .dropzone .dndDraggingSource {
+    display: none;
+  }
+
+  /**
+   * An element with .dndPlaceholder class will be added as child of the dnd-list
+   * while the user is dragging over it.
+   */
+  .dropzone .dndPlaceholder {
+    background-color: $yellow__disabled;
+    min-height: 20px;
+    margin: 2px;
+    display: block;
+    position: relative;
+    border: none;
+
+    &:before {
+      content: "";
+      display: inline-block;
+      position: absolute;
+      border: $rx-view-designer-placeholder-triangle-border;
+      border-color: $rx-view-designer-placeholder-triangle-border-color;
+      top: 2px;
+      left: 0;
+      @include rotate(270deg);
+    }
+
+    &:after {
+      content: "";
+      display: inline-block;
+      position: absolute;
+      border: $rx-view-designer-placeholder-triangle-border;
+      border-color: $rx-view-designer-placeholder-triangle-border-color;
+      right: 0;
+      bottom: 2px;
+      @include rotate(90deg);
+    }
+  }
+
+  .container-element {
+    div.column-renderer {
+      padding-left: 0;
+      padding-right: 0;
+
+      // column separator
+      &:not(:first-child) {
+        &:before {
+          content: "";
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          border-left: 2px dashed $gray-concrete;
+        }
+      }
+    }
+
+    ul {
+      &.dndDragover {
+        border-color: $yellow__disabled;
+      }
+    }
+  }
+
+  .rx-view-designer-item-halo {
+    position: absolute;
+    top: -19px;
+    left: -2px;
+    padding-left: 5px;
+    color: $white;
+    font-size: 12px;
+    font-weight: $font-weight__light;
+    background-color: $teal__disabled;
+    min-width: 120px;
+    z-index: 5;
+    cursor: move;
+
+    .rx-view-designer-item-name {
+      padding-right: 10px;
+    }
+
+    span.d-icon-cross {
+      float: right;
+    }
+  }
+
+  .view-designer-container__list {
+    border: solid 2px transparent;
+  }
+
+  .view-designer-container__item {
+    display: block;
+    border: 2px solid $gray-alto;
+  }
+}

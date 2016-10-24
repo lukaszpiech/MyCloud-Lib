@@ -1,0 +1,27 @@
+@import "../dpl-components-mixins";
+@import "link-variables";
+
+a,
+.d-link {
+  color: $link-color;
+  outline: 0;
+  background-color: transparent;
+  cursor: pointer;
+  text-decoration: none;
+  &[class*="d-icon-right"]::after {
+    padding-left: 5px;
+  }
+  &[class*="d-icon-left"]::before {
+    padding-right: 5px;
+  }
+}
+
+.d-link {
+  &:active,
+  &:hover,
+  &:focus {
+    color: $link-color-hover;
+    outline: none;
+    text-decoration: none;
+  }
+}

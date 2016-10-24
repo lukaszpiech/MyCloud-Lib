@@ -1,0 +1,21 @@
+.paper {
+  // TODO: SW00498909 - override style imposed by bootstrap.
+  // It can be removed when we no longer use bootstrap, or when rappid stops using display=none for empty labels
+  .label[display=none] {
+    display: none;
+  }
+}
+
+.paper, .stencil {
+  g {
+    .label, text {
+      font-size: $rx-font-size-small;
+      font-weight: inherit;
+    }
+
+    body {
+      min-width: 0;
+      position: static;
+    }
+  }
+}

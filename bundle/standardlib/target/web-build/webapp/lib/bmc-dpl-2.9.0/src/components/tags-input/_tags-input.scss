@@ -1,0 +1,230 @@
+@import "../dpl-components-mixins";
+@import "tags-input-variables";
+
+.d-tag {
+  display: inline-block;
+  height: $tag-height;
+  margin: 0 5px;
+  padding: 0 10px 0 10px;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: $tag-height;
+  color: $tag-color;
+  border-radius: 2px;
+  background: $tag-background-color;
+  &.d-tag_critical {
+    color: $tag-status-text;
+    background: $tag-critical;
+  }
+  &.d-tag_high {
+    color: $tag-status-text;
+    background: $tag-high;
+  }
+  &.d-tag_medium {
+    color: $tag-status-text;
+    background: $tag-medium;
+  }
+  &.d-tag_low {
+    color: $tag-status-text;
+    background: $tag-low;
+  }
+
+  [data-role="remove"] {
+    &:after {
+      margin-left: 10px;
+      padding: 2px;
+      font-family: dpl-icon-font;
+      font-size: 12px;
+      color: $tag-color;
+      content: "\e639";
+      cursor: pointer;
+      vertical-align: middle;
+    }
+    &:hover,
+    &:active {
+      &:after {
+        color: $tag-status-text;
+        border-radius: 50%;
+        background: $tag-close-hover-color;
+      }
+    }
+  }
+
+  &:first-of-type {
+    margin-left: 10px;
+  }
+  &:last-of-type {
+    margin-right: 10px;
+  }
+}
+
+.d-input-tags {
+  label {
+    display: block;
+  }
+
+  .bootstrap-tagsinput {
+    max-width: 100%;
+    height: auto;
+    padding: 2px 10px;
+    line-height: 22px;
+    cursor: text;
+    vertical-align: middle;
+
+    @extend .d-input-like;
+    @include box-shadow(none);
+
+    input {
+      display: inline-block;
+      width: auto !important;
+      max-width: inherit;
+      margin: 0;
+      padding: 0;
+      border: none;
+      outline: none;
+      background-color: transparent;
+
+      @include box-shadow(none);
+      &:focus {
+        border: none;
+
+        @include box-shadow(none);
+      }
+    }
+
+    .label {
+      height: auto;
+      margin: 0;
+      padding: 0 6px;
+      border-radius: 2px;
+
+      @extend .d-tag;
+      &:first-of-type,
+      &:last-of-type {
+        margin: 0;
+      }
+
+      [data-role="remove"]:after {
+        margin-left: 6px;
+        font-size: 10px;
+        vertical-align: 2px;
+      }
+    }
+  }
+}
+
+tags-input .d-input-tags {
+  height: 28px;
+  padding: 0 10px;
+
+  @extend .d-input-like;
+  @include box-shadow(none);
+     -moz-appearance: initial;
+  -webkit-appearance: initial;
+  &.focused {
+    @include box-shadow(none);
+  }
+
+  [data-role="remove"]:after {
+    margin-left: 0;
+    vertical-align: 1px;
+  }
+}
+
+tags-input .d-input-tags .d-tag {
+  float: left;
+  height: 20px;
+  margin: 3px 3px 3px 0;
+  padding: 0 6px;
+  font-family: $font-family;
+  line-height: 20px;
+  border: 0;
+  border-radius: 2px;
+
+  @extend .d-tag;
+  &:last-of-type {
+    margin-right: 0;
+    margin-left: 0;
+  }
+  &:first-of-type {
+    margin-left: 0;
+  }
+
+  &.selected {
+    color: $tag-selected-text;
+    background: $tag-selected;
+    [data-role="remove"]:after {
+      color: $tag-selected-text;
+    }
+    [data-role="remove"]:hover {
+      &:after {
+        background: $tag-selected-hover;
+      }
+    }
+  }
+}
+.d-input-tags .input {
+  float: left;
+  width: 66px;
+  height: 20px;
+  margin: 3px 0 3px 7px;
+  padding: 0;
+  line-height: 20px;
+  border: 0;
+}
+tags-input .d-input-tags .tag-list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+.d-tags-host {
+  position: relative;
+}
+.d-tags-autocomplete {
+  position: absolute;
+  width: 100%;
+  border: 1px solid $formfield-border-color;
+  background-color: $white;
+}
+.d-tags-suggestion-list {
+  padding: 0;
+  list-style: none;
+}
+.d-tags-suggestion-item {
+  padding-left: 16px;
+  line-height: 2em;
+  &:hover {
+    background: $tag-autocomplete-active;
+  }
+}
+
+.d-badge {
+  position: relative;
+}
+.d-badge + .d-badge {
+  margin-left: 16px;
+}
+
+.d-badge-counter {
+  position: absolute;
+  top: -5px;
+  right: -10px;
+  height: 16px;
+  padding: 0 3px;
+  font-size: $badge-font-size;
+  font-weight: $badge-font-weight;
+  line-height: $badge-font-size;
+  color: $badge-text;
+  border: 2px solid $badge-background-color;
+  background: $badge-background-color;
+  text-align: center;
+
+  @include border-radius($badge-border-radius);
+}
+.d-badge_inline {
+  .d-badge-counter {
+    position: static;
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+}
